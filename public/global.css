@@ -1,4 +1,5 @@
 @import "tailwindcss";
 @theme {
   --font-satisfy: "Satisfy", sans-serif; 
+  --font-lora: "Lora", serif;
 }
