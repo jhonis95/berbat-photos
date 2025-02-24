@@ -1,8 +1,7 @@
 ---
-import { nativeEnum } from "astro:schema";
 import "../../public/global.css";
 
-const socialMedia=[
+export const socialMedia=[
     {
         name:'instagram',
         image:'./public/image/instagram-icon.svg',
@@ -21,33 +20,35 @@ const socialMedia=[
 ]
 const navegation=['Portfolio','Service','Booking']
 ---
-<nav class="w-full flex items-center justify-evenly h-[130px]">
-    <div class="flex gap-5">
-        {
-            socialMedia.map((data)=>{
-                return(
-                    <img class="w-[43px] h-[43px]" src={data.image} alt={data.name}/>
-                )
-            })
-        }
-    </div>
-    <div class="flex flex-col items-center gap-3">
-        <h2 class="text-4xl font-satisfy">Berbat Photos</h2>
-        <div class="flex justify-evenly gap-20">
+<nav class="w-full flex justify-center h-[130px]">
+    <section class="flex items-center justify-evenly gap-72 max-w-[1920px]">
+        <div class="flex gap-5">
             {
-                navegation.map((data)=>{
+                socialMedia.map((data)=>{
                     return(
-                        <a href="">
-                            <button class="font-lora italic text-2xl">{data}</button>
-                        </a>
+                        <img class="w-[43px] h-[43px]" src={data.image} alt={data.name}/>
                     )
                 })
             }
         </div>
-    </div>
-    <div class=" flex justify-center items-center rounded-lg bg-gray-400 w-[223px] h-[46px]">
-        <button class="font-lora italic text-lg">
-            book a section
-        </button>
-    </div>
+        <div class="flex flex-col items-center gap-3">
+            <h2 class="text-4xl font-satisfy">Berbat Photos</h2>
+            <div class="flex justify-evenly gap-20">
+                {
+                    navegation.map((data)=>{
+                        return(
+                            <a href="">
+                                <button class="font-lora italic text-2xl">{data}</button>
+                            </a>
+                        )
+                    })
+                }
+            </div>
+        </div>
+        <div class=" flex justify-center items-center rounded-lg bg-gray-400 w-[223px] h-[46px]">
+            <button class="font-lora italic text-lg">
+                book a section
+            </button>
+        </div>
+    </section>
 </nav>

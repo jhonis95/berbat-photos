@@ -35,12 +35,26 @@ const content={
     sectionFour:{
         title:"Let’s turn your special moments into unforgettable memories together!",
         content:"The process of contacting and hiring photography begins with the client sending basic details about the desired service via email or social media. The photographer responds with information about availability, prices and portfolio examples. After discussing details such as location, date and specific needs, the client receives a formal proposal and a contract to sign. The reservation is confirmed with an initial payment, and the photographer guides the preparations until the day of the session. Finally, the edited material is delivered within the agreed deadline, ensuring a professional and personalized experience.",
-    }
+    },
+    cards:[
+        {image:""},
+        {image:""},
+        {image:""},
+        {image:""},
+        {image:""},
+        {image:""},
+        {image:""},
+        {image:""},
+        {image:""},
+        {image:""},
+        {image:""},
+        {image:""},
+    ]
 }
 ---
 
 <Layout>
-    <main class=" flex flex-col items-center">
+    <main class=" flex flex-col items-center gap-[90px]">
         
         <section class=" relative flex flex-col justify-center items-center">
             <img class="w-[1677px] h-[977px] rounded-xl" src="" alt=""/>
@@ -87,9 +101,40 @@ const content={
                     <h3 class="text-5xl italic">{content.sectionFour.title}</h3>
                     <p class="text-base text-justify">{content.sectionFour.content}</p>
                 </div>
-                <div>
-                    
+                <div class="flex flex-col gap-8 font-lora italic text-base w-[695px]">
+                    <div>
+                        <label for="">Name</label>
+                        <input class="bg-white w-full h-[46px] rounded-sm" type="text" name="" id="">
+                    </div>
+                    <div>
+                        <label for="">E-mail</label>
+                        <input class="bg-white w-full h-[46px] rounded-sm" type="text" name="" id="">
+                    </div>
+                    <div>
+                        <label for="">Message</label>
+                        <input class="bg-white w-full h-[213px] rounded-sm" type="text" name="" id="">
+                    </div>
+                    <div class="font-lora w-full flex justify-center">
+                        <a class=" flex justify-center items-center rounded-lg bg-white w-[223px] h-[46px]" href="">
+                            <button class="text-2xl not-italic">book a section</button>
+                        </a>
+                    </div>
                 </div>
+            </div>
+        </section>
+        <section class="flex flex-col gap-14">
+            <div class="flex flex-col gap-5 items-center font-lora">
+                <h4 class="text-3xl">Follow me on Instagram</h4>
+                <a class="text-lg italic" href="https://www.instagram.com/berbatphotos/">@berbatphotos</a>
+            </div>
+            <div class="flex flex-wrap gap-5 w-[1432px]">
+                {
+                    content.cards.map(()=>{
+                        return(
+                            <img class="w-[222px] h-[306px]" src="" alt=""/>
+                        )
+                    })
+                }
             </div>
         </section>
     </main>

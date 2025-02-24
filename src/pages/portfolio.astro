@@ -1,0 +1,72 @@
+---
+import GalleryCard from "../components/galleryCard.astro";
+import Herosection from "../components/herosection.astro";
+import Layout from "../layouts/Layout.astro";
+
+const pagedata={
+    galleries:[
+        {
+            title:"Individual",
+            subtitle:"Portraits that Tell Your Story",
+            images:[
+                "./public/image/gallery/individual/image1.jpg",
+                "./public/image/gallery/individual/image3.jpg",
+                "./public/image/gallery/individual/image2.jpg",
+                "./public/image/gallery/individual/image5.jpg"
+            ],
+            button:{
+                text:"See More",
+                link:""
+            }
+        },
+        {
+            title:"Couple and Family",
+            subtitle:"Love and Connection in Every Click",
+            images:["","","","",""],
+            button:{
+                text:"See More",
+                link:""
+            }
+        },
+        {
+            title:"Weadding",
+            subtitle:"Love in its Purest Form",
+            images:[],
+            button:{
+                text:"See More",
+                link:""
+            }
+        },
+        {
+            title:"Landscape",
+            subtitle:"The Beauty of the World Through the Lens",
+            images:[],
+            button:{
+                text:"See More",
+                link:""
+            }
+        },
+    ]
+}
+---
+
+<Layout>
+    <Herosection 
+        title="Capturing moments, preserving memories" 
+        subtitle="Because every moment deserves to be remembered forever"
+    />
+    <main class=" flex flex-col mt-[90px] gap-[90px] items-center">
+        {
+            pagedata.galleries.map((gallery)=>{
+                return(
+                    <GalleryCard
+                        title={gallery.title}
+                        subtitle={gallery.subtitle}
+                        images={gallery.images}
+                        button={gallery.button}
+                    />
+                )
+            })
+        }
+    </main>
+</Layout>
