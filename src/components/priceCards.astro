@@ -1,0 +1,23 @@
+---
+
+const { title, paragraphs, images, price, button, index } = Astro.props;
+---
+<div class={index%2==0?"flex justify-center items-center gap-[50px]":"flex flex-row-reverse justify-center items-center gap-[50px]"}>
+    <img class="w-[828px] h-[622px]" src={images} alt="">
+    <div class=" flex flex-col font-lora max-w-[463px] gap-[30px]">
+        <h4 class="text-3xl italic font-medium">{title}</h4>
+        {
+            paragraphs.map((paragraph:any)=>{
+                return(
+                    <p class="text-lg">{paragraph}</p>
+                )
+            })
+        }
+        <div class=" flex w-full justify-around items-center">
+            <h6 class="text-lg">{price}</h6>
+            <a class=" px-10 py-2.5 bg-gray-400" href={button.link}>
+                <button class="text-lg italic">{button.text}</button>
+            </a>
+        </div>
+    </div>
+</div>
