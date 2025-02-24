@@ -1,0 +1,79 @@
+---
+import Herosection from "../components/herosection.astro";
+import TestimonialsCard from "../components/testimonialsCard.astro";
+import Layout from "../layouts/Layout.astro";
+
+const content={
+    sectionFour:{
+        title:"Let’s turn your special moments into unforgettable memories together!",
+        content:"The process of contacting and hiring photography begins with the client sending basic details about the desired service via email or social media. The photographer responds with information about availability, prices and portfolio examples. After discussing details such as location, date and specific needs, the client receives a formal proposal and a contract to sign. The reservation is confirmed with an initial payment, and the photographer guides the preparations until the day of the session. Finally, the edited material is delivered within the agreed deadline, ensuring a professional and personalized experience.",
+    },
+    title:"Reviews",
+    reviews:[
+        {
+            title:"Reviews name",
+            subtitle:"Beyond Expectations!",
+            content:"The photos are absolutely stunning! The attention to detail and ability to capture raw emotions is incredible. I couldn’t be happier! "
+        },
+        {
+            title:"Reviews name",
+            subtitle:"A Beautiful Experience",
+            content:"From start to finish, the session was amazing. The photos perfectly reflect who we are, and we will cherish them forever!"
+        },
+        {
+            title:"Reviews name",
+            subtitle:"Memories That Last Forever",
+            content:"Looking at our photos brings back all the emotions of that day. Thank you for capturing our story so beautifully!"
+        },
+    ]
+}
+---
+<Layout>
+    <Herosection 
+        title="Your Story, Your Photoshoot" 
+        subtitle="Secure your spot and let’s create unforgettable images"
+    />
+    <main class=" flex flex-col mt-[90px] gap-[90px] items-center">
+        <section class=" w-full flex justify-center items-center">
+            <div class="flex gap-24 w-[1433px] h-[741px] bg-gray-400 justify-center items-center">
+                <div class="flex flex-col gap-7 max-w-[470px] font-lora">
+                    <h3 class="text-5xl italic">{content.sectionFour.title}</h3>
+                    <p class="text-base text-justify">{content.sectionFour.content}</p>
+                </div>
+                <div class="flex flex-col gap-8 font-lora italic text-base w-[695px]">
+                    <div>
+                        <label for="">Name</label>
+                        <input class="bg-white w-full h-[46px] rounded-sm" type="text" name="" id="">
+                    </div>
+                    <div>
+                        <label for="">E-mail</label>
+                        <input class="bg-white w-full h-[46px] rounded-sm" type="text" name="" id="">
+                    </div>
+                    <div>
+                        <label for="">Message</label>
+                        <input class="bg-white w-full h-[213px] rounded-sm" type="text" name="" id="">
+                    </div>
+                    <div class="font-lora w-full flex justify-center">
+                        <a class=" flex justify-center items-center rounded-lg bg-white w-[223px] h-[46px]" href="">
+                            <button class="text-2xl not-italic">book a section</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <h3 class="w-[617px] text-center font-lora italic text-5xl">{content.title}</h3>
+        <section class="flex gap-14">
+            {
+                content.reviews.map((review)=>{
+                    return(
+                        <TestimonialsCard
+                            title={review.title} 
+                            subtitle={review.subtitle}
+                            content={review.content}
+                        />
+                    )
+                })
+            }
+        </section>
+    </main>
+</Layout>
