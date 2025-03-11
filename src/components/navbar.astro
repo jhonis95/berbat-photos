@@ -18,7 +18,20 @@ export const socialMedia=[
         link:''
     }
 ]
-const navegation=['Portfolio','Service','Booking']
+const navegation=[
+    {
+        Text:'Portfolio',
+        Link: '/portfolio'
+    },
+    {
+        Text:'Service',
+        Link: '/services'
+    },
+    {
+        Text:'Booking',
+        Link: '/booking'
+    }
+]
 ---
 <nav class="w-full flex justify-center h-[130px]">
     <section class="flex items-center justify-evenly gap-72 max-w-[1920px]">
@@ -32,13 +45,15 @@ const navegation=['Portfolio','Service','Booking']
             }
         </div>
         <div class="flex flex-col items-center gap-3">
-            <h2 class="text-4xl font-satisfy">Berbat Photos</h2>
+            <a href="/">
+                <h2 class="text-4xl font-satisfy">Berbat Photos</h2>
+            </a>
             <div class="flex justify-evenly gap-20">
                 {
                     navegation.map((data)=>{
                         return(
-                            <a href="">
-                                <button class="font-lora italic text-2xl">{data}</button>
+                            <a href={data.Link}>
+                                <button class="font-lora italic text-2xl">{data.Text}</button>
                             </a>
                         )
                     })
@@ -46,9 +61,11 @@ const navegation=['Portfolio','Service','Booking']
             </div>
         </div>
         <div class=" flex justify-center items-center rounded-lg bg-gray-400 w-[223px] h-[46px]">
-            <button class="font-lora italic text-lg">
-                book a section
-            </button>
+            <a href="/booking">
+                <button class="font-lora italic text-lg">
+                    book a section
+                </button>
+            </a>
         </div>
     </section>
 </nav>
