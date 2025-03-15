@@ -2,4 +2,11 @@
 @theme {
   --font-satisfy: "Satisfy", sans-serif; 
   --font-lora: "Lora", serif;
+  --color-reddarker:#51130E;
+  --color-darker2:#6C5241;
+  --color-darker1:#997B68;
+  --color-primary:#B99F8E;
+  --color-brighter1:#DECABE;
+  --color-brighter2:#FFF4EE;
 }
+[x-cloak] { display: none !important; }

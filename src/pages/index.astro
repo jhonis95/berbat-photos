@@ -55,16 +55,15 @@ const content={
 <Layout>
     <main class=" flex flex-col items-center gap-[90px]">
         
-        <section class=" relative flex flex-col justify-center items-center">
+        <section id="heroSection" class=" section relative flex flex-col justify-center items-center">
             <img class="w-[1677px] h-[977px] rounded-xl" src="" alt=""/>
             <div class=" absolute flex flex-col justify-center items-center gap-16 font-lora italic">
-                <p class="text-3xl">Unforgettable moments</p>
-                <h3 class="text-[46px]">immortalized with passion and creativity</h3>
-                <p class="text-4xl">Boook a photo shot</p>
+                <p class="heroSectionText text-3xl">Unforgettable moments</p>
+                <h3 class="heroSectionText text-[46px]">immortalized with passion and creativity</h3>
             </div>
         </section>
 
-        <section class="flex flex-row justify-center items-center gap-[105px]">
+        <section id="aboutMeSection" class=" section flex flex-row justify-center items-center gap-[105px]">
             <img class="w-[499px] h-[497px] rounded-xl" src="" alt=""/>
             <div class=" flex flex-col items-center max-w-[745px] gap-16 font-lora">
                 <h3 class=" text-center text-[46px] italic">{content.secondSection.title}</h3>
@@ -74,27 +73,29 @@ const content={
                 </div>
             </div>
         </section>
-        <section class="flex flex-col gap-[111px]">
+        <section id="serviceSection" class=" section flex flex-col gap-[111px]">
             <div class="flex flex-wrap gap-5">
                 {
                     content.sectionTree.cards.map((data)=>{
                         return(
-                            <div class="flex flex-col gap-8 w-[463px] font-lora">
+                            <div class=" serviceCards flex flex-col gap-8 w-[463px] font-lora">
                                 <img class="w-[463px] h-[376px] rounded-xl" src="" alt=""/>
-                                <h4 class="text-3xl font-medium italic">{data.title}</h4>
-                                <p class="text-justify text-base">{data.content}</p>
+                                <div class="w-full flex flex-col h-[174px] gap-6">
+                                    <h4 class="text-3xl font-medium italic">{data.title}</h4>
+                                    <p class="text-justify text-base">{data.content}</p>
+                                </div>
+                                <div class="font-lora w-full flex justify-center">
+                                    <div class=" flex justify-center items-center rounded-lg bg-gray-400 w-[295px] h-[46px]">
+                                        <button class="text-4xl">{content.sectionTree.button.text}</button>
+                                    </div>
+                                </div>
                             </div>
                         )
                     })
                 }
             </div>
-            <div class="font-lora w-full flex justify-center">
-                <div class=" flex justify-center items-center rounded-lg bg-gray-400 w-[295px] h-[46px]">
-                    <button class="text-4xl">{content.sectionTree.button.text}</button>
-                </div>
-            </div>
         </section>
-        <section class=" w-full flex justify-center items-center">
+        <section id="bookingSection" class=" section w-full flex justify-center items-center">
             <div class="flex gap-24 w-[1433px] h-[741px] bg-gray-400 justify-center items-center">
                 <div class="flex flex-col gap-7 max-w-[470px] font-lora">
                     <h3 class="text-5xl italic">{content.sectionFour.title}</h3>
@@ -121,12 +122,12 @@ const content={
                 </div>
             </div>
         </section>
-        <section class="flex flex-col gap-14">
-            <div class="flex flex-col gap-5 items-center font-lora">
+        <section id="followMeSection" class=" section flex flex-col gap-14">
+            <div class="followMeSectionContent flex flex-col gap-5 items-center font-lora">
                 <h4 class="text-3xl">Follow me on Instagram</h4>
                 <a class="text-lg italic" href="https://www.instagram.com/berbatphotos/">@berbatphotos</a>
             </div>
-            <div class="flex flex-wrap gap-5 w-[1432px]">
+            <div class="followMeSectionContent flex flex-wrap gap-5 w-[1432px]">
                 {
                     content.cards.map(()=>{
                         return(
@@ -138,3 +139,21 @@ const content={
         </section>
     </main>
 </Layout>
+<script>
+    import { animate, inView, stagger } from "motion"
+    inView("#heroSection",()=>{
+        animate(".heroSectionText",{opacity:[0, 1], y:[100,0]},{ delay: stagger(0.1,{ startDelay: 0.2 }),duration:0.5})
+    })
+    inView("#aboutMeSection",(element)=>{
+        animate(element,{opacity:[0, 1], y:[100,0]},{ delay:0.2, duration:0.5})
+    })
+    inView("#serviceSection",()=>{
+        animate(".serviceCards",{x:[100,0],opacity:[0,1]},{delay: stagger(0.3,{ startDelay: 0.4 }),duration:0.5})
+    })
+    inView("#bookingSection",(element)=>{
+        animate(element,{opacity:[0, 1], y:[100,0]},{ delay:0.5, duration:0.5})
+    })
+    inView("#followMeSection",()=>{
+        animate(".followMeSectionContent",{opacity:[0, 1], y:[100,0]},{ delay: stagger(0.3,{ startDelay: 0.4 }), duration:0.5})
+    })
+</script>

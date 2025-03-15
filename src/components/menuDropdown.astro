@@ -1,0 +1,44 @@
+---
+import arrowicon from '../../public/image/angle-vertical.svg'
+const {Text , MenuContent}=Astro.props
+---
+<div x-data="dropdown" class="flex gap-2.5 relative">
+    <p class="font-lora italic text-2xl text-darker2">{Text}</p>
+    <button x-on:click="toggle()" class=" cursor-pointer">
+        <img id="arrow-icon" class="arrow-icon w-[13px] h-[13px]" src={arrowicon.src} alt="arrow-icon"/>
+    </button>
+    <div x-cloak x-show="open" x-transition class="absolute z-10 top-[42px] flex flex-col gap-3 bg-brighter1 justify-center items-center w-[105px] h-[76px] rounded-lg">
+        {
+            MenuContent.map((content : string)=>{
+                return(
+                    <a href="" class=" cursor-pointer font-lora text-base text-darker2">{content}</a>
+                )
+            })
+        }
+    </div>
+
+</div>
+
+<script>
+    import Alpine from "alpinejs";
+    import { animate } from "motion";
+
+    document.addEventListener('alpine:init', () => {
+    Alpine.data('dropdown', () => {
+            return {
+                open: false,
+        		get isOpen() {
+          			return this.open;
+        		},
+        		toggle() {
+          			this.open = !this.open;
+                    if(this.open==true){
+                        animate(".arrow-icon",{rotate:180})
+                    }else{
+                        animate(".arrow-icon",{rotate:360})
+                    }
+        		}
+            }
+        });
+    });
+</script>

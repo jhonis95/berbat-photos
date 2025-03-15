@@ -1,6 +1,8 @@
 ---
 import Footer from "../components/footer.astro";
 import Navbar from "../components/navbar.astro";
+import "../../public/global.css";
+import { ClientRouter } from "astro:transitions";
 ---
 
 <!doctype html>
@@ -14,8 +16,9 @@ import Navbar from "../components/navbar.astro";
 		<link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
 		<meta name="generator" content={Astro.generator} />
 		<title>Berbat Photos</title>
+		<ClientRouter />
 	</head>
-	<body>
+	<body class="bg-brighter2">
 		<Navbar/>
 		<slot />
 		<Footer/>
