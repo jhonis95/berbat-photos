@@ -1,4 +1,5 @@
 ---
+import Bookingcard from "../components/bookingcard.astro";
 import Herosection from "../components/herosection.astro";
 import TestimonialsCard from "../components/testimonialsCard.astro";
 import Layout from "../layouts/Layout.astro";
@@ -32,36 +33,11 @@ const content={
     <Herosection 
         title="Your Story, Your Photoshoot" 
         subtitle="Secure your spot and let’s create unforgettable images"
+        image="./image/gallery/general/bookingheader.png"
     />
     <main class=" flex flex-col mt-[90px] gap-[90px] items-center">
-        <section class=" w-full flex justify-center items-center">
-            <div class="flex gap-24 w-[1433px] h-[741px] bg-gray-400 justify-center items-center">
-                <div class="flex flex-col gap-7 max-w-[470px] font-lora">
-                    <h3 class="text-5xl italic">{content.sectionFour.title}</h3>
-                    <p class="text-base text-justify">{content.sectionFour.content}</p>
-                </div>
-                <div class="flex flex-col gap-8 font-lora italic text-base w-[695px]">
-                    <div>
-                        <label for="">Name</label>
-                        <input class="bg-white w-full h-[46px] rounded-sm" type="text" name="" id="">
-                    </div>
-                    <div>
-                        <label for="">E-mail</label>
-                        <input class="bg-white w-full h-[46px] rounded-sm" type="text" name="" id="">
-                    </div>
-                    <div>
-                        <label for="">Message</label>
-                        <textarea class="bg-white w-full h-[213px] rounded-sm" name="message" id=""></textarea>
-                    </div>
-                    <div class="font-lora w-full flex justify-center">
-                        <a class=" flex justify-center items-center rounded-lg bg-white w-[223px] h-[46px]" href="">
-                            <button class="text-2xl not-italic">book a section</button>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <h3 class="w-[617px] text-center font-lora italic text-5xl">{content.title}</h3>
+        <Bookingcard Id="bookingSection" Content={content}/>
+        <h3 class="text-darker2 w-[617px] text-center font-lora italic text-5xl">{content.title}</h3>
         <section class="flex gap-14">
             {
                 content.reviews.map((review)=>{

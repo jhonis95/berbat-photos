@@ -18,31 +18,31 @@ const socialMedia=[
 ]
 const navegation=['Portfolio','Service','Booking']
 ---
-<footer class="flex bg-gray-400 w-full h-[312px] mt-10 justify-center">
-    <section class=" flex justify-evenly items-center gap-80 max-w-[1920px] font-lora">
+<footer class="flex bg-brighter1 w-full h-[312px] mt-10 justify-center">
+    <section x-data="footerData" class=" flex justify-evenly items-center gap-80 max-w-[1920px] font-lora">
         <div class="flex flex-col items-center justify-baseline gap-[30px] h-[200px]">
-            <h5 class="text-2xl">social medias</h5>
+            <h5 class="text-darker2 text-2xl">social medias</h5>
             <div class=" flex gap-7">
                 {
-                    socialMedia.map((sm)=>{
+                    socialMedia.map((sm,index)=>{
                         return(
-                            <img src={sm.image} alt={sm.name}/>
+                            <img id={`sm${index}`} x-on:mouseover="grow" x-on:mouseleave="shrink" class=" cursor-pointer w-[43px] h-[43px]" src={sm.image} alt={sm.name}/>
                         )
                     })
                 }
             </div>
         </div>
         <div class=" flex flex-col items-center gap-[30px]">
-            <h2 class="text-4xl font-satisfy">Berbat Photos</h2>
-            <a class="text-lg italic" href="https://www.instagram.com/berbatphotos/">@berbatphotos</a>
+            <h2 class="text-darker2 text-4xl font-satisfy">Berbat Photos</h2>
+            <a id="instagamLink" x-on:mouseover="grow" x-on:mouseleave="shrink" class="text-darker2 text-lg italic" href="https://www.instagram.com/berbatphotos/">@berbatphotos</a>
         </div>
         <div class=" flex flex-col items-center font-lora gap-6">
-            <h5 class="text-2xl">Find more</h5>
-            <div class="flex flex-col gap-[30px]">
+            <h5 class="text-darker2 text-2xl">Find more</h5>
+            <div class="flex flex-col items-center gap-[30px]">
                 {
-                    navegation.map((page)=>{
+                    navegation.map((page,index)=>{
                         return(
-                            <p class="text-lg">{page}</p>
+                            <a id={`navpage${index}`} x-on:mouseover="grow" x-on:mouseleave="shrink" href="/" class="text-darker2 text-lg">{page}</a>
                         )
                     })
                 }
@@ -50,3 +50,19 @@ const navegation=['Portfolio','Service','Booking']
         </div>
     </section>
 </footer>
+<script>
+    import Alpine from "alpinejs";
+    import { animate } from "motion";
+    document.addEventListener('alpine:init', () => {
+    Alpine.data('footerData', () => {
+            return {
+                grow(element:MouseEvent|any){
+                    animate(`#${element.target.id}`,{ scale:1.1})
+                },
+                shrink(element:MouseEvent|any){
+                    animate(`#${element.target.id}`,{ scale:1})
+                },
+            }
+        });
+    });
+</script>

@@ -35,12 +35,12 @@ const navegation=[
 ]
 ---
 <nav class="w-full flex justify-center h-[130px]">
-    <section class="flex items-center justify-evenly gap-72 max-w-[1920px]">
+    <section x-data="navbarData" class="flex items-center justify-evenly gap-72 max-w-[1920px]">
         <div class="flex gap-5">
             {
-                socialMedia.map((data)=>{
+                socialMedia.map((data,index)=>{
                     return(
-                        <img class="w-[43px] h-[43px]" src={data.image} alt={data.name}/>
+                        <img id={`sm-icon${index}`} x-on:mouseover="growText" x-on:mouseleave="shrinkText" class="w-[43px] h-[43px]" src={data.image} alt={data.name}/>
                     )
                 })
             }
@@ -53,8 +53,9 @@ const navegation=[
                 {
                     navegation.map((data, index)=>{
                         return(
-                            index==0?<MenuDropdown Text="Gallery" MenuContent={["My Work","Landscape"]}/>:<a href={data.Link}>
-                                <button class=" cursor-pointer font-lora italic text-2xl text-darker2">{data.Text}</button>
+                            index==0?<MenuDropdown index={index} Text="Gallery" MenuContent={["My Work","Landscape"]}/>:<a href={data.Link} class="flex flex-col">
+                                <button id={`link${index}`} x-on:mouseover="handleMainLinkOn" x-on:mouseleave="handleMainLinkOff" class=" cursor-pointer font-lora italic text-2xl text-darker2">{data.Text}</button>
+                                <span id={`linkPages${index}`} class=" h-1 bg-darker2"></span>
                             </a>
                         )
                     })
@@ -65,7 +66,7 @@ const navegation=[
             <Shopbag/>
             <div class=" flex justify-center items-center rounded-lg bg-brighter1 w-[223px] h-[46px]">
                 <a href="/booking">
-                    <button class="cursor-pointer font-lora italic text-lg text-darker2">
+                    <button id="navbarBtnContent" x-on:mouseover="growText" x-on:mouseleave="shrinkText" class="cursor-pointer font-lora italic text-lg text-darker2">
                         book a section
                     </button>
                 </a>
@@ -73,3 +74,25 @@ const navegation=[
         </div>
     </section>
 </nav>
+<script>
+    import Alpine from "alpinejs";
+    import { animate } from "motion";
+    document.addEventListener('alpine:init', () => {
+    Alpine.data('navbarData', () => {
+            return {
+                growText(element:MouseEvent|any){
+                    animate(`#${element.target.id}`,{ scale:1.2})
+                },
+                shrinkText(element:MouseEvent|any){
+                    animate(`#${element.target.id}`,{ scale:1})
+                },
+                handleMainLinkOn(element:MouseEvent|any){
+                    animate(`#${element.target.nextElementSibling.id}`,{ scaleX: [0, 1] },{ duration: 0.2, ease: ["easeIn", "easeOut"]  })
+                },
+                handleMainLinkOff(element:MouseEvent|any){
+                    animate(`#${element.target.nextElementSibling.id}`,{ scaleX: [1, 0] },{ duration: 0.2, ease: ["easeIn", "easeOut"]  })
+                }
+            }
+        });
+    });
+</script>

@@ -1,4 +1,5 @@
 ---
+import Bookingcard from '../components/bookingcard.astro';
 import Layout from '../layouts/Layout.astro';
 
 const content={
@@ -12,17 +13,17 @@ const content={
     sectionTree:{
         cards:[
             {
-                image:"",
+                image:"./image/gallery/general/individual.png",
                 title:"Individual",
                 content:"We capture the essence of every moment in individual photos that reflect your unique personality. Whether to create unforgettable memories, renew your portfolio or simply record your best version, our clickers value every detail with creativity and sensitivity. Turn moments into art!"
             },
             {
-                image:"",
+                image:"./image/gallery/general/Couple-and-Family.png",
                 title:"Couple and Family",
                 content:"Capture the love and connection that makes your story unique with our couples and family photos. Every smile, look and hug is sensitively captured, creating timeless memories that reflect the most special bonds in your life. Celebrate these moments with the delicacy they deserve!"
             },
             {
-                image:"",
+                image:"./image/gallery/general/Weadding.png",
                 title:"Weadding",
                 content:"We immortalize every detail of your big day with wedding photos full of emotion and meaning. From the preparations to the 'yes', we record the most special moments with sensitivity and art, creating memories that will tell your love story forever."
             }
@@ -56,20 +57,20 @@ const content={
     <main class=" flex flex-col items-center gap-[90px]">
         
         <section id="heroSection" class=" section relative flex flex-col justify-center items-center">
-            <img class="w-[1677px] h-[977px] rounded-xl" src="" alt=""/>
+            <img class="w-[1677px] h-[977px] rounded-xl bg-contain" src="./image/gallery/general/header-homepage.png" alt=""/>
             <div class=" absolute flex flex-col justify-center items-center gap-16 font-lora italic">
-                <p class="heroSectionText text-3xl">Unforgettable moments</p>
-                <h3 class="heroSectionText text-[46px]">immortalized with passion and creativity</h3>
+                <p class=" text-brighter2 heroSectionText text-3xl">Unforgettable moments</p>
+                <h3 class=" text-brighter2 heroSectionText text-[46px]">immortalized with passion and creativity</h3>
             </div>
         </section>
 
         <section id="aboutMeSection" class=" section flex flex-row justify-center items-center gap-[105px]">
-            <img class="w-[499px] h-[497px] rounded-xl" src="" alt=""/>
+            <img class="w-[499px] h-[497px] rounded-xl" src="./image/gallery/general/hyoun.png" alt=""/>
             <div class=" flex flex-col items-center max-w-[745px] gap-16 font-lora">
-                <h3 class=" text-center text-[46px] italic">{content.secondSection.title}</h3>
-                <p class=" text-center text-lg">{content.secondSection.content}</p>
-                <div class=" flex justify-center items-center rounded-lg bg-gray-400 w-[221px] h-[46px]">
-                    <button class="text-4xl">{content.secondSection.button.text}</button>
+                <h3 class=" text-reddarker text-center text-[46px] italic">{content.secondSection.title}</h3>
+                <p class=" text-darker2 text-center text-lg">{content.secondSection.content}</p>
+                <div class=" bg-brighter1 flex justify-center items-center rounded-lg  w-[221px] h-[46px]">
+                    <button class="cursor-pointer text-darker2 text-4xl">{content.secondSection.button.text}</button>
                 </div>
             </div>
         </section>
@@ -79,14 +80,14 @@ const content={
                     content.sectionTree.cards.map((data)=>{
                         return(
                             <div class=" serviceCards flex flex-col gap-8 w-[463px] font-lora">
-                                <img class="w-[463px] h-[376px] rounded-xl" src="" alt=""/>
+                                <img class="w-[463px] h-[376px] rounded-md" src={data.image} alt=""/>
                                 <div class="w-full flex flex-col h-[174px] gap-6">
-                                    <h4 class="text-3xl font-medium italic">{data.title}</h4>
-                                    <p class="text-justify text-base">{data.content}</p>
+                                    <h4 class="text-reddarker text-3xl font-medium italic">{data.title}</h4>
+                                    <p class="text-darker2 text-justify text-base">{data.content}</p>
                                 </div>
                                 <div class="font-lora w-full flex justify-center">
-                                    <div class=" flex justify-center items-center rounded-lg bg-gray-400 w-[295px] h-[46px]">
-                                        <button class="text-4xl">{content.sectionTree.button.text}</button>
+                                    <div class="bg-brighter1 flex justify-center items-center rounded-lg w-[295px] h-[46px]">
+                                        <button class="cursor-pointer text-darker2 text-4xl">{content.sectionTree.button.text}</button>
                                     </div>
                                 </div>
                             </div>
@@ -95,37 +96,11 @@ const content={
                 }
             </div>
         </section>
-        <section id="bookingSection" class=" section w-full flex justify-center items-center">
-            <div class="flex gap-24 w-[1433px] h-[741px] bg-gray-400 justify-center items-center">
-                <div class="flex flex-col gap-7 max-w-[470px] font-lora">
-                    <h3 class="text-5xl italic">{content.sectionFour.title}</h3>
-                    <p class="text-base text-justify">{content.sectionFour.content}</p>
-                </div>
-                <div class="flex flex-col gap-8 font-lora italic text-base w-[695px]">
-                    <div>
-                        <label for="">Name</label>
-                        <input class="bg-white w-full h-[46px] rounded-sm" type="text" name="" id="">
-                    </div>
-                    <div>
-                        <label for="">E-mail</label>
-                        <input class="bg-white w-full h-[46px] rounded-sm" type="text" name="" id="">
-                    </div>
-                    <div>
-                        <label for="">Message</label>
-                        <textarea class="bg-white w-full h-[213px] rounded-sm" name="message" id=""></textarea>
-                    </div>
-                    <div class="font-lora w-full flex justify-center">
-                        <a class=" flex justify-center items-center rounded-lg bg-white w-[223px] h-[46px]" href="">
-                            <button class="text-2xl not-italic">book a section</button>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <Bookingcard Id="bookingSection" Content={content}/>
         <section id="followMeSection" class=" section flex flex-col gap-14">
             <div class="followMeSectionContent flex flex-col gap-5 items-center font-lora">
-                <h4 class="text-3xl">Follow me on Instagram</h4>
-                <a class="text-lg italic" href="https://www.instagram.com/berbatphotos/">@berbatphotos</a>
+                <h4 class="text-darker2 text-3xl">Follow me on Instagram</h4>
+                <a class="text-darker2 text-lg italic" href="https://www.instagram.com/berbatphotos/">@berbatphotos</a>
             </div>
             <div class="followMeSectionContent flex flex-wrap gap-5 w-[1432px]">
                 {
@@ -145,13 +120,13 @@ const content={
         animate(".heroSectionText",{opacity:[0, 1], y:[100,0]},{ delay: stagger(0.1,{ startDelay: 0.2 }),duration:0.5})
     })
     inView("#aboutMeSection",(element)=>{
-        animate(element,{opacity:[0, 1], y:[100,0]},{ delay:0.2, duration:0.5})
+        animate(element,{opacity:[0, 1], y:[100,0]},{ delay:0.4, duration:0.5})
     })
     inView("#serviceSection",()=>{
-        animate(".serviceCards",{x:[100,0],opacity:[0,1]},{delay: stagger(0.3,{ startDelay: 0.4 }),duration:0.5})
+        animate(".serviceCards",{x:[100,0],opacity:[0,1]},{delay: stagger(0.3,{ startDelay: 0.6 }),duration:0.5})
     })
     inView("#bookingSection",(element)=>{
-        animate(element,{opacity:[0, 1], y:[100,0]},{ delay:0.5, duration:0.5})
+        animate(element,{opacity:[0, 1], y:[100,0]},{ delay:0.7, duration:0.5})
     })
     inView("#followMeSection",()=>{
         animate(".followMeSectionContent",{opacity:[0, 1], y:[100,0]},{ delay: stagger(0.3,{ startDelay: 0.4 }), duration:0.5})

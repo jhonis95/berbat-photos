@@ -15,36 +15,43 @@ const pageData={
     <Herosection 
         title="Thank You for Trusting in Our Art!" 
         subtitle="Every image tells a story, and it’s an honor to capture yours. Welcome to our world of timeless memories!"
+        image="./image/gallery/general/reviewheader.png"
     />
     <main class=" flex flex-col mt-[90px] gap-[90px] items-center">
         <section class=" w-full flex justify-center items-center">
-            <div class="w-full flex gap-24 h-[741px] bg-gray-400 justify-center items-center">
+            <div class="w-full flex gap-24 h-[741px] bg-brighter1 justify-center items-center">
                 <div class="flex flex-col gap-7 max-w-[470px] font-lora">
-                    <h3 class="text-5xl italic">{pageData.title}</h3>
+                    <h3 class="text-darker2 text-5xl italic">{pageData.title}</h3>
                     {
                         pageData.paragraphs.map((content)=>{
                             return(
-                                <p class="text-base text-justify">{content}</p>
+                                <p class=" text-darker2 text-base text-justify">{content}</p>
                             )
                         })
                     }
                 </div>
-                <div class="flex flex-col gap-8 font-lora italic text-base w-[695px]">
+                <div class="text-darker2 flex flex-col gap-8 font-lora italic text-base w-[695px]">
                     <div>
-                        <label for="">Name</label>
-                        <input class="bg-white w-full h-[46px] rounded-sm" type="text" name="" id="">
+                        <label class="text-darker2 text-base " for="">Name</label>
+                        <div class="bg-brighter2 w-full h-[46px] rounded-sm flex justify-center items-center">
+                            <input class=" px-2.5 w-full outline-none" size="16" type="text" name="" id="">
+                        </div>
                     </div>
                     <div>
-                        <label for="">Headline</label>
-                        <input class="bg-white w-full h-[46px] rounded-sm" type="text" name="" id="">
+                        <label class="text-darker2 text-base " for="">Headline</label>
+                        <div class="bg-brighter2 w-full h-[46px] rounded-sm flex justify-center items-center">
+                            <input class=" px-2.5 w-full outline-none" size="16" type="text" name="" id="">
+                        </div>
                     </div>
                     <div>
-                        <label for="">Review</label>
-                        <textarea class="bg-white w-full h-[213px] rounded-sm" name="review" id=""></textarea>
+                        <label class="text-darker2 text-base " for="">Testimonial</label>
+                        <div class="bg-brighter2 w-full h-[129px] rounded-sm">
+                            <textarea class="p-2.5 w-full h-full outline-none resize-none" name="message" id=""></textarea>
+                        </div>
                     </div>
                     <div class="font-lora w-full flex justify-center">
-                        <a class=" flex justify-center items-center rounded-lg bg-white w-[223px] h-[46px]" href="">
-                            <button class="text-2xl not-italic">Send</button>
+                        <a class=" flex justify-center items-center rounded-lg bg-brighter2 w-[223px] h-[46px]" href="">
+                            <button class="text-darker2 cursor-pointer text-2xl not-italic">Send</button>
                         </a>
                     </div>
                 </div>

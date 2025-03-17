@@ -10,3 +10,43 @@
   --color-brighter2:#FFF4EE;
 }
 [x-cloak] { display: none !important; }
+span{
+  transform: scaleX(0);
+}
+/* Firefox (uncomment to work in Firefox, although other properties will not work!)  */
+/** {
+  scrollbar-width: thin;
+  scrollbar-color: #DECABE #FFF4EE;
+}*/
+
+/* Chrome, Edge and Safari */
+*::-webkit-scrollbar {
+  height: 10px;
+  width: 10px;
+}
+*::-webkit-scrollbar-track {
+  border-radius: 5px;
+  background-color: #FFF4EE;
+}
+
+*::-webkit-scrollbar-track:hover {
+  background-color: #FFF4EE;
+}
+
+*::-webkit-scrollbar-track:active {
+  background-color: #FFF4EE;
+}
+
+*::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background-color: #DECABE;
+  border: 2px solid #FFFFFF;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: #B99F8E;
+}
+
+*::-webkit-scrollbar-thumb:active {
+  background-color: #B99F8E;
+}
