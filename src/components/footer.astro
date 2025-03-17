@@ -50,19 +50,3 @@ const navegation=['Portfolio','Service','Booking']
         </div>
     </section>
 </footer>
-<script>
-    import Alpine from "alpinejs";
-    import { animate } from "motion";
-    document.addEventListener('alpine:init', () => {
-    Alpine.data('footerData', () => {
-            return {
-                grow(element:MouseEvent|any){
-                    animate(`#${element.target.id}`,{ scale:1.1})
-                },
-                shrink(element:MouseEvent|any){
-                    animate(`#${element.target.id}`,{ scale:1})
-                },
-            }
-        });
-    });
-</script>

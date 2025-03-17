@@ -13,26 +13,3 @@ const {LabelText,Data}=Astro.props
         
     </div>
 </div>
-
-<script>
-    import Alpine from "alpinejs";
-    import { animate } from "motion";
-    document.addEventListener('alpine:init', () => {
-        Alpine.data('bookCardData', () => {
-            return {
-                dropdownOpen:false,
-                get isdropdownOpen() {
-                    return this.dropdownOpen;
-        		},
-        		arrowToggle() {
-                    this.dropdownOpen = !this.dropdownOpen;
-                    if(this.dropdownOpen==true){
-                        animate("#bookingCardArrowIcon",{rotate:180})
-                    }else{
-                        animate("#bookingCardArrowIcon",{rotate:360})
-                    }
-        		},
-            }
-        });
-    });
-</script>
