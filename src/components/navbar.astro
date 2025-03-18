@@ -1,4 +1,5 @@
 ---
+import { button } from 'motion/react-client'
 import MenuDropdown from './menuDropdown.astro'
 import Shopbag from './shopbag.astro'
 
@@ -22,15 +23,28 @@ export const socialMedia=[
 const navegation=[
     {
         Text:'Gallery',
-        Link: '/gallery'
+        subMemu:[
+            {
+                buttonTitle:'My Work',
+                buttonLink:'/my-work'
+            },
+            {
+                buttonTitle:'Landscape',
+                buttonLink:'landscape'
+            }
+        ]
     },
     {
         Text:'Service',
-        Link: '/services'
+        Links:[
+            '/services'
+        ]
     },
     {
         Text:'Booking',
-        Link: '/booking'
+        Links: [
+            '/booking'
+        ]
     }
 ]
 ---
@@ -51,9 +65,9 @@ const navegation=[
             </a>
             <div class="flex justify-evenly gap-20">
                 {
-                    navegation.map((data, index)=>{
+                    navegation.map((data:any, index)=>{
                         return(
-                            index==0?<MenuDropdown index={index} Text="Gallery" MenuContent={["My Work","Landscape"]}/>:<a href={data.Link} class="flex flex-col">
+                            index==0?<MenuDropdown index={index} Text="Gallery" MenuContent={data.subMemu}/>:<a href={data?.Links[0]} class="flex flex-col">
                                 <button id={`link${index}`} x-on:mouseover="handleMainLinkOn" x-on:mouseleave="handleMainLinkOff" class=" cursor-pointer font-lora italic text-2xl text-darker2">{data.Text}</button>
                                 <span id={`linkPages${index}`} class=" h-1 bg-darker2"></span>
                             </a>

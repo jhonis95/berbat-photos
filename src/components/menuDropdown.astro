@@ -12,9 +12,17 @@ const {Text , MenuContent, index}=Astro.props
     </button>
     <div x-cloak x-show="open" x-transition class="absolute z-10 top-[42px] flex flex-col gap-3 bg-brighter1 justify-center items-center w-[105px] h-[76px] rounded-lg">
         {
-            MenuContent.map((content : string, index:number)=>{
+            MenuContent.map((content : any, index:number)=>{
                 return(
-                    <a id={`dropdown-content${index}`} x-on:mouseover="growText" x-on:mouseleave="shrinkText" href="" class=" cursor-pointer font-lora text-base text-darker2">{content}</a>
+                    <a 
+                        id={`dropdown-content${index}`} 
+                        x-on:mouseover="growText" 
+                        x-on:mouseleave="shrinkText" 
+                        href={content.buttonLink} 
+                        class=" cursor-pointer font-lora text-base text-darker2"
+                    >
+                        {content.buttonTitle}
+                    </a>
                 )
             })
         }

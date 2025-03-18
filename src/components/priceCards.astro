@@ -1,23 +1,67 @@
 ---
 
-const { title, paragraphs, images, price, button, index } = Astro.props;
+const { title, paragraphs, image, button, index, services } = Astro.props;
+import arrowicon from '../../public/image/angle-horizon.svg'
+
+type TserviceCardDetail={
+    service:string
+    description: string
+    price:number
+    image:string
+}
+
 ---
-<div class={index%2==0?"flex justify-center items-center gap-[50px]":"flex flex-row-reverse justify-center items-center gap-[50px]"}>
-    <img class="w-[828px] h-[622px]" src={images} alt="">
+<div x-data="priceCards" class={index%2==0?"flex justify-center items-center gap-[50px]":"flex flex-row-reverse justify-center items-center gap-[50px]"}>
+    <img id={`cardPriceMainImage${index}`} class="w-[828px] h-[622px] object-cover transition-discrete duration-700 ease-in-out" src={image} alt="">
     <div class=" flex flex-col font-lora max-w-[463px] gap-[30px]">
-        <h4 class="text-3xl italic font-medium">{title}</h4>
+        <h4 class="text-reddarker text-3xl italic font-medium">{title}</h4>
         {
             paragraphs.map((paragraph:any)=>{
                 return(
-                    <p class="text-lg">{paragraph}</p>
+                    <p class="text-darker2 text-lg">{paragraph}</p>
                 )
             })
         }
-        <div class=" flex w-full justify-around items-center">
-            <h6 class="text-lg">{price}</h6>
-            <a class=" px-10 py-2.5 bg-gray-400" href={button.link}>
-                <button class="text-lg italic">{button.text}</button>
-            </a>
+        <div class=" flex w-full justify-around items-center text-darker2 text-lg italic">
+            <div 
+                id={index} 
+                x-on:click={`toggleShowDetails(${index})`} 
+                class={index%2==0?"cursor-pointer rounded-md flex justify-evenly items-center w-[223px] px-10 py-2.5 bg-brighter1":"cursor-pointer rounded-md flex flex-row-reverse justify-evenly items-center w-[223px] px-10 py-2.5 bg-brighter1"}
+            >
+                <button x-text="showDetails?'show less':'show more'">
+                </button>
+                <img id={`showBtn${index}`} class={index%2==0?"h-[21]":"h-[21] rotate-180"} src={arrowicon.src} alt="arrow-icon">
+            </div>
         </div>
+    </div>
+    <div 
+        x-transition 
+        x-transition:enter.duration.700ms 
+        x-transition:leave.duration.300ms 
+        x-cloak 
+        x-show="showDetails"
+        class="w-[415px] max-h-[622px] flex flex-col gap-1.5 overflow-scroll"
+    >
+            {
+                services.map((card:TserviceCardDetail)=>{
+                    return(
+                        <div class=" w-[401px] rounded-sm bg-brighter1 text-darker2 flex py-2 flex-col justify-center items-center">
+                            <img class="w-[374px] h-[173px] bg-brighter2" src={card.image} alt="service-Image"/>
+                            <div class="flex gap-9 justify-evenly items-center w-full">
+                                <div class="flex flex-col gap-2.5 font-lora w-[264px]">
+                                    <h4 class="text-lg">{card.service}</h4>
+                                    <p class="text-sm">{card.description}</p>
+                                </div>
+                                <p>{`$ ${card.price.toPrecision()}`}</p>
+                            </div>
+                            <div class="w-full flex justify-center font-lora text-lg italic">
+                                <button class="bg-brighter2 text-darker2 w-[195px] h-[36] px-10 py-1.5 rounded-md cursor-pointer">
+                                    add to cart
+                                </button>
+                            </div>
+                        </div>
+                    )
+                })
+            }
     </div>
 </div>

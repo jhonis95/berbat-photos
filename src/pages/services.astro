@@ -12,12 +12,32 @@ const pagedata={
                 "Each person carries a unique essence, and photography has the power to reveal this in every detail. Whether for a professional photo shoot, a moment of self-confidence or simply to record the best version of yourself, our lenses capture not only your image, but also your personality, emotions and your own brilliance.",
                 "Let yourself be seen through a new perspective and immortalize your difficulties with a photo shoot made especially for you."
             ],
-            price:"000.00",
-            image:"",
+            image:"./image/gallery/individual/serviceImage.png",
             button:{
-                text:"book a section",
+                text:"show more",
                 link:""
-            }
+            },
+            services:[
+                {
+                    service:'service 1',
+                    description:'description 1',
+                    price:50.50,
+                    image:''
+                },
+                {
+                    service:'service 2',
+                    description:'description 2',
+                    price:35.00,
+                    image:''
+                },
+                {
+                    service:'service 3',
+                    description:'description 3',
+                    price:75.00,
+                    image:''
+                }
+                
+            ]
         },
         {
             title:"Couple and Family",
@@ -26,12 +46,19 @@ const pagedata={
                 "Our goal is to capture this genuine connection and transform it into unforgettable memories. With a sensitive and natural eye, we capture the essence of love in all its forms, so that you can relive these moments forever.",
                 "Let’s create memories together that will last for generations!"
             ],
-            price:"000.00",
             image:"",
             button:{
-                text:"book a section",
+                text:"show more",
                 link:""
-            }
+            },
+            services:[
+                {
+                    service:'',
+                    description:'',
+                    price:0,
+                    image:''
+                }
+            ]
         },
         {
             title:"Weadding",
@@ -39,12 +66,19 @@ const pagedata={
                 "Each person carries a unique essence, and photography has the power to reveal this in every detail. Whether for a professional photo shoot, a moment of self-confidence or simply to record the best version of yourself, our lenses capture not only your image, but also your personality, emotions and your own brilliance.",
                 "Let yourself be seen through a new perspective and immortalize your difficulties with a photo shoot made especially for you."
             ],
-            price:"000.00",
             image:"",
             button:{
-                text:"book a section",
+                text:"show more",
                 link:""
-            }
+            },
+            services:[
+                {
+                    service:'',
+                    description:'',
+                    price:0,
+                    image:''
+                }
+            ]
         },
     ]
 }
@@ -54,19 +88,20 @@ const pagedata={
     <Herosection
         title="Capturing moments, preserving memories." 
         subtitle="Because every moment deserves to be remembered forever."
+        image=""
     />
     <main class=" flex flex-col mt-[90px] gap-[90px] items-center">
-        <h3 class="w-[617px] text-center font-lora italic text-5xl">{pagedata.title}</h3>
+        <h3 class="text-darker2 w-[617px] text-center font-lora italic text-5xl">{pagedata.title}</h3>
         {
             pagedata.cards.map((card, index)=>{
                 return(
                     <PriceCards
                         title={card.title} 
                         paragraphs={card.paragraphs} 
-                        images={card.image}
-                        price={card.price}
+                        image={card.image}
                         button={card.button}
                         index={index}
+                        services={card.services}
                     />
                 )
             })

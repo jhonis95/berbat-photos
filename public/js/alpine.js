@@ -69,12 +69,25 @@ document.addEventListener('alpine:init', () => {
         		},
         		arrowToggle() {
                     this.dropdownOpen = !this.dropdownOpen;
-                    if(this.dropdownOpen==true){
+                    if(this.dropdownOpen==true){ 
                         animate("#bookingCardArrowIcon",{rotate:180})
                     }else{
                         animate("#bookingCardArrowIcon",{rotate:360})
                     }
         		},
+            }
+        });
+        Alpine.data('priceCards',()=>{
+            return{
+                showDetails:false,
+                toggleShowDetails(index){
+                    this.showDetails=!this.showDetails;
+                    if(this.showDetails==true){
+                        document.getElementById(`cardPriceMainImage${index}`).style.width="415px"
+                    }else{
+                        document.getElementById(`cardPriceMainImage${index}`).style.width="828px"
+                    }
+                }
             }
         });
     });
