@@ -1,7 +1,7 @@
 ---
+import arrowicon from '../../public/image/angle-horizon.svg'
 
 const { title, paragraphs, image, button, index, services } = Astro.props;
-import arrowicon from '../../public/image/angle-horizon.svg'
 
 type TserviceCardDetail={
     service:string
@@ -37,7 +37,7 @@ type TserviceCardDetail={
     <div 
         x-transition 
         x-transition:enter.duration.700ms 
-        x-transition:leave.duration.300ms 
+        x-transition:leave.duration.90ms 
         x-cloak 
         x-show="showDetails"
         class="w-[415px] max-h-[622px] flex flex-col gap-1.5 overflow-scroll"

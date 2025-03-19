@@ -1,0 +1,22 @@
+backend:
+  name: git-gateway
+  branch: main # Branch to update (optional; defaults to master)
+
+media_folder: "src/cms/general-images"
+public_folder: "src/cms/general-images"
+
+collections:
+  - name: "homePage"
+    label: "Home Page"
+    folder: "src/cms/homepageContent"
+    create: true
+    slug: "{{slug}}"
+    preview_path: preview/{{slug}}
+    fields:
+    - name: 'header'
+      lavbel: 'Header Content'
+      widget: 'object'
+      fields:
+        - { label: "Title", name: "title", widget: "string" }
+        - { label: "Subtitle", name: "subtitle", widget: "string" }
+        - { label: "Image", name: "image", widget: "image", media_folder: "../../../src/cms/homepageContent", public_folder: "../../../src/cms/homepageContent" }
