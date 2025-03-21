@@ -1,9 +1,12 @@
+local_backend: true
+
 backend:
   name: git-gateway
   branch: main # Branch to update (optional; defaults to master)
   site_domain: "https://berbat-photos.netlify.app"
   identity_url: "https://berbat-photos.netlify.app/.netlify/identity"
 
+publish_mode: editorial_workflow
 
 media_folder: "src/cms/general-images"
 public_folder: "src/cms/general-images"
