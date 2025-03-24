@@ -1,0 +1,133 @@
+---
+import { Image } from 'astro:assets';
+import Bookingcard from '../../components/bookingcard.astro';
+import Layout from '../../layouts/Layout.astro';
+
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths(){
+    const homePageData = await getCollection("home_page");
+    return [
+        {
+            params: { lang: "en" },
+            props: {
+                pageData:homePageData[0].data,
+                navBarData:"",
+                footerData:""
+            }
+        },{
+            params: { lang: "fr" },
+            props: {
+                pageData:homePageData[1].data,
+                navBarData:"",
+                footerData:""
+            }
+        }
+    ]
+}
+const { pageData } = Astro.props;
+const { lang } = Astro.params;
+const content={
+    cards:[
+        {image:""},
+        {image:""},
+        {image:""},
+        {image:""},
+        {image:""},
+        {image:""},
+        {image:""},
+        {image:""},
+        {image:""},
+        {image:""},
+        {image:""},
+        {image:""},
+    ]
+}
+---
+
+<Layout NavBarData="" FootData="">
+    <main class=" flex flex-col items-center gap-[90px]">
+        <section id="heroSection" class=" section relative flex flex-col justify-center items-center">
+            <Image class="w-[1677px] h-[977px] rounded-xl bg-contain" src={pageData.header.image} alt={'page thumnail'}/>
+            <div class=" absolute flex flex-col justify-center items-center gap-16 font-lora italic">
+                <p class=" text-brighter2 heroSectionText text-3xl">{pageData.header.subtitle}</p>
+                <h3 class=" text-brighter2 heroSectionText text-[46px]">{pageData.header.title}</h3>
+            </div>
+        </section>
+        <section id="aboutMeSection" class=" section flex flex-row justify-center items-center gap-[105px]">
+            <Image class="w-[499px] h-[497px] rounded-xl" src={pageData.about_me_section.image} alt="hyu un berbat"/>
+            <div class=" flex flex-col items-center max-w-[745px] gap-16 font-lora">
+                <h3 class=" text-reddarker text-center text-[46px] italic">{ pageData.about_me_section.title}</h3>
+                <dir>
+                    {
+                        pageData.about_me_section.content.map(({text})=>{
+                            return(
+                                <p class=" text-darker2 text-center text-lg">{text}</p>
+                            )
+                        })
+                    }
+                </dir>
+                <a class=" bg-brighter1 flex justify-center items-center rounded-lg  w-[221px] h-[46px]" href={pageData.about_me_section.button_link}>
+                    <button class="cursor-pointer text-darker2 text-4xl">{pageData.about_me_section.button_text}</button>
+                </a>
+            </div>
+        </section>
+        <section id="serviceSection" class=" section flex flex-col gap-[111px]">
+            <div class="flex flex-wrap gap-5">
+                {
+                    pageData.services_section.map((service_card)=>{
+                        console.log(service_card.button_link)
+                        return(
+                            <div class=" serviceCards flex flex-col gap-8 w-[463px] font-lora">
+                                <Image class="w-[463px] h-[376px] rounded-md" src={service_card.image} alt={'card-Image'}/>
+                                <div class="w-full flex flex-col h-[174px] gap-6">
+                                    <h4 class="text-reddarker text-3xl font-medium italic">{service_card.headline}</h4>
+                                    <p class="text-darker2 text-justify text-base">{service_card.description}</p>
+                                </div>
+                                <div class="font-lora w-full flex justify-center">
+                                    <a class="bg-brighter1 flex justify-center items-center rounded-lg w-[295px] h-[46px]" href={service_card.button_link}>
+                                        <button class="cursor-pointer text-darker2 text-4xl">{service_card.button_text}</button>
+                                    </a>
+                                </div>
+                            </div>
+                        )
+                    })
+                }
+            </div>
+        </section>
+        <Bookingcard Id="bookingSection" Content={pageData.booking_section}/>
+        <section id="followMeSection" class=" section flex flex-col gap-14">
+            <div class="followMeSectionContent flex flex-col gap-5 items-center font-lora">
+                <h4 class="text-darker2 text-3xl">{pageData.follow_me_section.title}</h4>
+                <a class="text-darker2 text-lg italic" href={pageData.follow_me_section.social_media_link}>{pageData.follow_me_section.social_media_name}</a>
+            </div>
+            <div class="followMeSectionContent flex flex-wrap gap-5 w-[1432px]">
+                {
+                    content.cards.map(()=>{
+                        return(
+                            <img class="w-[222px] h-[306px]" src="" alt=""/>
+                        )
+                    })
+                }
+            </div>
+        </section>
+    </main>
+</Layout>
+<script>
+    import { animate, inView, stagger } from "motion"
+    inView("#heroSection",()=>{
+        animate(".heroSectionText",{opacity:[0, 1], y:[100,0]},{ delay: stagger(0.1,{ startDelay: 0.2 }),duration:0.5})
+    })
+    inView("#aboutMeSection",(element)=>{
+        animate(element,{opacity:[0, 1], y:[100,0]},{ delay:0.4, duration:0.5})
+    })
+    inView("#serviceSection",()=>{
+        animate(".serviceCards",{x:[100,0],opacity:[0,1]},{delay: stagger(0.3,{ startDelay: 0.6 }),duration:0.5})
+    })
+    inView("#bookingSection",(element)=>{
+        animate(element,{opacity:[0, 1], y:[100,0]},{ delay:0.7, duration:0.5})
+    })
+    inView("#followMeSection",()=>{
+        animate(".followMeSectionContent",{opacity:[0, 1], y:[100,0]},{ delay: stagger(0.3,{ startDelay: 0.4 }), duration:0.5})
+    })
+</script>

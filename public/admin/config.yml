@@ -9,7 +9,7 @@ backend:
 publish_mode: editorial_workflow
 
 media_folder: "src/cms/general-images"
-public_folder: "src/cms/general-images"
+public_folder: "src/cms"
 
 i18n:
   # Required and can be one of multiple_folders, multiple_files or single_file
@@ -31,16 +31,149 @@ collections:
     label: "Home Page"
     folder: "src/cms/homepageContent"
     create: true
-    slug: "{{slug}}"
-    structure: single_file
     locales: [en, fr]
+    i18n: true
+    slug: "{{slug}}"
     preview_path: preview/{{slug}}
     fields:
+    - {label: "title", name: "title", widget: "hidden", default: "home Page", i18n: true}
     - name: 'header'
       lavbel: 'Header Content'
       widget: 'object'
       i18n: true
       fields:
-        - { label: "Title", name: "title", widget: "string", i18n: true }
         - { label: "Subtitle", name: "subtitle", widget: "string", i18n: true }
-        - { label: "Image", name: "image", widget: "image", media_folder: "src/cms/homepageContent", public_folder: "src/cms/homepageContent" }
+        - { label: "Title", name: "title", widget: "string", i18n: true }
+        - { label: "Image", name: "image", widget: "image", i18n: true, media_folder: "/src/cms/homepageContent/images"}
+    - name: 'about_me_section'
+      lavbel: 'About Me'
+      widget: 'object'
+      i18n: true
+      fields:
+        - { label: "Title", name: "title", widget: "string", i18n: true }
+        - label: "Content"
+          name: "content"
+          widget: "list"
+          i18n: true
+          fields:
+            - {label: "Text", name: "text", widget: "text", i18n: true}
+        - { label: "Image", name: "image", widget: "image", i18n: true, media_folder: "/src/cms/homepageContent/images"}
+        - {label: "Button Text", name: "button_text", widget: "string", i18n: true}
+        - {label: "Button Link", name: "button_link", widget: "string", i18n: true}
+    - name: 'services_section'
+      lavbel: 'Services Card List'
+      widget: 'list'
+      i18n: true
+      fields:
+        - {label: "Image", name: "image", widget: "image", i18n: true, media_folder: "/src/cms/homepageContent/images"}
+        - {label: "Headline", name: "headline", widget: "string", i18n: true }
+        - {label: "Description", name: "description", widget: "text", i18n: true}
+        - {label: "Button Text", name: "button_text", widget: "string", i18n: true}
+        - {label: "Button Link", name: "button_link", widget: "string", i18n: true}
+    - name: 'booking_section'
+      lavbel: 'Booking Card'
+      widget: 'object'
+      i18n: true
+      fields:
+        - { label: "Title", name: "title", widget: "string", i18n: true }
+        - {label: "Description", name: "description", widget: "text", i18n: true}
+        - {label: "Button Text", name: "button_text", widget: "string", i18n: true}
+        - { label: "Label Name", name: "label_name", widget: "string", i18n: true }
+        - { label: "Label E-mail", name: "label_email", widget: "string", i18n: true }
+        - { label: "Label Message", name: "label_message", widget: "string", i18n: true }
+        - { label: "Label Services", name: "label_services", widget: "string", i18n: true }
+        - { label: "Label Placeholder", name: "label_placeholder", widget: "string", i18n: true }
+    - name: 'follow_me_section'
+      lavbel: 'Follow Me Section'
+      widget: 'object'
+      i18n: true
+      fields:
+        - { label: "Title", name: "title", widget: "string", i18n: true }
+        - { label: "Social Media Name", name: "social_media_name", widget: "string", i18n: true }
+        - { label: "Social Media Link", name: "social_media_link", widget: "string", i18n: true }
+
+
+  - name: "navigation_bar"
+    label: "Navigation Bar"
+    folder: "src/cms/navegarionBarContent"
+    create: true
+    locales: [en, fr]
+    i18n: true
+    slug: "{{slug}}"
+    preview_path: preview/{{slug}}
+    fields:
+      - {label: "title", name: "title", widget: "hidden", default: "Navegarion Bar", i18n: true}
+      - name: 'social_media_section'
+        lavbel: 'Social Media Section'
+        widget: 'list'
+        i18n: true
+        fields:
+          - { label: "Name", name: "name", widget: "string", i18n: true }
+          - { label: "Image", name: "image", widget: "image", i18n: true, media_folder: "/src/cms/navegarionBarContent/images"}
+      - name: 'languages'
+        lavbel: 'Languages'
+        widget: 'list'
+        i18n: true
+        fields:
+          - { label: "Name", name: "name", widget: "string", i18n: true }
+          - { label: "Abbreviation", name: "abbreviation", widget: "string", i18n: true }
+      - name: 'navigation_pages'
+        lavbel: 'Navigation Pages'
+        widget: 'object'
+        i18n: true
+        fields:
+          - { label: "Gallery Page Text", name: "gallery_page_text", widget: "string", i18n: true }
+          - name: 'dropdown_menu'
+            lavbel: 'Dropdown Menu'
+            widget: 'list'
+            i18n: true
+            fields:
+              - {label: "Gallery Name", name: "gallery_name", widget: "string", i18n: true }
+              - {label: "Link", name: "link", widget: "string", i18n: true}
+          - { label: "Service Page Text", name: "service_page_text", widget: "string", i18n: true }
+          - {label: "Service Page Link", name: "service_page_link", widget: "string", i18n: true}
+          - { label: "Booking Page Text", name: "booking_page_text", widget: "string", i18n: true }
+          - {label: "Booking Page Link", name: "booking_page_link", widget: "string", i18n: true}
+      - {label: "Site Name", name: "site_name", widget: "string", i18n: true}
+      - {label: "Booking Button Text", name: "booking_button_text", widget: "string", i18n: true }
+      - {label: "Booking Button Link", name: "booking_button_link", widget: "string", i18n: true}
+
+  - name: "footer_bar"
+    label: "footer Bar"
+    folder: "src/cms/footerBarContent"
+    create: true
+    locales: [en, fr]
+    i18n: true
+    slug: "{{slug}}"
+    preview_path: preview/{{slug}}
+    fields:
+      - {label: "title", name: "title", widget: "hidden", default: "footer Bar", i18n: true}
+      - name: 'social_media_section'
+        lavbel: 'Social Media Section'
+        widget: 'object'
+        i18n: true
+        fields:
+          - {label: "Section Title", name: "section_title", widget: "string", i18n: true}
+          - name: 'social_media'
+            lavbel: 'Social Media'
+            widget: 'list'
+            i18n: true
+            fields:
+              - { label: "Name", name: "name", widget: "string", i18n: true }
+              - { label: "Image", name: "image", widget: "image", i18n: true, media_folder: "/src/cms/navegarionBarContent/images"}
+          - {label: "Site Name", name: "site_name", widget: "string", i18n: true}
+          - { label: "intagram @", name: "intagram_name", widget: "string", i18n: true }
+          - { label: "Social Media Link", name: "social_media_link", widget: "string", i18n: true }
+          - {label: "Navigation Title", name: "navigation_title", widget: "string", i18n: true}
+          - name: 'navigation_pages'
+            lavbel: 'Navigation_Pages'
+            widget: 'list'
+            i18n: true
+            fields:
+              - {label: "Page", name: "page", widget: "string", i18n: true }
+              - {label: "Link", name: "link", widget: "string", i18n: true}
+
+
+
+
+

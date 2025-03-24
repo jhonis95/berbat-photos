@@ -6,32 +6,32 @@ import SelectDropdown from "./selectDropdown.astro"
 <section id={Id} class=" section w-full flex justify-center items-center">
     <div class="flex gap-24 w-[1433px] h-[741px] bg-brighter1 justify-center items-center">
         <div class="flex flex-col gap-7 max-w-[470px] font-lora">
-            <h3 class="text-reddarker text-5xl italic">{Content.sectionFour.title}</h3>
-            <p class="text-darker2 text-base text-justify">{Content.sectionFour.content}</p>
+            <h3 class="text-reddarker text-5xl italic">{Content.title}</h3>
+            <p class="text-darker2 text-base text-justify">{Content.description}</p>
         </div>
         <div class="flex flex-col gap-8 font-lora italic text-base w-[695px]">
             <div>
-                <label class="text-darker2 text-base " for="">Name</label>
+                <label class="text-darker2 text-base " for="">{Content.label_name}</label>
                 <div class="bg-brighter2 w-full h-[46px] rounded-sm flex justify-center items-center">
                     <input class=" px-2.5 w-full outline-none" size="16" type="text" name="" id="">
                 </div>
             </div>
             <div>
-                <label class="text-darker2 text-base " for="">E-mail</label>
+                <label class="text-darker2 text-base " for="">{Content.label_email}</label>
                 <div class="bg-brighter2 w-full h-[46px] rounded-sm flex justify-center items-center">
                     <input class=" px-2.5 w-full outline-none" size="16" type="text" name="" id="">
                 </div>
             </div>
             <div>
-                <label class="text-darker2 text-base " for="">Message</label>
+                <label class="text-darker2 text-base " for="">{Content.label_message}</label>
                 <div class="bg-brighter2 w-full h-[101px] rounded-sm">
                     <textarea class="p-2.5 w-full h-full outline-none resize-none" name="message" id=""></textarea>
                 </div>
             </div>
-            <SelectDropdown LabelText="Services"/>
+            <SelectDropdown LabelText={Content.label_services} Placeholder={Content.label_placeholder}/>
             <div class=" font-lora w-full flex justify-center">
                 <a class="bg-brighter2 flex justify-center items-center rounded-lg w-[223px] h-[46px]" href="">
-                    <button class=" cursor-pointer text-darker2 text-2xl not-italic">book a section</button>
+                    <button class=" cursor-pointer text-darker2 text-2xl not-italic">{Content.button_text}</button>
                 </a>
             </div>
         </div>

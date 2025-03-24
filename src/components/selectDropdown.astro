@@ -1,12 +1,12 @@
 ---
 import arrowicon from '../../public/image/angle-vertical.svg'
 
-const {LabelText,Data}=Astro.props
+const {LabelText,Placeholder}=Astro.props
 ---
 <div x-data="bookCardData" class="relative">
     <label class="text-darker2 text-base italic" for="">{LabelText}</label>
     <div class=" flex items-center bg-brighter2 w-full h-[46px] rounded-sm ">
-        <input class="px-2.5 w-full outline-none" type="text" name="" id="">
+        <input class="px-2.5 w-full outline-none" type="text" name="" id="" placeholder={`0 ${Placeholder}`}>
         <img x-on:click="arrowToggle" id="bookingCardArrowIcon" class="w-[20px] h-[26px] mx-4" src={arrowicon.src} alt=""/>
     </div>
     <div x-cloak x-show="dropdownOpen" x-transition class=" z-10 absolute rounded-sm flex mt-2.5 flex-col bg-brighter2 w-full h-[161px]">

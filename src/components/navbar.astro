@@ -1,6 +1,7 @@
 ---
 import MenuDropdown from './menuDropdown.astro'
 import Shopbag from './shopbag.astro'
+import arrowicon from '../../public/image/angle-vertical.svg'
 
 export const socialMedia=[
     {
@@ -57,6 +58,10 @@ const navegation=[
                     )
                 })
             }
+            <button class="flex  items-center gap-2.5">
+                {}
+                <img src={arrowicon.src} alt="arrow">
+            </button>
         </div>
         <div class="flex flex-col items-center gap-3">
             <a href="/">
