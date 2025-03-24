@@ -1,7 +1,6 @@
 ---
 import MenuDropdown from './menuDropdown.astro'
 import Shopbag from './shopbag.astro'
-import arrowicon from '../../public/image/angle-vertical.svg'
 import { Image } from 'astro:assets';
 
 interface IProps {
@@ -17,8 +16,9 @@ interface IProps {
         }[];
         languages: {
             name: string;
-            abbreviation: string;
+            link: string;
         }[];
+        selected_language: string;
         navigation_pages: {
             gallery_page_text:string;
             dropdown_menu:{
@@ -75,10 +75,30 @@ const navegation=[
                     )
                 })
             }
-            <button class="flex items-center gap-2.5">
-                {}
-                <img src={arrowicon.src} alt="arrow">
-            </button>
+            <div 
+                x-data={`{
+                    laguages:[${pageData.Data?.languages.map((lang,index)=>{return`{name:'${lang.name}',link:'${lang.link}',id:${index}}`})}],
+                    selectedLang: '${pageData.Data?.selected_language}',
+                    setLang(){
+
+                    },
+                    show:false,
+                    open(){
+                        this.show=!this.show
+                    }
+                }`}
+                class="relative place-content-center"
+                >
+                <div x-on:click="open" class=" flex items-center gap-1 px-1 bg-brighter1 rounded-sm">
+                    <button x-text="selectedLang" class="text-lg cursor-pointer text-darker2">
+                    </button>
+                </div>
+                <div x-cloak x-transition x-show="show" class=" absolute z-10 top-[42px] flex flex-col gap-3 bg-brighter1 justify-center items-center w-[100px] h-[100px]">
+                    <template x-for="language in laguages" :key="language.id">
+                        <a class="font-lora text-lg text-darker2 rounded-sm" x-text="language.name" x-bind:href="language.link"></a>
+                    </template>
+                </div>
+            </div>
         </div>
         <div class="flex flex-col items-center gap-3">
             <a href="/">

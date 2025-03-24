@@ -9,7 +9,6 @@ export async function getStaticPaths(){
     const homePageData = await getCollection("home_page");
     const navBarData = await getCollection("navigation_bar");
     const footerData = await getCollection("footer_bar");
-    console.log(navBarData)
     return [
         {
             params: { lang: "en" },

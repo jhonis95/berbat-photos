@@ -1,4 +1,6 @@
 ---
+import { Image } from "astro:assets"
+
 const {Data}= Astro.props
 
 const navegation=['Portfolio','Service','Booking']
@@ -11,7 +13,7 @@ const navegation=['Portfolio','Service','Booking']
                 {
                     Data.social_media_section.social_media.map((sm:any,index:number)=>{
                         return(
-                            <img id={`sm${index}`} x-on:mouseover="grow" x-on:mouseleave="shrink" class=" cursor-pointer w-[43px] h-[43px]" src={sm.image} alt={sm.name}/>
+                            <Image id={`sm${index}`} x-on:mouseover="grow" x-on:mouseleave="shrink" class=" cursor-pointer" width="43" height="43" src={sm.image} alt={sm.name}/>
                         )
                     })
                 }

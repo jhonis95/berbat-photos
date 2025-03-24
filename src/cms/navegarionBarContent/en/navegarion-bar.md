@@ -7,11 +7,12 @@ social_media_section:
     image: /src/cms/navegarionBarContent/images/whatsapp-icon.svg
   - name: instagram
     image: /src/cms/navegarionBarContent/images/instagram-icon.svg
+selected_language: EN
 languages:
   - name: English
-    abbreviation: EN
+    link: /en
   - name: French
-    abbreviation: FR
+    link: /fr
 navigation_pages:
   gallery_page_text: Gallery
   service_page_text: Service

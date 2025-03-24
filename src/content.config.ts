@@ -54,8 +54,9 @@ const navigation_bar = defineCollection({
         })),
         languages:z.array(z.object({
             name:z.string(),
-            abbreviation:z.string()
+            link:z.string()
         })),
+        selected_language:z.string(),
         navigation_pages:z.object({
             gallery_page_text:z.string(),
             dropdown_menu:z.array(z.object({
