@@ -7,25 +7,28 @@ import { getCollection } from 'astro:content';
 
 export async function getStaticPaths(){
     const homePageData = await getCollection("home_page");
+    const navBarData = await getCollection("navigation_bar");
+    const footerData = await getCollection("footer_bar");
+    console.log(navBarData)
     return [
         {
             params: { lang: "en" },
             props: {
                 pageData:homePageData[0].data,
-                navBarData:"",
-                footerData:""
+                navBarData:navBarData[0].data,
+                footerData:footerData[0].data
             }
         },{
             params: { lang: "fr" },
             props: {
                 pageData:homePageData[1].data,
-                navBarData:"",
-                footerData:""
+                navBarData:navBarData[1].data,
+                footerData:footerData[1].data
             }
         }
     ]
 }
-const { pageData } = Astro.props;
+const { pageData,navBarData,footerData } = Astro.props;
 const { lang } = Astro.params;
 const content={
     cards:[
@@ -45,7 +48,7 @@ const content={
 }
 ---
 
-<Layout NavBarData="" FootData="">
+<Layout NavBarData={navBarData} FootData={footerData}>
     <main class=" flex flex-col items-center gap-[90px]">
         <section id="heroSection" class=" section relative flex flex-col justify-center items-center">
             <Image class="w-[1677px] h-[977px] rounded-xl bg-contain" src={pageData.header.image} alt={'page thumnail'}/>
@@ -76,7 +79,6 @@ const content={
             <div class="flex flex-wrap gap-5">
                 {
                     pageData.services_section.map((service_card)=>{
-                        console.log(service_card.button_link)
                         return(
                             <div class=" serviceCards flex flex-col gap-8 w-[463px] font-lora">
                                 <Image class="w-[463px] h-[376px] rounded-md" src={service_card.image} alt={'card-Image'}/>

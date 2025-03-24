@@ -1,31 +1,15 @@
 ---
+const {Data}= Astro.props
 
-const socialMedia=[
-    {
-        name:'instagram',
-        image:'/image/instagram-icon.svg',
-        link:''
-    },
-    {
-        name:'whatsapp',
-        image:'/image/whatsapp-icon.svg',
-        link:''
-    },
-    {
-        name:'email',
-        image:'/image/email-icon.svg',
-        link:''
-    }
-]
 const navegation=['Portfolio','Service','Booking']
 ---
 <footer class="flex bg-brighter1 w-full h-[312px] mt-10 justify-center">
     <section x-data="footerData" class=" flex justify-evenly items-center gap-80 max-w-[1920px] font-lora">
         <div class="flex flex-col items-center justify-baseline gap-[30px] h-[200px]">
-            <h5 class="text-darker2 text-2xl">social medias</h5>
+            <h5 class="text-darker2 text-2xl">{Data.social_media_section.section_title}</h5>
             <div class=" flex gap-7">
                 {
-                    socialMedia.map((sm,index)=>{
+                    Data.social_media_section.social_media.map((sm:any,index:number)=>{
                         return(
                             <img id={`sm${index}`} x-on:mouseover="grow" x-on:mouseleave="shrink" class=" cursor-pointer w-[43px] h-[43px]" src={sm.image} alt={sm.name}/>
                         )
@@ -34,16 +18,16 @@ const navegation=['Portfolio','Service','Booking']
             </div>
         </div>
         <div class=" flex flex-col items-center gap-[30px]">
-            <h2 class="text-darker2 text-4xl font-satisfy">Berbat Photos</h2>
-            <a id="instagamLink" x-on:mouseover="grow" x-on:mouseleave="shrink" class="text-darker2 text-lg italic" href="https://www.instagram.com/berbatphotos/">@berbatphotos</a>
+            <h2 class="text-darker2 text-4xl font-satisfy">{Data.social_media_section.site_name}</h2>
+            <a id="instagamLink" x-on:mouseover="grow" x-on:mouseleave="shrink" class="text-darker2 text-lg italic" href={Data.social_media_section.social_media_link}>{Data.social_media_section.intagram_name}</a>
         </div>
         <div class=" flex flex-col items-center font-lora gap-6">
-            <h5 class="text-darker2 text-2xl">Find more</h5>
+            <h5 class="text-darker2 text-2xl">{Data.social_media_section.navigation_title}</h5>
             <div class="flex flex-col items-center gap-[30px]">
                 {
-                    navegation.map((page,index)=>{
+                    Data.social_media_section.navigation_pages.map((page:any,index:number)=>{
                         return(
-                            <a id={`navpage${index}`} x-on:mouseover="grow" x-on:mouseleave="shrink" href="/" class="text-darker2 text-lg">{page}</a>
+                            <a id={`navpage${index}`} x-on:mouseover="grow" x-on:mouseleave="shrink" href={page.link} class="text-darker2 text-lg">{page.page}</a>
                         )
                     })
                 }

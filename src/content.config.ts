@@ -1,5 +1,6 @@
 import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
+import { array, object } from 'astro:schema';
 
 const home_page = defineCollection({
     loader: glob({ pattern: "**/*.md", base: "./src/cms/homepageContent" }),
@@ -44,4 +45,53 @@ const home_page = defineCollection({
     })
 })
 
-export const collections = { home_page };
+const navigation_bar = defineCollection({
+    loader: glob({ pattern: "**/*.md", base: "./src/cms/navegarionBarContent" }),
+    schema:({ image }) => z.object({
+        social_media_section:z.array(z.object({
+            name:z.string(),
+            image:image()
+        })),
+        languages:z.array(z.object({
+            name:z.string(),
+            abbreviation:z.string()
+        })),
+        navigation_pages:z.object({
+            gallery_page_text:z.string(),
+            dropdown_menu:z.array(z.object({
+                gallery_name:z.string(),
+                link:z.string()
+            })),
+            service_page_text:z.string(),
+            service_page_link:z.string(),
+            booking_page_text:z.string(),
+            booking_page_link:z.string(),
+        }),
+        site_name:z.string(),
+        booking_button_text:z.string(),
+        booking_button_link:z.string()
+    })
+})
+
+const footer_bar = defineCollection({
+    loader: glob({ pattern: "**/*.md", base: "./src/cms/footerBarContent" }),
+    schema:({image})=>z.object({
+        social_media_section:z.object({
+            section_title:z.string(),
+            social_media:z.array(z.object({
+                name:z.string(),
+                image:z.string()
+            })),
+            site_name:z.string(),
+            intagram_name:z.string(),
+            social_media_link:z.string(),
+            navigation_title:z.string(),
+            navigation_pages:z.array(z.object({
+                page:z.string(),
+                link:z.string()
+            }))
+        }),
+    })
+})
+
+export const collections = { home_page,navigation_bar,footer_bar };

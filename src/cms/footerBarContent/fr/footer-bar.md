@@ -15,6 +15,7 @@ social_media_section:
   navigation_title: Trouver plus
   navigation_pages:
     - page: Galerie
+      link: /fr/galerie/mon-travail
     - page: Service
       link: /fr/service
     - link: /fr/reservation

@@ -130,9 +130,9 @@ collections:
             fields:
               - {label: "Gallery Name", name: "gallery_name", widget: "string", i18n: true }
               - {label: "Link", name: "link", widget: "string", i18n: true}
-          - { label: "Service Page Text", name: "service_page_text", widget: "string", i18n: true }
+          - {label: "Service Page Text", name: "service_page_text", widget: "string", i18n: true }
           - {label: "Service Page Link", name: "service_page_link", widget: "string", i18n: true}
-          - { label: "Booking Page Text", name: "booking_page_text", widget: "string", i18n: true }
+          - {label: "Booking Page Text", name: "booking_page_text", widget: "string", i18n: true }
           - {label: "Booking Page Link", name: "booking_page_link", widget: "string", i18n: true}
       - {label: "Site Name", name: "site_name", widget: "string", i18n: true}
       - {label: "Booking Button Text", name: "booking_button_text", widget: "string", i18n: true }
@@ -166,7 +166,7 @@ collections:
           - { label: "Social Media Link", name: "social_media_link", widget: "string", i18n: true }
           - {label: "Navigation Title", name: "navigation_title", widget: "string", i18n: true}
           - name: 'navigation_pages'
-            lavbel: 'Navigation_Pages'
+            lavbel: 'Navigation Pages'
             widget: 'list'
             i18n: true
             fields:

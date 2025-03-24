@@ -22,9 +22,9 @@ const {NavBarData ,FootData}= Astro.props
 		<ClientRouter />
 	</head>
 	<body class="bg-brighter2">
-		<Navbar/>
+		<Navbar Data={NavBarData}/>
 		<slot />
-		<Footer/>
+		<Footer Data={FootData}/>
 	</body>
 </html>
 <style>
