@@ -1,24 +1,19 @@
 ---
+import { Image } from 'astro:assets';
 import arrowicon from '../../public/image/angle-horizon.svg'
 
-const { title, paragraphs, image, button, index, services } = Astro.props;
+const { title, paragraphs, image, buttonCloseText,buttonOpenText, index, services } = Astro.props;
 
-type TserviceCardDetail={
-    service:string
-    description: string
-    price:number
-    image:string
-}
 
 ---
 <div x-data="priceCards" class={index%2==0?"flex justify-center items-center gap-[50px]":"flex flex-row-reverse justify-center items-center gap-[50px]"}>
-    <img id={`cardPriceMainImage${index}`} class="w-[828px] h-[622px] object-cover transition-discrete duration-700 ease-in-out" src={image} alt="">
+    <Image id={`cardPriceMainImage${index}`} class="w-[828px] h-[622px] object-cover transition-discrete duration-700 ease-in-out" src={image} alt=""/>
     <div class=" flex flex-col font-lora max-w-[463px] gap-[30px]">
         <h4 class="text-reddarker text-3xl italic font-medium">{title}</h4>
         {
             paragraphs.map((paragraph:any)=>{
                 return(
-                    <p class="text-darker2 text-lg">{paragraph}</p>
+                    <p class="text-darker2 text-lg">{paragraph.text}</p>
                 )
             })
         }
@@ -30,7 +25,7 @@ type TserviceCardDetail={
             >
                 <button x-text="showDetails?'show less':'show more'">
                 </button>
-                <img id={`showBtn${index}`} class={index%2==0?"h-[21]":"h-[21] rotate-180"} src={arrowicon.src} alt="arrow-icon">
+                <Image id={`showBtn${index}`} class={index%2==0?"h-[21]":"h-[21] rotate-180"} src={arrowicon} alt="arrow-icon"/>
             </div>
         </div>
     </div>
@@ -43,22 +38,31 @@ type TserviceCardDetail={
         class="w-[415px] max-h-[622px] flex flex-col gap-1.5 overflow-scroll"
     >
             {
-                services.map((card:TserviceCardDetail)=>{
+                services.map((data:any)=>{
                     return(
-                        <div class=" w-[401px] rounded-sm bg-brighter1 text-darker2 flex py-2 flex-col justify-center items-center">
-                            <img class="w-[374px] h-[173px] bg-brighter2" src={card.image} alt="service-Image"/>
-                            <div class="flex gap-9 justify-evenly items-center w-full">
-                                <div class="flex flex-col gap-2.5 font-lora w-[264px]">
-                                    <h4 class="text-lg">{card.service}</h4>
-                                    <p class="text-sm">{card.description}</p>
-                                </div>
-                                <p>{`$ ${card.price.toPrecision()}`}</p>
-                            </div>
-                            <div class="w-full flex justify-center font-lora text-lg italic">
-                                <button class="bg-brighter2 text-darker2 w-[195px] h-[36] px-10 py-1.5 rounded-md cursor-pointer">
-                                    add to cart
-                                </button>
-                            </div>
+                        <div class="flex py-2 flex-col gap-1">
+                            <h3>{data.title}</h3>
+                            {
+                                data.cards.map((card:any)=>{
+                                    return(
+                                        <div class=" w-[401px] rounded-sm bg-brighter1 text-darker2 flex flex-col py-2 justify-center items-center">
+                                            {/* <Image class="w-[374px] h-[173px] bg-brighter2" src={data?.image} alt="service-Image"/> */}
+                                            <div class="flex gap-9 justify-evenly items-center w-full">
+                                                <div class="flex flex-col gap-2.5 font-lora w-[264px]">
+                                                    <h4 class="text-lg">{card.title}</h4>
+                                                    <p class="text-sm">{card.content}</p>
+                                                </div>
+                                                <p>{`$ ${card.price}`}</p>
+                                            </div>
+                                            <div class="w-full flex justify-center font-lora text-lg italic">
+                                                <button class="bg-brighter2 text-darker2 w-[195px] h-[36] px-10 py-1.5 rounded-md cursor-pointer">
+                                                    add to cart
+                                                </button>
+                                            </div>
+                                        </div>
+                                    )
+                                })
+                            }
                         </div>
                     )
                 })

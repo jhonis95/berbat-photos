@@ -1,0 +1,55 @@
+---
+import Bookingcard from "../../components/bookingcard.astro";
+import Herosection from "../../components/herosection.astro";
+import TestimonialsCard from "../../components/testimonialsCard.astro";
+import Layout from "../../layouts/Layout.astro";
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths(){
+    const bookingPageData = await getCollection("booking_page");
+    const navBarData = await getCollection("navigation_bar");
+    const footerData = await getCollection("footer_bar");
+    return [
+        {
+            params: { lang: "en", slugBooking:"booking"},
+            props: {
+                pageData:bookingPageData[0].data,
+                navBarData:navBarData[0].data,
+                footerData:footerData[0].data
+            }
+        },{
+            params: { lang: "fr", slugBooking:"reservation" },
+            props: {
+                pageData:bookingPageData[1].data,
+                navBarData:navBarData[1].data,
+                footerData:footerData[1].data
+            }
+        }
+    ]
+}
+const { pageData,navBarData,footerData } = Astro.props;
+---
+<Layout NavBarData={navBarData} FootData={footerData}>
+    <Herosection 
+        title={pageData.header.title}
+        subtitle={pageData.header.subtitle}
+        image={pageData.header.image}
+    />
+    <main class=" flex flex-col mt-[90px] gap-[90px] items-center">
+        <Bookingcard Id="bookingSection" Content={pageData.booking_section}/>
+        <h3 class="text-darker2 w-[617px] text-center font-lora italic text-5xl">{pageData.testimonials_section.title}</h3>
+        <section class="flex gap-14">
+            {
+                pageData.testimonials_section.testimonials.map((testimonial)=>{
+                    return(
+                        <TestimonialsCard
+                            title={testimonial.review_name} 
+                            subtitle={testimonial.quote}
+                            content={testimonial.description}
+                        />
+                    )
+                })
+            }
+        </section>
+    </main>
+</Layout>

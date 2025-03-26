@@ -38,7 +38,7 @@ collections:
     fields:
     - {label: "title", name: "title", widget: "hidden", default: "home Page", i18n: true}
     - name: 'header'
-      lavbel: 'Header Content'
+      label: 'Header Content'
       widget: 'object'
       i18n: true
       fields:
@@ -46,7 +46,7 @@ collections:
         - { label: "Title", name: "title", widget: "string", i18n: true }
         - { label: "Image", name: "image", widget: "image", i18n: true, media_folder: "/src/cms/homepageContent/images"}
     - name: 'about_me_section'
-      lavbel: 'About Me'
+      label: 'About Me'
       widget: 'object'
       i18n: true
       fields:
@@ -61,7 +61,7 @@ collections:
         - {label: "Button Text", name: "button_text", widget: "string", i18n: true}
         - {label: "Button Link", name: "button_link", widget: "string", i18n: true}
     - name: 'services_section'
-      lavbel: 'Services Card List'
+      label: 'Services Card List'
       widget: 'list'
       i18n: true
       fields:
@@ -71,20 +71,20 @@ collections:
         - {label: "Button Text", name: "button_text", widget: "string", i18n: true}
         - {label: "Button Link", name: "button_link", widget: "string", i18n: true}
     - name: 'booking_section'
-      lavbel: 'Booking Card'
+      label: 'Booking Card'
       widget: 'object'
       i18n: true
       fields:
         - { label: "Title", name: "title", widget: "string", i18n: true }
-        - {label: "Description", name: "description", widget: "text", i18n: true}
-        - {label: "Button Text", name: "button_text", widget: "string", i18n: true}
+        - { label: "Description", name: "description", widget: "text", i18n: true}
+        - { label: "Button Text", name: "button_text", widget: "string", i18n: true}
         - { label: "Label Name", name: "label_name", widget: "string", i18n: true }
         - { label: "Label E-mail", name: "label_email", widget: "string", i18n: true }
         - { label: "Label Message", name: "label_message", widget: "string", i18n: true }
         - { label: "Label Services", name: "label_services", widget: "string", i18n: true }
         - { label: "Label Placeholder", name: "label_placeholder", widget: "string", i18n: true }
     - name: 'follow_me_section'
-      lavbel: 'Follow Me Section'
+      label: 'Follow Me Section'
       widget: 'object'
       i18n: true
       fields:
@@ -104,7 +104,7 @@ collections:
     fields:
       - {label: "title", name: "title", widget: "hidden", default: "Navegarion Bar", i18n: true}
       - name: 'social_media_section'
-        lavbel: 'Social Media Section'
+        label: 'Social Media Section'
         widget: 'list'
         i18n: true
         fields:
@@ -112,20 +112,20 @@ collections:
           - { label: "Image", name: "image", widget: "image", i18n: true, media_folder: "/src/cms/navegarionBarContent/images"}
       - {label: "Selected Language", name: "selected_language", widget: "select",options: [EN, FR], i18n: true}
       - name: 'languages'
-        lavbel: 'Languages'
+        label: 'Languages'
         widget: 'list'
         i18n: true
         fields:
           - { label: "Name", name: "name", widget: "string", i18n: true }
           - { label: "link", name: "link", widget: "string", i18n: true }
       - name: 'navigation_pages'
-        lavbel: 'Navigation Pages'
+        label: 'Navigation Pages'
         widget: 'object'
         i18n: true
         fields:
           - { label: "Gallery Page Text", name: "gallery_page_text", widget: "string", i18n: true }
           - name: 'dropdown_menu'
-            lavbel: 'Dropdown Menu'
+            label: 'Dropdown Menu'
             widget: 'list'
             i18n: true
             fields:
@@ -150,13 +150,13 @@ collections:
     fields:
       - {label: "title", name: "title", widget: "hidden", default: "footer Bar", i18n: true}
       - name: 'social_media_section'
-        lavbel: 'Social Media Section'
+        label: 'Social Media Section'
         widget: 'object'
         i18n: true
         fields:
           - {label: "Section Title", name: "section_title", widget: "string", i18n: true}
           - name: 'social_media'
-            lavbel: 'Social Media'
+            label: 'Social Media'
             widget: 'list'
             i18n: true
             fields:
@@ -167,13 +167,176 @@ collections:
           - { label: "Social Media Link", name: "social_media_link", widget: "string", i18n: true }
           - {label: "Navigation Title", name: "navigation_title", widget: "string", i18n: true}
           - name: 'navigation_pages'
-            lavbel: 'Navigation Pages'
+            label: 'Navigation Pages'
             widget: 'list'
             i18n: true
             fields:
               - {label: "Page", name: "page", widget: "string", i18n: true }
               - {label: "Link", name: "link", widget: "string", i18n: true}
 
+  - name: "service_page"
+    label: "Service Page"
+    folder: "src/cms/servicePage"
+    create: true
+    locales: [en, fr]
+    i18n: true
+    slug: "{{slug}}"
+    preview_path: preview/{{slug}}
+    fields:
+      - {label: "title", name: "title", widget: "hidden", default: "Service Page", i18n: true}
+      - name: 'header'
+        label: 'Header Content'
+        widget: 'object'
+        i18n: true
+        fields:
+          - { label: "Title", name: "title", widget: "string", i18n: true }
+          - { label: "Subtitle", name: "subtitle", widget: "string", i18n: true }
+          - { label: "Image", name: "image", widget: "image", i18n: true, media_folder: "/src/cms/servicePage/images"}
+      - name: 'services_section'
+        label: 'Services Section'
+        widget: 'object'
+        i18n: true
+        fields:
+          - { label: "Title", name: "title", widget: "string", i18n: true }
+          - name: 'services_cards'
+            label: 'Services Cards'
+            widget: 'list'
+            i18n: true
+            fields:
+              - { label: "Title", name: "title", widget: "string", i18n: true }
+              - { label: "Image", name: "image", widget: "image", i18n: true, media_folder: "/src/cms/servicePage/images"}
+              - name: 'content'
+                label: 'Content'
+                widget: 'list'
+                i18n: true
+                fields:
+                  - { label: "Text", name: "text", widget: "text", i18n: true }
+              - {label: "Button Text Close", name: "button_text_close", widget: "string", i18n: true }
+              - {label: "Button Text Open", name: "button_text_open", widget: "string", i18n: true}
+              - name: 'services'
+                label: 'Services'
+                widget: 'list'
+                i18n: true
+                fields:
+                  - { label: "Title", name: "title", widget: "string", i18n: true }
+                  - name: 'cards'
+                    label: 'Cards'
+                    widget: 'list'
+                    i18n: true
+                    fields:
+                      - { label: "Title", name: "title", widget: "string", i18n: true }
+                      - { label: "Content", name: "content", widget: "string", i18n: true }
+                      - { label: "Price", name: "price", widget: "string", i18n: true }
+                      - { label: "Image", name: "image", widget: "image", i18n: true, media_folder: "/src/cms/servicePage/images", required: false}
+  
+  - name: "booking_page"
+    label: "Booking Page"
+    folder: "src/cms/bookingPage"
+    create: true
+    locales: [en, fr]
+    i18n: true
+    slug: "{{slug}}"
+    preview_path: preview/{{slug}}
+    fields:
+      - {label: "title", name: "title", widget: "hidden", default: "Booking Page", i18n: true}
+      - name: 'header'
+        label: 'Header Content'
+        widget: 'object'
+        i18n: true
+        fields:
+          - { label: "Title", name: "title", widget: "string", i18n: true }
+          - { label: "Subtitle", name: "subtitle", widget: "string", i18n: true }
+          - { label: "Image", name: "image", widget: "image", i18n: true, media_folder: "/src/cms/bookingPage/images"}
+      - name: 'booking_section'
+        label: 'Booking Section'
+        widget: 'object'
+        i18n: true
+        fields:
+          - { label: "Title", name: "title", widget: "string", i18n: true }
+          - { label: "Description", name: "description", widget: "text", i18n: true}
+          - { label: "Button Text", name: "button_text", widget: "string", i18n: true}
+          - { label: "Label Name", name: "label_name", widget: "string", i18n: true }
+          - { label: "Label E-mail", name: "label_email", widget: "string", i18n: true }
+          - { label: "Label Message", name: "label_message", widget: "string", i18n: true }
+          - { label: "Label Services", name: "label_services", widget: "string", i18n: true }
+          - { label: "Label Placeholder", name: "label_placeholder", widget: "string", i18n: true }
+      - name: 'testimonials_section'
+        label: 'Testimonials section'
+        widget: 'object'
+        i18n: true
+        fields:
+          - { label: "Title", name: "title", widget: "string", i18n: true }
+          - name: 'testimonials'
+            label: 'Testimonials'
+            widget: 'list'
+            i18n: true
+            fields:
+              - { label: "Review Name", name: "review_name", widget: "string", i18n: true }
+              - { label: "Quote", name: "quote", widget: "string", i18n: true}
+              - { label: "Description", name: "description", widget: "text", i18n: true}
+  
+  - name: "review_page"
+    label: "Review Page"
+    folder: "src/cms/reviewPage"
+    create: true
+    locales: [en, fr]
+    i18n: true
+    slug: "{{slug}}"
+    preview_path: preview/{{slug}}
+    fields:
+      - {label: "title", name: "title", widget: "hidden", default: "Review Page", i18n: true}
+      - name: 'header'
+        label: 'Header Content'
+        widget: 'object'
+        i18n: true
+        fields:
+          - { label: "Title", name: "title", widget: "string", i18n: true }
+          - { label: "Subtitle", name: "subtitle", widget: "string", i18n: true }
+          - { label: "Image", name: "image", widget: "image", i18n: true, media_folder: "/src/cms/reviewPage/images"}
+      - name: 'review_card'
+        label: 'review Card'
+        widget: 'object'
+        i18n: true
+        fields:
+          - { label: "Title", name: "title", widget: "string", i18n: true }
+          - label: "Description"
+            name: "description"
+            widget: "list"
+            i18n: true
+            fields:
+              - { label: "Text", name: "text", widget: "text", i18n: true }
+          - { label: "Button Text", name: "button_text", widget: "string", i18n: true}
+          - { label: "Label Name", name: "label_name", widget: "string", i18n: true }
+          - { label: "Label resume", name: "resume", widget: "string", i18n: true }
+          - { label: "Label Message", name: "label_message", widget: "string", i18n: true }
+
+  - name: "gallery_page"
+    label: "Gallery Page"
+    folder: "src/cms/galleryPage"
+    create: true
+    locales: [en, fr]
+    i18n: true
+    slug: "{{slug}}"
+    preview_path: preview/{{slug}}
+    fields:
+      - {label: "title", name: "title", widget: "hidden", default: "Gallery Page", i18n: true}
+      - name: 'header'
+        label: 'Header Content'
+        widget: 'object'
+        i18n: true
+        fields:
+          - { label: "Title", name: "title", widget: "string", i18n: true }
+          - { label: "Subtitle", name: "subtitle", widget: "string", i18n: true }
+      - { label: "Gallery Name", name: "gallery_name", widget: "string", i18n: true }
+      - name: 'images'
+        label: 'images'
+        widget: 'list'
+        i18n: true
+        fields:
+          - { label: "Image", name: "image", widget: "image", i18n: true, media_folder: "/src/cms/galleryPage/images", required: false}
+      
+
+      
 
 
 

@@ -95,4 +95,73 @@ const footer_bar = defineCollection({
     })
 })
 
-export const collections = { home_page,navigation_bar,footer_bar };
+const booking_page= defineCollection({
+    loader: glob({ pattern: "**/*.md", base: "./src/cms/bookingPage" }),
+    schema:({image})=>z.object({
+        title: z.string(),
+        header:z.object({
+            title:z.string(),
+            subtitle:z.string(),
+            image:image(),
+        }),
+        booking_section:z.object({
+            title:z.string(),
+            description:z.string(),
+            button_text:z.string(),
+            label_name:z.string(),
+            label_email:z.string(),
+            label_message:z.string(),
+            label_services:z.string(),
+            label_placeholder:z.string(),
+        }),
+        testimonials_section:z.object({
+            title:z.string(),
+            testimonials:z.array(z.object({
+                review_name:z.string(),
+                quote:z.string(),
+                description:z.string(),
+            }))
+        })
+    })
+})
+
+const service_page= defineCollection({
+    loader: glob({ pattern: "**/*.md", base: "./src/cms/servicePage" }),
+    schema:({image})=>z.object({
+        title: z.string(),
+        header:z.object({
+            title:z.string(),
+            subtitle:z.string(),
+            image:image(),
+        }),
+        services_section:z.object({
+            title:z.string(),
+            services_cards:z.array(z.object({
+                title:z.string(),
+                image:image(),
+                content:z.array(z.object({
+                    text:z.string()
+                })),
+                button_text_close:z.string(),
+                button_text_open:z.string(),
+                services:z.array(z.object({
+                    title:z.string(),
+                    cards:z.array(z.object({
+                        title:z.string(),
+                        content:z.string(),
+                        price:z.string(),
+                        image:image().optional()
+                    }))
+                }))
+            }))
+        }),
+    })
+})
+
+export const collections = { 
+    home_page,
+    navigation_bar,
+    footer_bar,
+    booking_page,
+    service_page
+};

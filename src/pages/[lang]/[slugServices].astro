@@ -1,0 +1,137 @@
+---
+import Herosection from "../../components/herosection.astro";
+import PriceCards from "../../components/priceCards.astro";
+import Layout from "../../layouts/Layout.astro";
+
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths(){
+    const servicesPageData = await getCollection("service_page");
+    const navBarData = await getCollection("navigation_bar");
+    const footerData = await getCollection("footer_bar");
+    return [
+        {
+            params: { lang: "en", slugServices:"service"},
+            props: {
+                pageData:servicesPageData[0].data,
+                navBarData:navBarData[0].data,
+                footerData:footerData[0].data
+            }
+        },{
+            params: { lang: "fr", slugServices:"service" },
+            props: {
+                pageData:servicesPageData[1].data,
+                navBarData:navBarData[1].data,
+                footerData:footerData[1].data
+            }
+        }
+    ]
+}
+const { pageData,navBarData,footerData } = Astro.props;
+
+const test={
+    title:"Choose your style and immortalize your memories",
+    cards:[
+        {
+            title:"Individual",
+            paragraphs:[
+                "Each person carries a unique essence, and photography has the power to reveal this in every detail. Whether for a professional photo shoot, a moment of self-confidence or simply to record the best version of yourself, our lenses capture not only your image, but also your personality, emotions and your own brilliance.",
+                "Let yourself be seen through a new perspective and immortalize your difficulties with a photo shoot made especially for you."
+            ],
+            image:"./image/gallery/individual/serviceImage.png",
+            button:{
+                text:"show more",
+                link:""
+            },
+            services:[
+                {
+                    service:'service 1',
+                    description:'description 1',
+                    price:50.50,
+                    image:''
+                },
+                {
+                    service:'service 2',
+                    description:'description 2',
+                    price:35.00,
+                    image:''
+                },
+                {
+                    service:'service 3',
+                    description:'description 3',
+                    price:75.00,
+                    image:''
+                }
+                
+            ]
+        },
+        {
+            title:"Couple and Family",
+            paragraphs:[
+                "The most special moments in life are those shared with those we love. Whether it’s the bond between a couple or the joy of a family reunited, every smile, hug and look tells a unique story.",
+                "Our goal is to capture this genuine connection and transform it into unforgettable memories. With a sensitive and natural eye, we capture the essence of love in all its forms, so that you can relive these moments forever.",
+                "Let’s create memories together that will last for generations!"
+            ],
+            image:"",
+            button:{
+                text:"show more",
+                link:""
+            },
+            services:[
+                {
+                    service:'',
+                    description:'',
+                    price:0,
+                    image:''
+                }
+            ]
+        },
+        {
+            title:"Weadding",
+            paragraphs:[
+                "Each person carries a unique essence, and photography has the power to reveal this in every detail. Whether for a professional photo shoot, a moment of self-confidence or simply to record the best version of yourself, our lenses capture not only your image, but also your personality, emotions and your own brilliance.",
+                "Let yourself be seen through a new perspective and immortalize your difficulties with a photo shoot made especially for you."
+            ],
+            image:"",
+            button:{
+                text:"show more",
+                link:""
+            },
+            services:[
+                {
+                    service:'',
+                    description:'',
+                    price:0,
+                    image:''
+                }
+            ]
+        },
+    ]
+}
+
+---
+<Layout NavBarData={navBarData} FootData={footerData}>
+    <Herosection
+        title={pageData.header.title} 
+        subtitle={pageData.header.subtitle}
+        image={pageData.header.image}
+    />
+    <main class=" flex flex-col mt-[90px] gap-[90px] items-center">
+        <h3 class="text-darker2 w-[617px] text-center font-lora italic text-5xl">{pageData.services_section.title}</h3>
+        {
+            pageData.services_section.services_cards.map((card, index)=>{
+                return(
+                    <PriceCards
+                        title={card.title} 
+                        paragraphs={card.content} 
+                        image={card.image}
+                        buttonCloseText={card.button_text_close}
+                        buttonOpenText={card.button_text_open}
+                        index={index}
+                        services={card.services}
+                    />
+                )
+            })
+        }
+    </main>
+</Layout>

@@ -35,7 +35,7 @@ services_section:
       captured, creating timeless memories that reflect the most special bonds
       in your life. Celebrate these moments with the delicacy they deserve!
   - image: /src/cms/homepageContent/images/Rectangle 11.png
-    headline: "Weadding | Pre-Weadding "
+    headline: Wedding | Pre-Wedding
     description: We immortalize every detail of your big day with wedding photos
       full of emotion and meaning. From the preparations to the 'yes', we record
       the most special moments with sensitivity and art, creating memories that

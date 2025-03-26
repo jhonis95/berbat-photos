@@ -1,0 +1,53 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Herosection from "../../components/herosection.astro";
+
+export function getStaticPaths() {
+  const pages = [
+    {
+      slug: "my-work",
+      pageData:{
+        heroSection:{
+          title:'Capturing Moments, Creating Memories',
+          subTitle:'Through my lens, I transform emotions into timeless images, preserving the beauty of every story',
+          galleryName:'My Work and Portfolio'
+        },
+        galleryPhotos:{
+
+        }
+      }
+    },
+    {
+      slug: "landscape",
+      pageData:{
+        heroSection:{
+          title:'landscape page',
+          subTitle:'',
+          galleryName:'LandScape Pictures'
+        },
+        galleryPhotos:{
+          
+        }
+      }
+    },
+  ];
+
+  return pages.map(({ slug, pageData }) => {
+    return {
+      params: { slug },
+      props: {pageData },
+    };
+  });
+}
+
+const { pageData } = Astro.props;
+---
+<Layout>
+  <Herosection 
+        title={pageData.heroSection.title} 
+        subtitle={pageData.heroSection.subTitle}
+    />
+  <main>
+
+  </main>
+</Layout>
