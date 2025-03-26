@@ -307,7 +307,7 @@ collections:
               - { label: "Text", name: "text", widget: "text", i18n: true }
           - { label: "Button Text", name: "button_text", widget: "string", i18n: true}
           - { label: "Label Name", name: "label_name", widget: "string", i18n: true }
-          - { label: "Label resume", name: "resume", widget: "string", i18n: true }
+          - { label: "Label resume", name: "label_resume", widget: "string", i18n: true }
           - { label: "Label Message", name: "label_message", widget: "string", i18n: true }
 
   - name: "gallery_page"
@@ -329,7 +329,7 @@ collections:
           - { label: "Subtitle", name: "subtitle", widget: "string", i18n: true }
       - { label: "Gallery Name", name: "gallery_name", widget: "string", i18n: true }
       - name: 'images'
-        label: 'images'
+        label: 'Images'
         widget: 'list'
         i18n: true
         fields:

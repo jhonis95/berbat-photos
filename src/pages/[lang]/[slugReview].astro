@@ -1,0 +1,77 @@
+---
+import Herosection from "../../components/herosection.astro";
+import Layout from "../../layouts/Layout.astro";
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths(){
+    const reviewPageData = await getCollection("review_page");
+    const navBarData = await getCollection("navigation_bar");
+    const footerData = await getCollection("footer_bar");
+    return [
+        {
+            params: { lang: "en" , slugReview:"review"},
+            props: {
+                pageData:reviewPageData[0].data,
+                navBarData:navBarData[0].data,
+                footerData:footerData[0].data
+            }
+        },{
+            params: { lang: "fr", slugReview:"revoir"},
+            props: {
+                pageData:reviewPageData[1].data,
+                navBarData:navBarData[1].data,
+                footerData:footerData[1].data
+            }
+        }
+    ]
+}
+const { pageData,navBarData,footerData } = Astro.props;
+---
+<Layout NavBarData={navBarData} FootData={footerData}>
+    <Herosection
+        title={pageData.header.title} 
+        subtitle={pageData.header.subtitle}
+        image={pageData.header.image}
+    />
+    <main class=" flex flex-col mt-[90px] gap-[90px] items-center">
+        <section class=" w-full flex justify-center items-center">
+            <div class="w-full flex gap-24 h-[741px] bg-brighter1 justify-center items-center">
+                <div class="flex flex-col gap-7 max-w-[470px] font-lora">
+                    <h3 class="text-darker2 text-5xl italic">{pageData.review_card.title}</h3>
+                    {
+                        pageData.review_card.description.map((content)=>{
+                            return(
+                                <p class=" text-darker2 text-base text-justify">{content.text}</p>
+                            )
+                        })
+                    }
+                </div>
+                <div class="text-darker2 flex flex-col gap-8 font-lora italic text-base w-[695px]">
+                    <div>
+                        <label class="text-darker2 text-base " for="">{pageData.review_card.label_name}</label>
+                        <div class="bg-brighter2 w-full h-[46px] rounded-sm flex justify-center items-center">
+                            <input class=" px-2.5 w-full outline-none" size="16" type="text" name="" id="">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="text-darker2 text-base " for="">{pageData.review_card.label_resume}</label>
+                        <div class="bg-brighter2 w-full h-[46px] rounded-sm flex justify-center items-center">
+                            <input class=" px-2.5 w-full outline-none" size="16" type="text" name="" id="">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="text-darker2 text-base " for="">{pageData.review_card.label_message}</label>
+                        <div class="bg-brighter2 w-full h-[129px] rounded-sm">
+                            <textarea class="p-2.5 w-full h-full outline-none resize-none" name="message" id=""></textarea>
+                        </div>
+                    </div>
+                    <div class="font-lora w-full flex justify-center">
+                        <a class=" flex justify-center items-center rounded-lg bg-brighter2 w-[223px] h-[46px]" href="">
+                            <button class="text-darker2 cursor-pointer text-2xl not-italic">{pageData.review_card.button_text}</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</Layout>

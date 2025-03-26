@@ -16,6 +16,6 @@ review_card:
         and help future clients know what to expect!
   button_text: Send
   label_name: Name
-  resume: Resume your experience in one frase
+  label_resume: Resume your experience in one frase
   label_message: Message
 ---

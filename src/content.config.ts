@@ -81,7 +81,7 @@ const footer_bar = defineCollection({
             section_title:z.string(),
             social_media:z.array(z.object({
                 name:z.string(),
-                image:z.string()
+                image:image()
             })),
             site_name:z.string(),
             intagram_name:z.string(),
@@ -158,10 +158,49 @@ const service_page= defineCollection({
     })
 })
 
+const gallery_page=defineCollection({
+    loader: glob({ pattern: "**/*.md", base: "./src/cms/galleryPage" }),
+    schema:({image})=>z.object({
+        title: z.string(),
+        header:z.object({
+            title:z.string(),
+            subtitle:z.string(),
+        }),
+        gallery_name:z.string(),
+        images:z.array(z.object({
+            image:image().optional()
+        })).optional()
+    })
+})
+
+const review_page = defineCollection({
+    loader: glob({ pattern: "**/*.md", base: "./src/cms/reviewPage" }),
+    schema:({image})=>z.object({
+        title: z.string(),
+        header:z.object({
+            title:z.string(),
+            subtitle:z.string(),
+            image:image(),
+        }),
+        review_card:z.object({
+            title:z.string(),
+            description:z.array(z.object({
+                text:z.string()
+            })),
+            button_text:z.string(),
+            label_name:z.string(),
+            label_resume:z.string(),
+            label_message:z.string(),
+        })
+    })
+})
+
 export const collections = { 
     home_page,
     navigation_bar,
     footer_bar,
     booking_page,
-    service_page
+    service_page,
+    gallery_page,
+    review_page
 };

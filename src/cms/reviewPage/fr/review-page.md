@@ -6,7 +6,7 @@ header:
   subtitle: Chaque image raconte une histoire, et c'est un honneur de capturer la
     vôtre. Bienvenue dans notre monde de souvenirs intemporels!
 review_card:
-  resume: Résumez votre expérience en une phrase
+  label_resume: Résumez votre expérience en une phrase
   label_message: Message
   label_name: Nom
   button_text: Envoyer

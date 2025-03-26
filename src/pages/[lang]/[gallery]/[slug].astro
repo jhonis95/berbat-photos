@@ -1,0 +1,54 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths(){
+    const galeryPageData = await getCollection("gallery_page");
+    const navBarData = await getCollection("navigation_bar");
+    const footerData = await getCollection("footer_bar");
+    return [
+        {
+            params: { lang: "en", gallery:"gallery", slug:"my-work"},
+            props: {
+                pageData:galeryPageData[1].data,
+                navBarData:navBarData[0].data,
+                footerData:footerData[0].data
+            }
+        },{
+            params: { lang: "en", gallery:"gallery", slug:"landscape"},
+            props: {
+                pageData:galeryPageData[0].data,
+                navBarData:navBarData[0].data,
+                footerData:footerData[0].data
+            }
+        },{
+            params: { lang: "fr", gallery:"galerie", slug:"mon-travail" },
+            props: {
+                pageData:galeryPageData[3].data,
+                navBarData:navBarData[1].data,
+                footerData:footerData[1].data
+            }
+        },{
+            params: { lang: "fr", gallery:"galerie", slug:"paysage" },
+            props: {
+                pageData:galeryPageData[2].data,
+                navBarData:navBarData[1].data,
+                footerData:footerData[1].data
+            }
+        }
+    ]
+}
+const { pageData, navBarData,footerData } = Astro.props;
+
+---
+<Layout NavBarData={navBarData} FootData={footerData}>
+  <header class=" flex flex-col justify-center items-center w-full my-9 gap-5 font-lora text-darker2">
+    <h1 class=" text-5xl">{pageData.header.title}</h1>
+    <h2 class=" text-3xl">{pageData.header.subtitle}</h2>
+    <p class=" text-3xl">{pageData.gallery_name}</p>
+  </header>
+  <main>
+
+  </main>
+</Layout>
