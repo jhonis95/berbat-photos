@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import Layout from '../../../layouts/Layout.astro';
 
 import { getCollection } from 'astro:content';
@@ -15,21 +16,24 @@ export async function getStaticPaths(){
                 navBarData:navBarData[0].data,
                 footerData:footerData[0].data
             }
-        },{
+        },
+        {
             params: { lang: "en", gallery:"gallery", slug:"landscape"},
             props: {
                 pageData:galeryPageData[0].data,
                 navBarData:navBarData[0].data,
                 footerData:footerData[0].data
             }
-        },{
+        },
+        {
             params: { lang: "fr", gallery:"galerie", slug:"mon-travail" },
             props: {
                 pageData:galeryPageData[3].data,
                 navBarData:navBarData[1].data,
                 footerData:footerData[1].data
             }
-        },{
+        },
+        {
             params: { lang: "fr", gallery:"galerie", slug:"paysage" },
             props: {
                 pageData:galeryPageData[2].data,
@@ -40,6 +44,21 @@ export async function getStaticPaths(){
     ]
 }
 const { pageData, navBarData,footerData } = Astro.props;
+let gallery:any=[]
+const vertical=[]
+const horizontal=[]
+
+
+pageData.images?.map((image:any)=>{
+    if(image.image.width>image.image.height){
+        return horizontal.push(image.image)
+    }else{
+        return vertical.push(image.image)
+    }
+})
+gallery=pageData.images?.slice(0,11)
+
+
 
 ---
 <Layout NavBarData={navBarData} FootData={footerData}>
@@ -49,6 +68,73 @@ const { pageData, navBarData,footerData } = Astro.props;
     <p class=" text-3xl">{pageData.gallery_name}</p>
   </header>
   <main>
+    <section class="flex w-full justify-center gap-2">
 
+        <div x-data="galleryModal" class="flex flex-wrap gap-2 mx-4 w-full sm:max-w-4/5 justify-center">
+            {
+                pageData.images?.map((image:any, index)=>{
+                    return(
+                            <Image x-on:click="handleModal"  class="max-h-[27vw] max-w-[26vw] object-cover" src={image?.image} alt={`image${index}`}/>
+                    )
+                })
+            }
+            <div id="modalContainer" class=" fixed inset-0 z-40 flex justify-center items-center" x-show="showModal">
+                <!-- Overlay -->
+                <div 
+                    id="modal" 
+                    x-cloak 
+                    x-transition
+                    x-on:click="showModal = false"  
+                    class="absolute inset-0 bg-gray-400 opacity-75"
+                ></div>
+                
+                <!-- Image -->
+                <img id="modalImage" x-cloak x-transition class="z-50 max-h-[80vh] w-auto rounded-lg shadow-lg" x-bind:src="modalImage" alt="" x-on:click.stop/>
+            </div>
+            
+        </div>
+
+        
+        <!-- <div>
+            <Image class="rounded-md w-[400px] grow my-2" src={gallery[0].image} alt={""}/>
+            <Image class="rounded-md w-[400px] grow my-2" src={gallery[1].image} alt={""}/>
+            <Image class="rounded-md w-[400px] grow my-2" src={gallery[2].image} alt={""}/>
+            <Image class="rounded-md w-[400px] grow my-2" src={gallery[3].image} alt={""}/>
+        </div>
+        <div>
+            <Image  class="rounded-md w-[400px] grow my-2" src={gallery[4].image} alt={""}/>
+            <Image  class="rounded-md w-[400px] grow my-2" src={gallery[5].image} alt={""}/>
+            <Image  class="rounded-md w-[400px] grow my-2" src={gallery[6].image} alt={""}/>
+            <Image  class="rounded-md w-[400px] grow my-2" src={gallery[7].image} alt={""}/>
+        </div>
+        <div>
+            <Image class="rounded-md w-[400px] grow my-2"  src={gallery[8].image} alt={""}/>
+            <Image class="rounded-md w-[400px] grow my-2"  src={gallery[9].image} alt={""}/>
+            <Image class="rounded-md w-[400px] grow my-2"  src={gallery[10].image} alt={""}/>
+        </div> -->
+
+        <!-- <div class=" flex flex-col gap-y-[19px]">
+            <div class="flex flex-wrap flex-col gap-x-[40px] gap-y-[19px] h-[581px]">
+                <Image class=" rounded-2xl w-[400px] grow object-cover max-h-[581px]" src={gallery[0].image} alt=""/>
+                <div class=" flex flex-col gap-y-[19px]">
+                    <Image class=" rounded-2xl w-[400px] h-[280px] object-cover object-center" src={gallery[1].image} alt=""/>
+                    <Image class=" rounded-2xl w-[400px] h-[280px] object-cover object-center" src={gallery[2].image} alt=""/>
+                </div>
+                <Image class=" rounded-2xl w-[400px] grow object-cover max-h-[581px]" src={gallery[3].image} alt=""/>
+            </div>
+            <div class="flex flex-wrap flex-col gap-x-[40px] gap-y-[19px] h-[581px]">
+                <Image class=" rounded-2xl w-[400px] grow object-cover" src={gallery[4].image} alt=""/>
+                <Image class=" rounded-2xl w-[400px] grow object-cover" src={gallery[5].image} alt=""/>
+                <Image class=" rounded-2xl w-[400px] h-[280px] object-cover object-center max-h-[581px]" src={gallery[6].image} alt=""/>
+                <Image class=" rounded-2xl w-[400px] h-[280px] object-cover object-center max-h-[581px]" src={gallery[7].image} alt=""/>
+            </div>
+            <div class="flex flex-row gap-x-[40px] gap-y-[19px] h-[581px]">
+                <Image class=" rounded-2xl w-[400px] object-cover object-center max-h-[581px]" src={gallery[8].image} alt=""/>
+                <Image class=" rounded-2xl w-[400px] object-cover object-center max-h-[581px]" src={gallery[9].image} alt=""/>
+                <Image class=" rounded-2xl w-[400px] object-cover object-center max-h-[581px]" src={gallery[10].image} alt=""/>
+            </div>
+        </div> -->
+
+    </section>
   </main>
 </Layout>

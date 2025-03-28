@@ -9,6 +9,7 @@
   --color-brighter1:#DECABE;
   --color-brighter2:#FFF4EE;
 }
+
 [x-cloak] { display: none !important; }
 span{
   transform: scaleX(0);
