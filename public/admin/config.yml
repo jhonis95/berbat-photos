@@ -219,6 +219,7 @@ collections:
                 i18n: true
                 fields:
                   - { label: "Title", name: "title", widget: "string", i18n: true }
+                  - { label: "Price Card Button", name: "price_card_button", widget: "string", i18n: true}
                   - name: 'cards'
                     label: 'Cards'
                     widget: 'list'
@@ -328,12 +329,6 @@ collections:
           - { label: "Title", name: "title", widget: "string", i18n: true }
           - { label: "Subtitle", name: "subtitle", widget: "string", i18n: true }
       - { label: "Gallery Name", name: "gallery_name", widget: "string", i18n: true }
-      - name: 'images'
-        label: 'Images'
-        widget: 'list'
-        i18n: true
-        fields:
-          - { label: "Image", name: "image", widget: "image", i18n: true, media_folder: "/src/cms/galleryPage/images", required: false}
       
 
       

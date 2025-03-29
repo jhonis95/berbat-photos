@@ -34,6 +34,7 @@ services_section:
             - title: The Timeless Collection
               content: 35 photos/ 1h30
               price: 150€
+          price_card_button: add to cart
     - title: Couple and Family
       image: /src/cms/servicePage/images/image.png
       button_text_close: Show More
@@ -53,6 +54,7 @@ services_section:
             - title: Forever Us
               content: 30 photos / 1h30
               price: 200€
+          price_card_button: add to cart
         - title: Family Photography Packages
           cards:
             - title: Together Forever
@@ -67,6 +69,7 @@ services_section:
             - title: Legacy Collection
               content: 35 photos / 2h
               price: 250€
+          price_card_button: add to cart
       content:
         - text: The most special moments in life are those shared with those we love.
             Whether it’s the bond between a couple or the joy of a family
@@ -103,4 +106,5 @@ services_section:
             - title: Timeless Vows
               content: 35 photos / 2h
               price: 250€
+          price_card_button: add to cart
 ---

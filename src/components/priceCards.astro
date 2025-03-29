@@ -23,7 +23,7 @@ const { title, paragraphs, image, buttonCloseText,buttonOpenText, index, service
                 x-on:click={`toggleShowDetails(${index})`} 
                 class={index%2==0?"cursor-pointer rounded-md flex justify-evenly items-center w-[223px] px-10 py-2.5 bg-brighter1":"cursor-pointer rounded-md flex flex-row-reverse justify-evenly items-center w-[223px] px-10 py-2.5 bg-brighter1"}
             >
-                <button x-text="showDetails?'show less':'show more'">
+                <button x-text=`showDetails?'${buttonOpenText}':'${buttonCloseText}'`>
                 </button>
                 <Image id={`showBtn${index}`} class={index%2==0?"h-[21]":"h-[21] rotate-180"} src={arrowicon} alt="arrow-icon"/>
             </div>
@@ -41,12 +41,12 @@ const { title, paragraphs, image, buttonCloseText,buttonOpenText, index, service
                 services.map((data:any)=>{
                     return(
                         <div class="flex py-2 flex-col gap-1">
-                            <h3>{data.title}</h3>
+                            <h3 class="font-lora text-lg text-darker2">{data.title}</h3>
                             {
                                 data.cards.map((card:any)=>{
                                     return(
                                         <div class=" w-[401px] rounded-sm bg-brighter1 text-darker2 flex flex-col py-2 justify-center items-center">
-                                            {/* <Image class="w-[374px] h-[173px] bg-brighter2" src={data?.image} alt="service-Image"/> */}
+                                            <img class="w-[374px] h-[173px] bg-brighter2 object-cover" src={card?.image} alt="service-Image"/>
                                             <div class="flex gap-9 justify-evenly items-center w-full">
                                                 <div class="flex flex-col gap-2.5 font-lora w-[264px]">
                                                     <h4 class="text-lg">{card.title}</h4>
@@ -55,8 +55,8 @@ const { title, paragraphs, image, buttonCloseText,buttonOpenText, index, service
                                                 <p>{`$ ${card.price}`}</p>
                                             </div>
                                             <div class="w-full flex justify-center font-lora text-lg italic">
-                                                <button class="bg-brighter2 text-darker2 w-[195px] h-[36] px-10 py-1.5 rounded-md cursor-pointer">
-                                                    add to cart
+                                                <button class="bg-brighter2 text-darker2 w-auto h-[36] px-10 py-1.5 rounded-md cursor-pointer">
+                                                    {data.price_card_button}
                                                 </button>
                                             </div>
                                         </div>

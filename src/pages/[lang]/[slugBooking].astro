@@ -5,6 +5,7 @@ import TestimonialsCard from "../../components/testimonialsCard.astro";
 import Layout from "../../layouts/Layout.astro";
 import { getCollection } from 'astro:content';
 
+
 export async function getStaticPaths(){
     const bookingPageData = await getCollection("booking_page");
     const navBarData = await getCollection("navigation_bar");
@@ -15,14 +16,14 @@ export async function getStaticPaths(){
             props: {
                 pageData:bookingPageData[0].data,
                 navBarData:navBarData[0].data,
-                footerData:footerData[0].data
+                footerData:footerData[1].data
             }
         },{
             params: { lang: "fr", slugBooking:"reservation" },
             props: {
                 pageData:bookingPageData[1].data,
                 navBarData:navBarData[1].data,
-                footerData:footerData[1].data
+                footerData:footerData[0].data
             }
         }
     ]

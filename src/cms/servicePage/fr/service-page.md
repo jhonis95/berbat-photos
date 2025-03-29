@@ -35,6 +35,7 @@ services_section:
             - price: 150€
               content: 35 photos/ 1h30
               title: La collection intemporelle
+          price_card_button: ajouter au panier
     - title: Couple et famille
       button_text_close: Afficher plus
       button_text_open: Afficher moins
@@ -53,6 +54,7 @@ services_section:
             - content: 30 photos / 1h30
               price: 200€
               title: Pour toujours nous
+          price_card_button: Ajouter au panier
         - title: Forfaits Photographie de Famille
           cards:
             - content: 10 photos / 45 min
@@ -67,6 +69,7 @@ services_section:
             - content: 35 photos / 2h
               price: 250€
               title: Collection Héritage
+          price_card_button: Ajouter au panier
       content:
         - text: Les moments les plus précieux de la vie sont ceux partagés avec ceux que
             l'on aime. Qu'il s'agisse de l'attachement d'un couple ou de la joie
@@ -106,4 +109,5 @@ services_section:
             - title: Vœux intemporels
               content: 35 photos / 2h
               price: 250€
+          price_card_button: Ajouter au panier
 ---
