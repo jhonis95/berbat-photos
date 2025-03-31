@@ -35,7 +35,7 @@ const navegation=[
 <section id="navBarContainer" x-data="navbarData" class=" relatives flex items-center justify-between w-[1074px] 2xl:w-[1600px] max-w-[1920px] mx-8 2xl:mx-20">
     <div class="flex gap-5">
         <a href="/">
-            <h2 class="text-4xl font-satisfy text-reddarker">Berbat Photos</h2>
+            <h2 class="text-3xl font-satisfy text-reddarker">Berbat Photos</h2>
         </a>
         <div 
             x-data={`{
@@ -71,7 +71,7 @@ const navegation=[
                 <p>close</p>
             </template>
         </button>
-        <div x-cloak x-transition x-show="open" class=" absolute z-20 w-full h-fit bg-darker2 left-0 top-[62px] flex flex-col justify-evenly items-center gap-2.5">
+        <div x-cloak x-transition x-show="open" class=" absolute z-20 w-full h-fit bg-darker2 left-0 top-[62px] py-3 flex flex-col justify-evenly items-center gap-2.5">
             {
                 navegation.map((data:any, index)=>{
                     return(

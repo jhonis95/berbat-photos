@@ -36,7 +36,7 @@ const navegation=[
 <section x-data="navbarData" class="flex items-center justify-between w-[1074px] 2xl:w-[1600px] max-w-[1920px] mx-8 2xl:mx-20">
     <div class="flex gap-5">
         <a href="/">
-            <h2 class="text-4xl font-satisfy text-reddarker">Berbat Photos</h2>
+            <h2 class="text-3xl font-satisfy text-reddarker">Berbat Photos</h2>
         </a>
         <div 
             x-data={`{
@@ -71,7 +71,7 @@ const navegation=[
                         // <MenuDropdown index={index} Text={data.Text} MenuContent={data.subMemu}/>
                         <div x-data="dropdown" class="flex gap-2.5 relative">
                             <div class="flex flex-col">
-                                <p id="linkText" x-on:click="toggle()" class=" cursor-pointer font-lora italic text-lg 2xl:text-2xl text-brighter2 md:text-darker2">{data.Text}</p>
+                                <p id="linkText" x-on:click="toggle()" class=" cursor-pointer font-lora italic text-lg 2xl:text-2xl text-darker2">{data.Text}</p>
                                 <span id="linkPages" class=" h-1 bg-darker2"></span>
                             </div>
                             <button x-on:click="toggle()" class=" cursor-pointer">
