@@ -1,0 +1,108 @@
+---
+import arrowicon from '../../public/image/angle-vertical.svg'
+import Shopbag from "./shopbag.astro"
+
+const {pageData} = Astro.props 
+
+const navegation=[
+    {
+        Text:pageData.Data?.navigation_pages.gallery_page_text,
+        subMemu:[
+            {
+                buttonTitle:pageData.Data?.navigation_pages.dropdown_menu[0].gallery_name,
+                buttonLink:pageData.Data?.navigation_pages.dropdown_menu[0].link
+            },
+            {
+                buttonTitle:pageData.Data?.navigation_pages.dropdown_menu[1].gallery_name,
+                buttonLink:pageData.Data?.navigation_pages.dropdown_menu[1].link
+            }
+        ]
+    },
+    {
+        Text:pageData.Data?.navigation_pages.service_page_text,
+        Links:[
+            pageData.Data?.navigation_pages.service_page_link
+        ]
+    },
+    {
+        Text:pageData.Data?.navigation_pages.booking_page_text,
+        Links: [
+            pageData.Data?.navigation_pages.booking_page_link
+        ]
+    }
+]
+---
+
+<section x-data="navbarData" class="flex items-center justify-between w-[1074px] 2xl:w-[1600px] max-w-[1920px] mx-8 2xl:mx-20">
+    <div class="flex gap-5">
+        <a href="/">
+            <h2 class="text-4xl font-satisfy text-reddarker">Berbat Photos</h2>
+        </a>
+        <div 
+            x-data={`{
+                laguages:[${pageData.Data?.languages.map((lang:any,index:any)=>{return`{name:'${lang.name}',link:'${lang.link}',id:${index}}`})}],
+                selectedLang: '${pageData.Data?.selected_language}',
+                setLang(){
+
+                },
+                show:false,
+                open(){
+                    this.show=!this.show
+                }
+            }`}
+            class="relative place-content-center"
+            >
+            <div x-on:click="open" class=" flex items-center justify-center gap-1 px-1 bg-brighter1 rounded-sm">
+                <button x-text="selectedLang" class="text-base 2xl:text-lg cursor-pointer text-darker2">
+                </button>
+            </div>
+            <div x-cloak x-transition x-show="show" class=" absolute z-10 top-[42px] flex flex-col gap-3 bg-brighter1 justify-center items-center w-[100px] h-[100px]">
+                <template x-for="language in laguages" :key="language.id">
+                    <a class="font-lora text-lg text-darker2 rounded-sm" x-text="language.name" x-bind:href="language.link"></a>
+                </template>
+            </div>
+        </div>
+    </div>
+    <div class="flex justify-evenly gap-6">
+        {
+            navegation.map((data:any, index)=>{
+                return(
+                    index==0?
+                        // <MenuDropdown index={index} Text={data.Text} MenuContent={data.subMemu}/>
+                        <div x-data="dropdown" class="flex gap-2.5 relative">
+                            <div class="flex flex-col">
+                                <p id="linkText" x-on:click="toggle()" class=" cursor-pointer font-lora italic text-lg 2xl:text-2xl text-brighter2 md:text-darker2">{data.Text}</p>
+                                <span id="linkPages" class=" h-1 bg-darker2"></span>
+                            </div>
+                            <button x-on:click="toggle()" class=" cursor-pointer">
+                                <img id="arrow-icon" class="arrow-icon w-[13px] h-[13px]" src={arrowicon.src} alt="arrow-icon"/>
+                            </button>
+                            <div x-cloak x-show="open" x-transition class="absolute z-10 top-[42px] flex flex-col gap-3 bg-brighter1 justify-center items-center w-[105px] h-[76px] rounded-lg">
+                                {
+                                    data.subMemu.map((content : any, index:number)=>{
+                                        return(
+                                            <a 
+                                                id={`dropdown-content${index}`} 
+                                                x-on:mouseover="growText" 
+                                                x-on:mouseleave="shrinkText" 
+                                                href={content.buttonLink} 
+                                                class=" cursor-pointer font-lora text-base text-darker2"
+                                            >
+                                                {content.buttonTitle}
+                                            </a>
+                                        )
+                                    })
+                                }
+                            </div>
+                        </div>
+                        :
+                        <a href={data?.Links[0]} class="flex flex-col">
+                            <button id={`link${index}`} class=" cursor-pointer font-lora italic text-lg 2xl:text-2xl text-darker2">{data.Text}</button>
+                            <span id={`linkPages${index}`} class=" h-1 bg-darker2"></span>
+                        </a>
+                )
+            })
+        }
+        <Shopbag/>
+    </div>
+</section>

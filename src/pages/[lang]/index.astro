@@ -6,23 +6,26 @@ import Layout from '../../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
 
 export async function getStaticPaths(){
-    const homePageData = await getCollection("home_page");
-    const navBarData = await getCollection("navigation_bar");
-    const footerData = await getCollection("footer_bar");
+    const homePageEnData = await getCollection("home_page_en");
+    const homePageFrData = await getCollection("home_page_fr");
+    const navBarEnData = await getCollection("navigation_bar_en");
+    const navBarFrData = await getCollection("navigation_bar_fr");
+    const footerEnData = await getCollection("footer_bar_en");
+    const footerFrData = await getCollection("footer_bar_fr");
     return [
         {
             params: { lang: "en" },
             props: {
-                pageData:homePageData[0].data,
-                navBarData:navBarData[0].data,
-                footerData:footerData[0].data
+                pageData:homePageEnData[0].data,
+                navBarData:navBarEnData[0].data,
+                footerData:footerEnData[0].data
             }
         },{
             params: { lang: "fr" },
             props: {
-                pageData:homePageData[1].data,
-                navBarData:navBarData[1].data,
-                footerData:footerData[1].data
+                pageData:homePageFrData[0].data,
+                navBarData:navBarFrData[0].data,
+                footerData:footerFrData[0].data
             }
         }
     ]

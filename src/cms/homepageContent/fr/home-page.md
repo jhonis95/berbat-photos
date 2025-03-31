@@ -16,11 +16,11 @@ about_me_section:
         et les moments naturels.
     - text: Au plaisir de capturer vos moments spéciaux pour l’éternité!
   title: Bonjour, bienvenue dans mon monde de photographie!
-  button_link: /fr/booking
+  button_link: /fr/reservation
   button_text: me contacter
 services_section:
   - image: /src/cms/homepageContent/images/Rectangle 10.png
-    button_link: /fr/services
+    button_link: /fr/service
     button_text: en savoir plus
     headline: Individuel
     description: Nous capturons l'essence de chaque instant dans des photos uniques
@@ -30,7 +30,7 @@ services_section:
       détail avec créativité et sensibilité. Transformez vos instants en œuvres
       d'art !
   - image: /src/cms/homepageContent/images/Rectangle 10 (1).png
-    button_link: /fr/services
+    button_link: /fr/service
     button_text: en savoir plus
     description: Capturez l'amour et la complicité qui rendent votre histoire unique
       avec nos photos de couple et de famille. Chaque sourire, chaque regard,
@@ -40,7 +40,7 @@ services_section:
     headline: Couple et famille
   - image: /src/cms/homepageContent/images/Rectangle 11.png
     button_text: en savoir plus
-    button_link: /fr/services
+    button_link: /fr/service
     description: Nous immortalisons chaque détail de votre grand jour avec des
       photos de mariage pleines d'émotion et de sens. Des préparatifs au « oui
       », nous immortalisons les moments les plus précieux avec sensibilité et

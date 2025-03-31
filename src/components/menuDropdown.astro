@@ -1,10 +1,10 @@
 ---
 import arrowicon from '../../public/image/angle-vertical.svg'
-const {Text , MenuContent, index}=Astro.props
+const {Text , MenuContent}=Astro.props
 ---
 <div x-data="dropdown" class="flex gap-2.5 relative">
     <div class="flex flex-col">
-        <p id="linkText" x-on:mouseover="underlineOn" class="font-lora italic text-2xl text-darker2">{Text}</p>
+        <p id="linkText" x-on:click="toggle()" x-on:mouseover="underlineOn" class=" cursor-pointer font-lora italic text-lg 2xl:text-2xl text-brighter2 md:text-darker2">{Text}</p>
         <span id="linkPages" class=" h-1 bg-darker2"></span>
     </div>
     <button x-on:click="toggle()" class=" cursor-pointer">

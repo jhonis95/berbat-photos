@@ -1,0 +1,35 @@
+---
+import { Image } from "astro:assets"
+ const {Data}=Astro.props
+---
+
+<section x-data="footerData" class=" flex justify-evenly lg:justify-between items-center w-[1000px] mx-10 max-w-[1920px] font-lora">
+    <div class="flex flex-col items-center gap-2.5 lg:gap-[30px] h-[148px] lg:h-[200px]">
+        <h5 class="text-darker2 text-lg lg:text-2xl">{Data.social_media_section.section_title}</h5>
+        <div class=" flex gap-7">
+            {
+                Data.social_media_section.social_media.map((sm:any,index:number)=>{
+                    return(
+                        <Image id={`sm${index}`} x-on:mouseover="grow" x-on:mouseleave="shrink" class=" cursor-pointer w-[26px] h-[26px] lg:w-[43px] lg:h-[43px]" src={sm.image} alt={sm.name}/>
+                    )
+                })
+            }
+        </div>
+    </div>
+    <div class=" flex flex-col items-center gap-4 lg:gap-[30px]">
+        <h2 class="text-darker2 text-4xl font-satisfy">{Data.social_media_section.site_name}</h2>
+        <a id="instagamLink" x-on:mouseover="grow" x-on:mouseleave="shrink" class="text-darker2 text-lg italic" href={Data.social_media_section.social_media_link}>{Data.social_media_section.intagram_name}</a>
+    </div>
+    <div class=" flex flex-col items-center font-lora gap-4 lg:gap-6">
+        <h5 class="text-darker2 text-lg lg:text-2xl">{Data.social_media_section.navigation_title}</h5>
+        <div class="flex flex-col items-center gap-3 lg:gap-[30px]">
+            {
+                Data.social_media_section.navigation_pages.map((page:any,index:number)=>{
+                    return(
+                        <a id={`navpage${index}`} x-on:mouseover="grow" x-on:mouseleave="shrink" href={page.link} class="text-darker2 text-base lg:text-lg">{page.page}</a>
+                    )
+                })
+            }
+        </div>
+    </div>
+</section>

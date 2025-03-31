@@ -7,23 +7,26 @@ import { getCollection } from 'astro:content';
 
 
 export async function getStaticPaths(){
-    const bookingPageData = await getCollection("booking_page");
-    const navBarData = await getCollection("navigation_bar");
-    const footerData = await getCollection("footer_bar");
+    const bookingPageEnData = await getCollection("booking_page_en");
+    const bookingPageFrData = await getCollection("booking_page_fr");
+    const navBarEnData = await getCollection("navigation_bar_en");
+    const navBarFrData = await getCollection("navigation_bar_fr");
+    const footerEnData = await getCollection("footer_bar_en");
+    const footerFrData = await getCollection("footer_bar_fr");
     return [
         {
             params: { lang: "en", slugBooking:"booking"},
             props: {
-                pageData:bookingPageData[0].data,
-                navBarData:navBarData[0].data,
-                footerData:footerData[0].data
+                pageData:bookingPageEnData[0].data,
+                navBarData:navBarEnData[0].data,
+                footerData:footerEnData[0].data
             }
         },{
             params: { lang: "fr", slugBooking:"reservation" },
             props: {
-                pageData:bookingPageData[1].data,
-                navBarData:navBarData[1].data,
-                footerData:footerData[1].data
+                pageData:bookingPageFrData[0].data,
+                navBarData:navBarFrData[0].data,
+                footerData:footerFrData[0].data
             }
         }
     ]

@@ -5,43 +5,46 @@ import { getCollection } from 'astro:content';
 
 
 export async function getStaticPaths(){
-    const galeryPageData = await getCollection("gallery_page");
-    const navBarData = await getCollection("navigation_bar");
-    const footerData = await getCollection("footer_bar");
+    const galeryPageEnData = await getCollection("gallery_page_en");
+    const galeryPageFrData = await getCollection("gallery_page_fr");
+    const navBarEnData = await getCollection("navigation_bar_en");
+    const navBarFrData = await getCollection("navigation_bar_fr");
+    const footerEnData = await getCollection("footer_bar_en");
+    const footerFrData = await getCollection("footer_bar_fr");
     return [
         {
             params: { lang: "en", gallery:"gallery", slug:"my-work"},
             props: {
-                pageData:galeryPageData[1].data,
-                navBarData:navBarData[0].data,
-                footerData:footerData[0].data,
+                pageData:galeryPageEnData[1].data,
+                navBarData:navBarEnData[0].data,
+                footerData:footerEnData[0].data,
                 gallery:'mywork'
             }
         },
         {
             params: { lang: "en", gallery:"gallery", slug:"landscape"},
             props: {
-                pageData:galeryPageData[0].data,
-                navBarData:navBarData[0].data,
-                footerData:footerData[0].data,
+                pageData:galeryPageEnData[0].data,
+                navBarData:navBarEnData[0].data,
+                footerData:footerEnData[0].data,
                 gallery:'landscape'
             }
         },
         {
             params: { lang: "fr", gallery:"galerie", slug:"mon-travail" },
             props: {
-                pageData:galeryPageData[3].data,
-                navBarData:navBarData[1].data,
-                footerData:footerData[1].data,
+                pageData:galeryPageFrData[1].data,
+                navBarData:navBarFrData[0].data,
+                footerData:footerFrData[0].data,
                 gallery:'mywork'
             }
         },
         {
             params: { lang: "fr", gallery:"galerie", slug:"paysage" },
             props: {
-                pageData:galeryPageData[2].data,
-                navBarData:navBarData[1].data,
-                footerData:footerData[1].data,
+                pageData:galeryPageFrData[0].data,
+                navBarData:navBarFrData[0].data,
+                footerData:footerFrData[0].data,
                 gallery:'landscape'
             }
         }

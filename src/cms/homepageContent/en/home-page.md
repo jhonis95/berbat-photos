@@ -25,11 +25,11 @@ services_section:
       renew your portfolio or simply record your best version, our clickers
       value every detail with creativity and sensitivity. Turn moments into art!
     button_text: find out more
-    button_link: /en/services
+    button_link: /en/service
   - image: /src/cms/homepageContent/images/Rectangle 10 (1).png
     headline: Couple and Family
     button_text: find out more
-    button_link: /en/services
+    button_link: /en/service
     description: Capture the love and connection that makes your story unique with
       our couples and family photos. Every smile, look and hug is sensitively
       captured, creating timeless memories that reflect the most special bonds
@@ -41,7 +41,7 @@ services_section:
       the most special moments with sensitivity and art, creating memories that
       will tell your love story forever.
     button_text: find out more
-    button_link: /en/services
+    button_link: /en/service
 booking_section:
   button_link: /
   label_placeholder: Services selected

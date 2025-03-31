@@ -1,38 +1,21 @@
 ---
 import { Image } from "astro:assets"
+import FooterDesktop from "./footerDesktop.astro"
+import FooterMobile from "./footerMobile.astro"
 
 const {Data}= Astro.props
 
 ---
-<footer class=" flex bg-brighter1 w-full h-[312px] mt-10 justify-center">
-    <section x-data="footerData" class=" flex justify-evenly items-center gap-80 max-w-[1920px] font-lora">
-        <div class="flex flex-col items-center justify-baseline gap-[30px] h-[200px]">
-            <h5 class="text-darker2 text-2xl">{Data.social_media_section.section_title}</h5>
-            <div class=" flex gap-7">
-                {
-                    Data.social_media_section.social_media.map((sm:any,index:number)=>{
-                        return(
-                            <Image id={`sm${index}`} x-on:mouseover="grow" x-on:mouseleave="shrink" class=" cursor-pointer w-[43px] h-[43px]" src={sm.image} alt={sm.name}/>
-                        )
-                    })
-                }
-            </div>
-        </div>
-        <div class=" flex flex-col items-center gap-[30px]">
-            <h2 class="text-darker2 text-4xl font-satisfy">{Data.social_media_section.site_name}</h2>
-            <a id="instagamLink" x-on:mouseover="grow" x-on:mouseleave="shrink" class="text-darker2 text-lg italic" href={Data.social_media_section.social_media_link}>{Data.social_media_section.intagram_name}</a>
-        </div>
-        <div class=" flex flex-col items-center font-lora gap-6">
-            <h5 class="text-darker2 text-2xl">{Data.social_media_section.navigation_title}</h5>
-            <div class="flex flex-col items-center gap-[30px]">
-                {
-                    Data.social_media_section.navigation_pages.map((page:any,index:number)=>{
-                        return(
-                            <a id={`navpage${index}`} x-on:mouseover="grow" x-on:mouseleave="shrink" href={page.link} class="text-darker2 text-lg">{page.page}</a>
-                        )
-                    })
-                }
-            </div>
-        </div>
-    </section>
+<footer 
+    class=" flex bg-brighter1 w-full h-fit md:h-[168px] lg:h-[293px] mt-10 justify-center"
+    x-data
+    x-init="$store.display.setDisplay()"
+    @resize.window.debounce="$store.display.setDisplay()"
+>
+    <template x-data x-if="$store.display.screen=='desktop'||$store.display.screen=='tablet'">
+        <FooterDesktop Data={Data}/>
+    </template>
+    <template x-data x-if="$store.display.screen=='mobile'">
+        <FooterMobile Data={Data}/>
+    </template>
 </footer>

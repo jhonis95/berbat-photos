@@ -23,7 +23,7 @@ const {NavBarData ,FootData}= Astro.props
 	</head>
 	<body class="bg-brighter2">
 		<Navbar Data={NavBarData}/>
-		<slot />
+		<!-- <slot /> -->
 		<Footer Data={FootData}/>
 	</body>
 </html>
@@ -42,6 +42,14 @@ const {NavBarData ,FootData}= Astro.props
 	document.addEventListener('alpine:init', () => {
 	    Alpine.data('navbarData', () => {
 	        return {
+				mobile:false,
+        		setMobile(){
+        		    if(document.documentElement.clientWidth<1024){
+        		        return this.mobile=true
+        		    }else{
+        		        return this.mobile=false
+        		    }
+        		},
 	            growText(element:any){
 	                animate(`#${element.target.id}`,{ scale:1.2})
 	            },
@@ -159,6 +167,32 @@ const {NavBarData ,FootData}= Astro.props
 					});
 				}
 			}
+		});
+		Alpine.data('burgerMenu',()=>{
+			return{
+				open:false,
+				toggle() {
+	      			this.open = !this.open;
+	    		},
+			}
 		})
+		Alpine.store('display',{
+			init(this:{setDisplay:Function}) {
+				this.setDisplay()
+			},
+			screen:"desktop",
+			setDisplay(this: { screen: string}){
+				if(document.documentElement.clientWidth>1024){
+                	return this.screen="desktop"
+            	}
+				if(document.documentElement.clientWidth<1024&&document.documentElement.clientWidth>744){
+					return this.screen="tablet"
+				}
+				if(document.documentElement.clientWidth<744){
+					return this.screen="mobile"
+				}
+			},
+		})
+		
 	});
 </script>
