@@ -43,8 +43,6 @@ const content={
         {image:""},
         {image:""},
         {image:""},
-        {image:""},
-        {image:""},
     ]
 }
 ---
@@ -108,27 +106,28 @@ const content={
                 }
             </div>
         </section>
-        <!-- <Bookingcard Id="bookingSection" Content={pageData.booking_section}/> -->
-        <!-- <section id="followMeSection" class=" section flex flex-col gap-14">
-            <div class="followMeSectionContent flex flex-col gap-5 items-center font-lora">
-                <h4 class="text-darker2 text-3xl">{pageData.follow_me_section.title}</h4>
-                <a class="text-darker2 text-lg italic" href={pageData.follow_me_section.social_media_link}>{pageData.follow_me_section.social_media_name}</a>
+        <Bookingcard Id="bookingSection" Content={pageData.booking_section}/>
+        <section id="followMeSection" class=" section flex flex-col gap-3.5 lg:gap-8">
+            <div class="followMeSectionContent flex flex-col gap-3.5 lg:gap-8 items-center font-lora">
+                <h4 class="text-darker2 text-2xl lg:text-3xl">{pageData.follow_me_section.title}</h4>
+                <a class="text-darker2 text-base lg:text-lg italic" href={pageData.follow_me_section.social_media_link}>{pageData.follow_me_section.social_media_name}</a>
             </div>
-            <div class="followMeSectionContent flex flex-wrap gap-5 w-[1432px]">
+            <div class="followMeSectionContent flex flex-wrap justify-center items-center gap-3 w-[97dvw] md:w-[90dvw] max-w-[1432px] 2xl:max-w-[1709px]">
                 {
                     content.cards.map(()=>{
                         return(
-                            <img class="w-[222px] h-[306px]" src="" alt=""/>
+                            <img class="w-[15dvw] h-[19dvw]  max-w-[295px] max-h-[374px]" src="" alt=""/>
                         )
                     })
                 }
             </div>
-        </section> -->
+        </section>
     </main>
 </Layout>
-<script>
+<script is:inline type="module">
+    import { animate, inView, stagger } from "../../../node_modules/motion"
     const cards=document.getElementsByClassName('serviceCards')
-    let resizeTimeout:any;
+    let resizeTimeout;
     function serviceCardsChangeOrdern(){
         if(document.documentElement.clientWidth<1024){
             for(let i = 0; i < cards.length; i++){
@@ -145,30 +144,34 @@ const content={
             }
         }
     }
-    serviceCardsChangeOrdern()
     window.addEventListener("resize", () => {
         clearTimeout(resizeTimeout);
         resizeTimeout = setTimeout(serviceCardsChangeOrdern, 200); // Executes after 200ms
     });
-
-    import { animate, inView, stagger } from "motion"
-    inView("#heroSection",()=>{
-        animate(".heroSectionText",{opacity:[0, 1], y:[100,0]},{ delay: stagger(0.1,{ startDelay: 0.2 }),duration:0.5})
-    })
-    inView("#aboutMeSection",(element)=>{
-        animate(element,{opacity:[0, 1], y:[100,0]},{ delay:0.4, duration:0.5})
-    })
-    inView("#serviceSection",()=>{
-        if(document.documentElement.clientWidth<768){
-            animate(".serviceCards",{opacity:[0, 1], y:[100,0]},{ delay: stagger(0.3,{ startDelay: 0.6 }),duration:0.5})
-        }else{
-            animate(".serviceCards",{x:[100,0],opacity:[0,1]},{delay: stagger(0.3,{ startDelay: 0.6 }),duration:0.5})
-        }
-    })
-    inView("#bookingSection",(element)=>{
-        animate(element,{opacity:[0, 1], y:[100,0]},{ delay:0.7, duration:0.5})
-    })
-    inView("#followMeSection",()=>{
-        animate(".followMeSectionContent",{opacity:[0, 1], y:[100,0]},{ delay: stagger(0.3,{ startDelay: 0.4 }), duration:0.5})
-    })
+    window.onload = () => {
+        serviceCardsChangeOrdern()
+    };
+    document.addEventListener("astro:after-swap", () => {
+        serviceCardsChangeOrdern()
+      // Reinitialize any scripts here
+        inView("#heroSection",()=>{
+            animate(".heroSectionText",{opacity:[0, 1], y:[100,0]},{ delay: stagger(0.1,{ startDelay: 0.2 }),duration:0.5})
+        })
+        inView("#aboutMeSection",(element)=>{
+            animate(element,{opacity:[0, 1], y:[100,0]},{ delay:0.4, duration:0.5})
+        })
+        inView("#serviceSection",()=>{
+            if(document.documentElement.clientWidth<768){
+                animate(".serviceCards",{opacity:[0, 1], y:[100,0]},{ delay: stagger(0.3,{ startDelay: 0.6 }),duration:0.5})
+            }else{
+                animate(".serviceCards",{x:[100,0],opacity:[0,1]},{delay: stagger(0.3,{ startDelay: 0.6 }),duration:0.5})
+            }
+        })
+        inView("#bookingSection",(element)=>{
+            animate(element,{opacity:[0, 1], y:[100,0]},{ delay:0.7, duration:0.5})
+        })
+        inView("#followMeSection",()=>{
+            animate(".followMeSectionContent",{opacity:[0, 1], y:[100,0]},{ delay: stagger(0.3,{ startDelay: 0.4 }), duration:0.5})
+        })
+    });
 </script>
