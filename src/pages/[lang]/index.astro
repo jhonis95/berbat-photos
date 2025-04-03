@@ -83,13 +83,13 @@ const content={
             </div>
         </section>
         <section id="serviceSection" class=" section flex flex-col ">
-            <div class="flex flex-col lg:flex-row gap-11 lg:gap-5">
+            <div class="flex flex-col lg:flex-row gap-11 justify-center items-center lg:gap-5">
                 {
                     pageData.services_section.map((service_card)=>{
                         return(
-                            <div class=" serviceCards flex flex-col md:flex-row lg:flex-col justify-between h-fit gap-3.5 md:gap-5 w-fit lg:w-[327px] 2xl:w-[463px] font-lora">
-                                <Image class="w-auto h-auto max-w-[321px] max-h-[316px] lg:max-w-[463px] lg:max-h-[376px] rounded-md object-cover" src={service_card.image} alt={'card-Image'}/>
-                                <div class="flex flex-col gap-3.5 lg:gap-8 w-[321px] lg:w-full">
+                            <div class=" serviceCards mx-4 md:mx-0 flex flex-col md:flex-row lg:flex-col justify-between h-fit gap-3.5 md:gap-5 w-fit lg:w-[327px] 2xl:w-[463px] font-lora">
+                                <Image class="w-full h-auto min-w-[286px] min-h-[267px] max-w-[509px] max-h-[320px] md:max-w-[321px] md:max-h-[316px] lg:max-w-[463px] lg:max-h-[376px] rounded-md object-cover" src={service_card.image} alt={'card-Image'}/>
+                                <div class="flex flex-col gap-3.5 lg:gap-8 max-w-[509px] md:w-[321px] lg:w-full">
                                     <div class="w-full flex flex-col h-fit md:h-[244px] 2xl:h-[174px] gap-3.5 lg:gap-6">
                                         <h4 class="text-reddarker text-2xl sm:text-3xl font-medium italic">{service_card.headline}</h4>
                                         <p class="text-darker2 text-justify text-sm sm:text-base">{service_card.description}</p>
@@ -116,7 +116,7 @@ const content={
                 {
                     content.cards.map(()=>{
                         return(
-                            <img class="w-[15dvw] h-[19dvw]  max-w-[295px] max-h-[374px]" src="" alt=""/>
+                            <img class="w-[15dvw] h-[19dvw]  max-w-[295px] max-h-[374px] object-cover" src="" alt=""/>
                         )
                     })
                 }
@@ -132,14 +132,14 @@ const content={
         if(document.documentElement.clientWidth<1024){
             for(let i = 0; i < cards.length; i++){
                 if(i%2==1){
-                    cards[i].className=" serviceCards flex flex-col md:flex-row-reverse lg:flex-col justify-between h-fit gap-3.5 md:gap-5 w-fit lg:w-[327px] 2xl:w-[463px] font-lora"
+                    cards[i].className=" serviceCards mx-4 md:mx-0  flex flex-col md:flex-row-reverse lg:flex-col justify-between h-fit gap-3.5 md:gap-5 w-fit lg:w-[327px] 2xl:w-[463px] font-lora"
                 }
             }
         }
         if(document.documentElement.clientWidth>1024){
             for(let i = 0; i < cards.length; i++){
                 if(i%2==0){
-                    cards[i].className=" serviceCards flex flex-col md:flex-row lg:flex-col justify-between h-fit gap-3.5 md:gap-5 w-fit lg:w-[327px] 2xl:w-[463px] font-lora"
+                    cards[i].className=" serviceCards mx-4 md:mx-0  flex flex-col md:flex-row lg:flex-col justify-between h-fit gap-3.5 md:gap-5 w-fit lg:w-[327px] 2xl:w-[463px] font-lora"
                 }
             }
         }
