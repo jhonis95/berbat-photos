@@ -32,25 +32,25 @@ export async function getStaticPaths(){
 const { pageData,navBarData,footerData } = Astro.props;
 ---
 <Layout NavBarData={navBarData} FootData={footerData}>
-    <Herosection
-        title={pageData.header.title} 
-        subtitle={pageData.header.subtitle}
-        image={pageData.header.image}
-    />
-    <main class=" flex flex-col mt-[90px] gap-[90px] items-center">
+    <main class=" flex flex-col gap-12 lg:gap-[90px] items-center">
+        <Herosection
+            title={pageData.header.title} 
+            subtitle={pageData.header.subtitle}
+            image={pageData.header.image}
+        />
         <section class=" w-full flex justify-center items-center">
-            <div class="w-full flex gap-24 h-[741px] bg-brighter1 justify-center items-center">
-                <div class="flex flex-col gap-7 max-w-[470px] font-lora">
-                    <h3 class="text-darker2 text-5xl italic">{pageData.review_card.title}</h3>
+            <div class="flex flex-col md:flex-row gap-9 xl:gap-24 w-full h-fit bg-brighter1 justify-center items-center py-10">
+                <div class="flex flex-col gap-4 md:gap-7 max-w-[450px] md:max-w-[336px] xl:max-w-[470px] font-lora mx-3 md:mx-0">
+                    <h3 class="text-reddarker text-center md:text-start text-3xl xl:text-5xl italic">{pageData.review_card.title}</h3>
                     {
                         pageData.review_card.description.map((content)=>{
                             return(
-                                <p class=" text-darker2 text-base text-justify">{content.text}</p>
+                                <p class=" text-darker2 text-sm xl:text-base text-justify">{content.text}</p>
                             )
                         })
                     }
                 </div>
-                <div class="text-darker2 flex flex-col gap-8 font-lora italic text-base w-[695px]">
+                <div class="flex flex-col gap-5 xl:gap-8 font-lora italic text-base w-[95dvw] max-w-[450px] md:w-[284px] xl:w-[695px]">
                     <div>
                         <label class="text-darker2 text-base " for="">{pageData.review_card.label_name}</label>
                         <div class="bg-brighter2 w-full h-[46px] rounded-sm flex justify-center items-center">

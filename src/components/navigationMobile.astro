@@ -55,7 +55,7 @@ const navegation=[
                 <button x-text="selectedLang" class="text-base 2xl:text-lg cursor-pointer text-darker2">
                 </button>
             </div>
-            <div x-cloak x-transition x-show="show" class=" absolute z-10 top-[42px] flex flex-col gap-3 bg-brighter1 justify-center items-center w-[100px] h-[100px]">
+            <div x-cloak x-transition x-show="show" class=" absolute z-50 top-[42px] flex flex-col gap-3 bg-brighter1 justify-center items-center w-[100px] h-[100px]">
                 <template x-for="language in laguages" :key="language.id">
                     <a class="font-lora text-lg text-darker2 rounded-sm" x-text="language.name" x-bind:href="language.link"></a>
                 </template>

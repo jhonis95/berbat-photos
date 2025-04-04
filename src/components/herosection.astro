@@ -5,9 +5,9 @@ const { title, subtitle, image } = Astro.props;
 ---
 
 <section class=" relative flex flex-col justify-center items-center">
-    <Image class="w-[1677px] h-[745px] rounded-xl" src={image} alt="thumnail"/>
+    <Image class=" w-full lg:w-[90dvw] h-[405px] sm:h-[48dvw] max-w-[1677px] max-h-[745px] lg:rounded-xl object-cover" src={image} alt="thumnail"/>
     <div class=" text-brighter2 absolute flex flex-col justify-center items-center gap-4 font-lora italic">
-        <h3 class="text-[46px]">{title}</h3>
-        <p class="text-3xl">{subtitle}</p>
+        <h3 class="text-brighter2 heroSectionText text-center text-2xl sm:text-4xl xl:text-[46px]">{title}</h3>
+        <p class="text-brighter2 heroSectionText text-center text-lg sm:text-2xl xl:text-3xl max-w-[729px]">{subtitle}</p>
     </div>
 </section>
