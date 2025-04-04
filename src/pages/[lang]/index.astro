@@ -85,9 +85,22 @@ const content={
         <section id="serviceSection" class=" section flex flex-col ">
             <div class="flex flex-col lg:flex-row gap-11 justify-center items-center lg:gap-5">
                 {
-                    pageData.services_section.map((service_card)=>{
+                    pageData.services_section.map((service_card, index)=>{
                         return(
-                            <div class=" serviceCards mx-4 md:mx-0 flex flex-col md:flex-row lg:flex-col justify-between h-fit gap-3.5 md:gap-5 w-fit lg:w-[327px] 2xl:w-[463px] font-lora">
+                            index%2==1?<div class=" serviceCards mx-4 md:mx-0 flex flex-col md:flex-row-reverse lg:flex-col justify-between h-fit gap-3.5 md:gap-5 w-fit lg:w-[327px] 2xl:w-[463px] font-lora">
+                                <Image class="w-full h-auto min-w-[286px] min-h-[267px] max-w-[509px] max-h-[320px] md:max-w-[321px] md:max-h-[316px] lg:max-w-[463px] lg:max-h-[376px] rounded-md object-cover" src={service_card.image} alt={'card-Image'}/>
+                                <div class="flex flex-col gap-3.5 lg:gap-8 max-w-[509px] md:w-[321px] lg:w-full">
+                                    <div class="w-full flex flex-col h-fit md:h-[244px] 2xl:h-[174px] gap-3.5 lg:gap-6">
+                                        <h4 class="text-reddarker text-2xl sm:text-3xl font-medium italic">{service_card.headline}</h4>
+                                        <p class="text-darker2 text-justify text-sm sm:text-base">{service_card.description}</p>
+                                    </div>
+                                    <div class="font-lora w-full flex justify-center">
+                                        <a class="bg-brighter1 flex justify-center items-center rounded-lg w-[295px] h-[46px]" href={service_card.button_link}>
+                                            <button class="cursor-pointer text-darker2 text-2xl sm:text-3xl xl:text-4xl">{service_card.button_text}</button>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>:<div class=" serviceCards mx-4 md:mx-0 flex flex-col md:flex-row lg:flex-col justify-between h-fit gap-3.5 md:gap-5 w-fit lg:w-[327px] 2xl:w-[463px] font-lora">
                                 <Image class="w-full h-auto min-w-[286px] min-h-[267px] max-w-[509px] max-h-[320px] md:max-w-[321px] md:max-h-[316px] lg:max-w-[463px] lg:max-h-[376px] rounded-md object-cover" src={service_card.image} alt={'card-Image'}/>
                                 <div class="flex flex-col gap-3.5 lg:gap-8 max-w-[509px] md:w-[321px] lg:w-full">
                                     <div class="w-full flex flex-col h-fit md:h-[244px] 2xl:h-[174px] gap-3.5 lg:gap-6">
@@ -126,34 +139,10 @@ const content={
 </Layout>
 <script>
     import { animate, inView, stagger } from "../../../node_modules/motion"
-    const cards=document.getElementsByClassName('serviceCards')
-    let resizeTimeout:any;
-    function serviceCardsChangeOrdern(){
-        if(document.documentElement.clientWidth<1024){
-            for(let i = 0; i < cards.length; i++){
-                if(i%2==1){
-                    cards[i].className=" serviceCards mx-4 md:mx-0  flex flex-col md:flex-row-reverse lg:flex-col justify-between h-fit gap-3.5 md:gap-5 w-fit lg:w-[327px] 2xl:w-[463px] font-lora"
-                }
-            }
-        }
-        if(document.documentElement.clientWidth>1024){
-            for(let i = 0; i < cards.length; i++){
-                if(i%2==0){
-                    cards[i].className=" serviceCards mx-4 md:mx-0  flex flex-col md:flex-row lg:flex-col justify-between h-fit gap-3.5 md:gap-5 w-fit lg:w-[327px] 2xl:w-[463px] font-lora"
-                }
-            }
-        }
-    }
-    window.addEventListener("resize", () => {
-        clearTimeout(resizeTimeout);
-        resizeTimeout = setTimeout(serviceCardsChangeOrdern, 200); // Executes after 200ms
-    });
     window.onload = () => {
-        serviceCardsChangeOrdern()
+        pageAnimation()
     };
     document.addEventListener("astro:after-swap", () => {
-        serviceCardsChangeOrdern()
-      // Reinitialize any scripts here
         pageAnimation()
     });
     function pageAnimation(){
@@ -177,5 +166,4 @@ const content={
             animate(".followMeSectionContent",{opacity:[0, 1], y:[100,0]},{ delay: stagger(0.3,{ startDelay: 0.4 }), duration:0.5})
         })
     }
-    pageAnimation()
 </script>
