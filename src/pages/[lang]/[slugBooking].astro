@@ -34,26 +34,28 @@ export async function getStaticPaths(){
 const { pageData,navBarData,footerData } = Astro.props;
 ---
 <Layout NavBarData={navBarData} FootData={footerData}>
-    <Herosection 
-        title={pageData.header.title}
-        subtitle={pageData.header.subtitle}
-        image={pageData.header.image}
-    />
-    <main class=" flex flex-col mt-[90px] gap-[90px] items-center">
+    <main class=" flex flex-col gap-12 xl:gap-[90px] items-center">
+        <Herosection 
+            title={pageData.header.title}
+            subtitle={pageData.header.subtitle}
+            image={pageData.header.image}
+        />
         <Bookingcard Id="bookingSection" Content={pageData.booking_section}/>
-        <h3 class="text-darker2 w-[617px] text-center font-lora italic text-5xl">{pageData.testimonials_section.title}</h3>
-        <section class="flex gap-14">
-            {
-                pageData.testimonials_section.testimonials.map((testimonial)=>{
-                    return(
-                        <TestimonialsCard
-                            title={testimonial.review_name} 
-                            subtitle={testimonial.quote}
-                            content={testimonial.description}
-                        />
-                    )
-                })
-            }
-        </section>
+        <div class=" flex flex-col gap-8 sm:gap-10 xl:gap-[70px]">
+            <h3 class="text-darker2 w-full text-center font-lora italic text-3xl xl:text-5xl">{pageData.testimonials_section.title}</h3>
+            <section class="flex flex-wrap justify-center items-center gap-3.5 sm:gap-7 xl:gap-14">
+                {
+                    pageData.testimonials_section.testimonials.map((testimonial)=>{
+                        return(
+                            <TestimonialsCard
+                                title={testimonial.review_name} 
+                                subtitle={testimonial.quote}
+                                content={testimonial.description}
+                            />
+                        )
+                    })
+                }
+            </section>
+        </div>
     </main>
 </Layout>

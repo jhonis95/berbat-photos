@@ -3,7 +3,8 @@ import MenuDropdown from "./menuDropdown.astro";
 import Shopbag from "./shopbag.astro"
 import { Image } from 'astro:assets';
 
-const {pageData} = Astro.props 
+const {pageData} = Astro.props
+const {lang}= Astro.params
 
 const navegation=[
     {
@@ -69,7 +70,7 @@ const navegation=[
         </div>
     </div>
     <div class="flex flex-col items-center gap-3">
-        <a href="/">
+        <a href={`/${lang}`}>
             <h2 class="text-4xl font-satisfy text-reddarker">Berbat Photos</h2>
         </a>
         <div class="flex justify-evenly gap-20">

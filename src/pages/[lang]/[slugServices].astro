@@ -34,27 +34,44 @@ const { pageData,navBarData,footerData } = Astro.props;
 
 ---
 <Layout NavBarData={navBarData} FootData={footerData}>
-    <Herosection
-        title={pageData.header.title} 
-        subtitle={pageData.header.subtitle}
-        image={pageData.header.image}
-    />
-    <main class=" flex flex-col mt-[90px] gap-[90px] items-center">
+    <main 
+        class=" flex flex-col mt-[90px] gap-[90px] items-center"
+        x-data
+        x-init="$store.display.setDisplay()"
+        @resize.window.debounce="$store.display.setDisplay()"
+    >
+        <Herosection
+            title={pageData.header.title} 
+            subtitle={pageData.header.subtitle}
+            image={pageData.header.image}
+        />
         <h3 class="text-darker2 w-[617px] text-center font-lora italic text-5xl">{pageData.services_section.title}</h3>
-        {
-            pageData.services_section.services_cards.map((card, index)=>{
-                return(
-                    <PriceCards
-                        title={card.title} 
-                        paragraphs={card.content} 
-                        image={card.image}
-                        buttonCloseText={card.button_text_close}
-                        buttonOpenText={card.button_text_open}
-                        index={index}
-                        services={card.services}
-                    />
-                )
-            })
-        }
+        <template x-data x-if="$store.display.screen=='desktop'">
+            {
+                pageData.services_section.services_cards.map((card, index)=>{
+                    return(
+                        <PriceCards
+                            title={card.title} 
+                            paragraphs={card.content} 
+                            image={card.image}
+                            buttonCloseText={card.button_text_close}
+                            buttonOpenText={card.button_text_open}
+                            index={index}
+                            services={card.services}
+                        />
+                    )
+                })
+            }
+        </template>
+        <template x-data x-if="$store.display.screen=='tablet'">
+            {
+
+            }
+        </template>
+        <template x-data x-if="$store.display.screen=='mobile'">
+            {
+
+            }
+        </template>
     </main>
 </Layout>
