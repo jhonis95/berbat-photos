@@ -1,8 +1,6 @@
 ---
 import Herosection from "../../components/herosection.astro";
 
-import PriceCards from "../../components/priceCards.astro";
-
 import ServiceCardsDesktop from "../../components/serviceCardsDesktop.astro";
 import ServiceCardsMobile from "../../components/serviceCardsMobile.astro";
 import ServiceCardsTablet from "../../components/serviceCardsTablet.astro";
@@ -50,27 +48,12 @@ const { pageData,navBarData,footerData } = Astro.props;
             subtitle={pageData.header.subtitle}
             image={pageData.header.image}
         />
-        <h3 class="text-darker2 w-full max-w-[617px] text-center font-lora italic text-5xl">{pageData.services_section.title}</h3>
+        <h3 class="text-darker2 w-full max-w-[617px] text-center font-lora italic text-3xl sm:text-4xl lg:text-5xl">{pageData.services_section.title}</h3>
         <template x-data x-if="$store.display.serviceCardsDisplay=='desktop'">
             <ServiceCardsDesktop cardData={pageData.services_section.services_cards}/>
         </template>
         <template x-data x-if="$store.display.serviceCardsDisplay=='tablet'">
             <ServiceCardsTablet cardData={pageData.services_section.services_cards}/>
-            <!-- {
-                pageData.services_section.services_cards.map((card, index)=>{
-                    return(
-                        <PriceCards
-                            title={card.title} 
-                            paragraphs={card.content} 
-                            image={card.image}
-                            buttonCloseText={card.button_text_close}
-                            buttonOpenText={card.button_text_open}
-                            index={index}
-                            services={card.services}
-                        />
-                    )
-                })
-            } -->
         </template>
         <template x-data x-if="$store.display.serviceCardsDisplay=='mobile'">
             <ServiceCardsMobile cardData={pageData.services_section.services_cards}/>
