@@ -1,0 +1,78 @@
+---
+import { Image } from "astro:assets"
+import arrowicon from '../../public/image/angle-horizon.svg'
+
+const {cardData} = Astro.props
+---
+<div class="w-fit h-fit flex flex-col gap-12 lg:gap-[90px]">
+    {
+        cardData.map((data:any,index:any)=>{
+            return(
+                <div x-data="priceCards" class="flex flex-col justify-center items-center gap-7 mx-2.5">
+                    <Image id={`cardPriceMainImage${index}`} class="w-full h-full max-w-[761px] max-h-[622px] object-cover transition-discrete duration-700 ease-in-out" src={data.image} alt=""/>
+                    <div class=" flex flex-col font-lora max-w-[761px] gap-[30px]">
+                        <h4 class="text-reddarker text-3xl italic font-medium">{data.title}</h4>
+                        {
+                            data.content.map((paragraph:any)=>{
+                                return(
+                                    <p class="text-darker2 text-lg">{paragraph.text}</p>
+                                )
+                            })
+                        }
+                        <div class=" flex w-full justify-around items-center text-darker2 text-lg italic">
+                            <div 
+                                id={index} 
+                                x-on:click={`toggleShowDetailsTablet`} 
+                                class="cursor-pointer rounded-md flex justify-evenly items-center w-[223px] px-10 py-2.5 bg-brighter1"
+                            >
+                                <button x-text={`showDetails?'${data.button_text_open}':'${data.button_text_close}'`}>
+                                </button>
+                                <Image id={`showBtn${index}`} class="h-[21] rotate-90" src={arrowicon} alt="arrow-icon"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div 
+                        x-transition
+                        x-cloak 
+                        x-show="showDetails"
+                        x-on:wheel="scrollContainer"
+                        class="w-fit max-w-[680px] h-fit flex gap-8 overflow-scroll overflow-y-hidden scroll-smooth"
+                    >
+                            {
+                                data.services.map((data:any)=>{
+                                    return(
+                                        <div class="flex flex-col py-2 gap-1">
+                                            <h3 class="font-lora text-lg text-darker2">{data.title}</h3>
+                                            <div class="flex gap-2">
+                                                {
+                                                    data.cards.map((card:any)=>{
+                                                        return(
+                                                            <div class=" w-fit h-fit rounded-sm bg-brighter1 text-darker2 flex flex-col gap-1 p-2 justify-center items-center">
+                                                                <img class="w-[318px] h-[150px] bg-brighter2 object-cover" src={card?.image} alt="service-Image"/>
+                                                                <div class="flex gap-2.5 justify-between items-start w-full max-w-[318px]">
+                                                                    <div class="flex flex-col gap-1 text-justify font-lora w-fit">
+                                                                        <h4 class="text-lg">{card.title}</h4>
+                                                                        <p class="text-sm h-[40px]">{card.content}</p>
+                                                                    </div>
+                                                                    <p>{`${card.price}`}</p>
+                                                                </div>
+                                                                <div class="w-full flex justify-center font-lora text-lg italic">
+                                                                    <button class="bg-brighter2 text-darker2 w-auto h-[36] px-10 py-1.5 rounded-md cursor-pointer">
+                                                                        {data.price_card_button}
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        )
+                                                    })
+                                                }
+                                            </div>
+                                        </div>
+                                    )
+                                })
+                            }
+                    </div>
+                </div>
+            )
+        })
+    }
+</div>

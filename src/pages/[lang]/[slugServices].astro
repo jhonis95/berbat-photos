@@ -1,6 +1,11 @@
 ---
 import Herosection from "../../components/herosection.astro";
+
 import PriceCards from "../../components/priceCards.astro";
+
+import ServiceCardsDesktop from "../../components/serviceCardsDesktop.astro";
+import ServiceCardsMobile from "../../components/serviceCardsMobile.astro";
+import ServiceCardsTablet from "../../components/serviceCardsTablet.astro";
 import Layout from "../../layouts/Layout.astro";
 
 import { getCollection } from 'astro:content';
@@ -35,19 +40,23 @@ const { pageData,navBarData,footerData } = Astro.props;
 ---
 <Layout NavBarData={navBarData} FootData={footerData}>
     <main 
-        class=" flex flex-col mt-[90px] gap-[90px] items-center"
+        class=" flex flex-col gap-12 lg:gap-[90px] items-center"
         x-data
-        x-init="$store.display.setDisplay()"
-        @resize.window.debounce="$store.display.setDisplay()"
+        x-init="$store.display.setCardsDisplay()"
+        @resize.window.debounce="$store.display.setCardsDisplay()"
     >
         <Herosection
             title={pageData.header.title} 
             subtitle={pageData.header.subtitle}
             image={pageData.header.image}
         />
-        <h3 class="text-darker2 w-[617px] text-center font-lora italic text-5xl">{pageData.services_section.title}</h3>
-        <template x-data x-if="$store.display.screen=='desktop'">
-            {
+        <h3 class="text-darker2 w-full max-w-[617px] text-center font-lora italic text-5xl">{pageData.services_section.title}</h3>
+        <template x-data x-if="$store.display.serviceCardsDisplay=='desktop'">
+            <ServiceCardsDesktop cardData={pageData.services_section.services_cards}/>
+        </template>
+        <template x-data x-if="$store.display.serviceCardsDisplay=='tablet'">
+            <ServiceCardsTablet cardData={pageData.services_section.services_cards}/>
+            <!-- {
                 pageData.services_section.services_cards.map((card, index)=>{
                     return(
                         <PriceCards
@@ -61,17 +70,10 @@ const { pageData,navBarData,footerData } = Astro.props;
                         />
                     )
                 })
-            }
+            } -->
         </template>
-        <template x-data x-if="$store.display.screen=='tablet'">
-            {
-
-            }
-        </template>
-        <template x-data x-if="$store.display.screen=='mobile'">
-            {
-
-            }
+        <template x-data x-if="$store.display.serviceCardsDisplay=='mobile'">
+            <ServiceCardsMobile cardData={pageData.services_section.services_cards}/>
         </template>
     </main>
 </Layout>
