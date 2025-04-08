@@ -1,11 +1,14 @@
 ---
 import Shopbag from "./shopbag.astro"
 import arrowicon from '../../public/image/angle-vertical.svg'
+import logo from '../../public/image/logoMobile.svg'
+import { Image } from 'astro:assets';
 
 import closeIcon from '../../public/image/close-icon.svg'
 import menuIcon from '../../public/image/menu-icon.svg'
 
-const {pageData} = Astro.props 
+const {pageData} = Astro.props
+const {lang}= Astro.params
 
 const navegation=[
     {
@@ -37,9 +40,9 @@ const navegation=[
 ---
 
 <section id="navBarContainer" x-data="navbarData" class=" relatives flex items-center justify-between w-[1074px] 2xl:w-[1600px] max-w-[1920px] mx-8 2xl:mx-20">
-    <div class="flex gap-5">
-        <a href="/">
-            <h2 class="text-3xl font-satisfy text-reddarker">Berbat Photos</h2>
+    <div class="flex gap-1">
+        <a href={`/${lang}`}>
+            <Image class="w-[169px] h-[40px]" src={logo} alt="Berbat Photos logo"/>
         </a>
         <div 
             x-data={`{

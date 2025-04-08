@@ -26,7 +26,10 @@ const {NavBarData ,FootData}= Astro.props
 		<title>Berbat Photos</title>
 		<ClientRouter />
 	</head>
-	<body class="bg-white">
+	<body 
+		class="bg-white"
+		x-init="$store.service.fetchServices"	
+	>
 		<Navbar Data={NavBarData}/>
 		<slot />
 		<Footer Data={FootData}/>
@@ -203,6 +206,14 @@ const {NavBarData ,FootData}= Astro.props
 	      			this.open = !this.open;
 	    		},
 			}
+		});
+		Alpine.data('shoppingBag',()=>{
+			return{
+				showModal:false,
+				handleModal(){
+					this.showModal = !this.showModal;
+				},
+			}
 		})
 		Alpine.store('display',{
 			init(this:{setDisplay:Function}) {
@@ -231,8 +242,18 @@ const {NavBarData ,FootData}= Astro.props
 				if(document.documentElement.clientWidth<744){
 					return this.serviceCardsDisplay="mobile"
 				}
+			},
+		});
+		Alpine.store('service',{
+			servicesEn:{},
+			servicesFr:{},
+			shopList:[""],
+			async fetchServices(this:{servicesEn: object, servicesFr: any}){
+				const response = await fetch('/api/services.json')
+				const data= await response.json()
+				this.servicesEn=data.servicesEn
+				this.servicesFr=data.servicesFr
 			}
 		})
-		
 	});
 </script>
