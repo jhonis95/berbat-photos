@@ -252,6 +252,8 @@ const {NavBarData ,FootData}= Astro.props
 			servicesEn:[],
 			servicesFr:[],
 			shopList:[] as any[],
+			shopListEn:[],
+			shopListFr:[],
 			async fetchServices(this:{servicesEn: Array<[any]>, servicesFr: any}){
 				const response = await fetch('/api/services.json')
 				const data= await response.json()
@@ -272,19 +274,38 @@ const {NavBarData ,FootData}= Astro.props
 					})
 				})
 			},
-			setShopList(this:{servicesEn:any}){
-				console.log(this.servicesEn.length)
+			addShopList(this:{shopList:any,setContent:Function},elementID: string){
+				if (!this.shopList.includes(elementID)) {
+					this.shopList.push(elementID);
+					this.setContent(elementID)
+				}
 			},
-			// handleCheckboxChange(this: { shopList: string[] }, elementID: string) {
-  			//   this.shopList.push(elementID);
-  			// }
-			handleCheckboxChange(this: { shopList: string[] }, elementID: string, event: Event) {
+			setContent(this:{shopListEn:any,shopListFr:any,servicesEn:any,servicesFr:any},id:number){
+				this.servicesEn.map((cards:any)=>{
+					cards.map((data:any)=>{
+						if(data.id==id){
+							this.shopListEn.push(data)
+							console.log(this.shopListEn)
+						}
+					})
+				})
+				this.shopListFr.push(this.servicesFr.map((cards:any)=>{
+					cards.map((data:any)=>{
+						if(data.id==id){
+							this.shopListFr.push(data)
+						}
+					})
+				}))
+
+			},
+			handleCheckboxChange(this: { shopList: string[] ,setContent:Function}, elementID: string, event: Event) {
 				const checkbox = event.target as HTMLInputElement;
 				const isChecked = checkbox.checked;
 						
 				if (isChecked) {
 					if (!this.shopList.includes(elementID)) {
 						this.shopList.push(elementID);
+						this.setContent(elementID)
 					}
 				} else {
 					this.shopList = this.shopList.filter(id => id !== elementID);

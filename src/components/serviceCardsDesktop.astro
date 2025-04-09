@@ -3,6 +3,7 @@ import { Image } from "astro:assets"
 import arrowicon from '../../public/image/angle-horizon.svg'
 
 const {cardData} = Astro.props
+let count=0
 ---
 <div class="w-fit h-fit flex flex-col gap-12 lg:gap-[90px]">
     {
@@ -44,6 +45,8 @@ const {cardData} = Astro.props
                                             <h3 class="font-lora text-lg text-darker2">{data.title}</h3>
                                             {
                                                 data.cards.map((card:any)=>{
+                                                    count=count+1
+                                                    const cardId=count
                                                     return(
                                                         <div class=" w-[401px] rounded-sm bg-brighter1 text-darker2 flex flex-col py-2 justify-center items-center">
                                                             <img class="w-[374px] h-[173px] bg-brighter2 object-cover" src={card?.image} alt="service-Image"/>
@@ -55,7 +58,7 @@ const {cardData} = Astro.props
                                                                 <p>{`$ ${card.price}`}</p>
                                                             </div>
                                                             <div class="w-full flex justify-center font-lora text-lg italic">
-                                                                <button class="bg-brighter2 text-darker2 w-auto h-[36] px-10 py-1.5 rounded-md cursor-pointer">
+                                                                <button x-data x-on:click={`$store.service.addShopList(${cardId})`} class="bg-brighter2 text-darker2 w-auto h-[36] px-10 py-1.5 rounded-md cursor-pointer">
                                                                     {data.price_card_button}
                                                                 </button>
                                                             </div>

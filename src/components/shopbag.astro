@@ -1,12 +1,17 @@
 ---
 import bagicon from '../../public/image/bag-shopping-solid.svg'
 import closeIcon from '../../public/image/close-icon.svg'
+const {lang}=Astro.params
+function capitalizeFirstLetter(val:string|undefined) {
+    return String(val).charAt(0).toUpperCase() + String(val).slice(1);
+}
+const language= capitalizeFirstLetter(lang)
 ---
 <div x-data="shoppingBag" x-on:click="handleModal" class="relative">
     <div 
         x-data 
         x-show="$store.service.shopList.length != 0" 
-        class="-top-1.5 -right-2 flex justify-center items-center absolute rounded-full w-2.5 h-2.5 z-10 bg-brighter1 text-[10px] text-darker2"
+        class="-top-1.5 -right-2 lg:-top-2.5 lg:-right-2.5 flex justify-center items-center absolute rounded-full w-2.5 h-2.5 lg:p-2 z-10 bg-brighter1 text-[10px] lg:text-sm text-darker2"
         x-text="$store.service.shopList.length"
     ></div>
     <img class="w-[20px] h-[24px] lg:w-[26px] lg:h-[30px] 2xl:w-[30px] 2xl:h-[34px]" src={bagicon.src} alt="shop-bag-icon">
@@ -43,11 +48,24 @@ import closeIcon from '../../public/image/close-icon.svg'
           </h4>
         </template>
 
-        <!-- <template x-if="$store.service.shopList.length !== 0" x-for="card in shopList">
-          <h4 class="z-50 text-darker2">
-            shopping cart has items
-          </h4>
-        </template> -->
+        <template x-data x-if="$store.service.shopList.length !== 0">
+          <div class=" flex flex-col gap-2 w-auto h-auto max-h-[70dvh] max-w-[80dvw] overflow-x-hidden">
+            <template x-for={`(card, cardIndex) in $store.service.shopList${language}`} :key="cardIndex">
+              <div class=" rounded-sm bg-brighter1 text-darker2 flex flex-col p-2 justify-center items-center">
+                <template x-if="card.image">
+                  <img class="w-[374px] h-[173px] bg-brighter2 object-cover" :src="card.image" alt="service-Image" />
+                </template>
+                <div class="flex gap-9 justify-evenly items-center w-full">
+                    <div class="flex flex-col gap-2.5 font-lora w-[264px]">
+                        <h4 x-text="card.title" class="text-lg"></h4>
+                        <p x-text="card.content" class="text-sm"></p>
+                    </div>
+                    <p x-text="card.price"></p>
+                </div>
+              </div>
+            </template>
+          </div>
+        </template>
       </section>
     </div>
 </div>
