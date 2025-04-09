@@ -2,6 +2,11 @@
 import arrowicon from '../../public/image/angle-vertical.svg'
 
 const {LabelText,Placeholder}=Astro.props
+const {lang}=Astro.params
+function capitalizeFirstLetter(val:string|undefined) {
+    return String(val).charAt(0).toUpperCase() + String(val).slice(1);
+}
+const language= capitalizeFirstLetter(lang)
 ---
 <div x-data="bookCardData" class="relative">
     <label class="text-darker2 text-base italic" for="">{LabelText}</label>
@@ -9,7 +14,27 @@ const {LabelText,Placeholder}=Astro.props
         <input class="px-2.5 w-full outline-none" type="text" name="" id="" placeholder={`0 ${Placeholder}`}>
         <img x-on:click="arrowToggle" id="bookingCardArrowIcon" class="w-[15px] h-[21px] xl:w-[20px] xl:h-[26px] mx-4" src={arrowicon.src} alt=""/>
     </div>
-    <div x-cloak x-show="dropdownOpen" x-transition class=" z-10 drop-shadow-2xl absolute rounded-sm flex mt-2.5 flex-col bg-brighter2 w-full h-[161px]">
+    <div x-cloak x-show="dropdownOpen" x-transition class=" z-10 drop-shadow-2xl absolute rounded-sm flex mt-2.5 flex-col bg-brighter2 w-full h-[161px] overflow-y-scroll">
+        <template x-data x-for={`(group, groupIndex) in $store.service.services${language}`} :key="groupIndex">
+          <div class="mb-6">
+            <!-- Optional: show category title -->
+            <!-- <h3 class="text-xl font-bold mb-2">Category {{ groupIndex + 1 }}</h3> -->
         
+            <!-- Inner loop: Services inside each group -->
+            <template x-for="(card, cardIndex) in group" :key="cardIndex">
+                <div class="mb-4 ml-1 p-2 border-y-2 border-darker1 flex items-center gap-4 drop-shadow-lg">
+                    <input :checked="$store.service.shopList.includes(card.id)" x-on:change="$store.service.handleCheckboxChange(card.id, $event)" class="w-[20px] h-[20px]" type="checkbox" name="" id="">
+                    <div class=" flex w-full justify-between items-center text-darker2 mr-3">
+                        <div>
+                            <h4 class="text-lg font-semibold" x-text="card.title"></h4>
+                            <p class="text-sm" x-text="card.content"></p>
+                        </div>
+                        <p class="text-base font-medium" x-text="card.price"></p>
+                    </div>
+                </div>
+            </template>
+          </div>
+        </template>
+
     </div>
 </div>

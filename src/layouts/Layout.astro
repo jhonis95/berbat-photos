@@ -216,8 +216,9 @@ const {NavBarData ,FootData}= Astro.props
 			}
 		})
 		Alpine.store('display',{
-			init(this:{setDisplay:Function}) {
+			init(this:{setDisplay:Function,setCardsDisplay:Function}) {
 				this.setDisplay()
+				this.setCardsDisplay()
 			},
 			screen:"desktop",
 			serviceCardsDisplay:"desktop",
@@ -245,14 +246,49 @@ const {NavBarData ,FootData}= Astro.props
 			},
 		});
 		Alpine.store('service',{
-			servicesEn:{},
-			servicesFr:{},
-			shopList:[""],
-			async fetchServices(this:{servicesEn: object, servicesFr: any}){
+			init(this:{handleCheckboxChange: Function;fetchServices:Function}) {
+				this.fetchServices()
+			},
+			servicesEn:[],
+			servicesFr:[],
+			shopList:[] as any[],
+			async fetchServices(this:{servicesEn: Array<[any]>, servicesFr: any}){
 				const response = await fetch('/api/services.json')
 				const data= await response.json()
 				this.servicesEn=data.servicesEn
 				this.servicesFr=data.servicesFr
+				let countEn=0
+				let countFr=0
+				this.servicesEn.map((cards)=>{
+					cards.map((data)=>{
+						countEn+=1
+						data.id=countEn
+					})
+				})
+				this.servicesFr.map((cards: any[])=>{
+					cards.map((data: { id: number; })=>{
+						countFr+=1
+						data.id=countFr
+					})
+				})
+			},
+			setShopList(this:{servicesEn:any}){
+				console.log(this.servicesEn.length)
+			},
+			// handleCheckboxChange(this: { shopList: string[] }, elementID: string) {
+  			//   this.shopList.push(elementID);
+  			// }
+			handleCheckboxChange(this: { shopList: string[] }, elementID: string, event: Event) {
+				const checkbox = event.target as HTMLInputElement;
+				const isChecked = checkbox.checked;
+						
+				if (isChecked) {
+					if (!this.shopList.includes(elementID)) {
+						this.shopList.push(elementID);
+					}
+				} else {
+					this.shopList = this.shopList.filter(id => id !== elementID);
+				}
 			}
 		})
 	});
