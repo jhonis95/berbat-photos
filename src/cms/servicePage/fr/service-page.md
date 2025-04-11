@@ -29,7 +29,7 @@ services_section:
             - title: Portrait signé
               content: 15 photos 45 min
               price: 100€
-            - title: Portrait signé
+            - title: Cadre de luxe
               price: 120€
               content: 20 photos / 1h
             - price: 150€

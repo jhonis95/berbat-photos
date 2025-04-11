@@ -1,7 +1,9 @@
 ---
 import { Image } from "astro:assets"
 import arrowicon from '../../public/image/angle-horizon.svg'
+import closeIcon from '../../public/image/close-icon.svg'
 
+const {lang}=Astro.params
 const {cardData} = Astro.props
 let count=0
 ---
@@ -59,8 +61,24 @@ let count=0
                                                                     </div>
                                                                     <p>{`${card.price}`}</p>
                                                                 </div>
-                                                                <div x-data x-on:click={`$store.service.addShopList(${cardId})`} class="w-full flex justify-center font-lora text-lg italic">
-                                                                    <button class="bg-brighter2 text-darker2 w-auto h-[36] px-10 py-1.5 rounded-md cursor-pointer">
+                                                                <div class="w-full flex justify-center font-lora text-lg italic">
+                                                                    <div x-show={`$store.service.shopList.includes(${cardId})`} class="flex gap-3 items-center">
+                                                                        <button 
+                                                                            class="bg-brighter2 text-primary w-auto h-[36] px-10 py-1.5 rounded-md cursor-pointer"  
+                                                                        >
+                                                                            {
+                                                                                lang=='en'?'added':'ajouté'
+                                                                            }
+                                                                        </button>
+                                                                        <div  x-on:click={`$store.service.deleteFromShopList(${cardId})`} class="bg-brighter2 flex justify-center items-center rounded-full w-fit h-fit p-3 cursor-pointer">
+                                                                            <img 
+                                                                              class=" w-[10px] h-[10px] z-30 cursor-pointer" 
+                                                                              src={closeIcon.src} 
+                                                                              alt="close icon"
+                                                                            />
+                                                                        </div>
+                                                                    </div>
+                                                                    <button x-show={`!$store.service.shopList.includes(${cardId})`} x-data x-on:click={`$store.service.addToShopList(${cardId})`} class="bg-brighter2 text-darker2 w-auto h-[36] px-10 py-1.5 rounded-md cursor-pointer">
                                                                         {data.price_card_button}
                                                                     </button>
                                                                 </div>

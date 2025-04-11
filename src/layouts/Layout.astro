@@ -274,43 +274,53 @@ const {NavBarData ,FootData}= Astro.props
 					})
 				})
 			},
-			addShopList(this:{shopList:any,setContent:Function},elementID: string){
+			addToShopList(this:{shopList:any,setAddContent:Function},elementID: string){
 				if (!this.shopList.includes(elementID)) {
 					this.shopList.push(elementID);
-					this.setContent(elementID)
+					this.setAddContent(elementID)
+					return
 				}
 			},
-			setContent(this:{shopListEn:any,shopListFr:any,servicesEn:any,servicesFr:any},id:number){
+			deleteFromShopList(this:{shopList:any,setDeleteContent:Function},elementID: string){
+				this.shopList = this.shopList.filter((id: any) => id !== elementID);
+				this.setDeleteContent(elementID)
+			},
+			setAddContent(this:{shopListEn:any,shopListFr:any,servicesEn:any,servicesFr:any},id:number){
 				this.servicesEn.map((cards:any)=>{
 					cards.map((data:any)=>{
 						if(data.id==id){
 							this.shopListEn.push(data)
-							console.log(this.shopListEn)
 						}
 					})
 				})
-				this.shopListFr.push(this.servicesFr.map((cards:any)=>{
+				this.servicesFr.map((cards:any)=>{
 					cards.map((data:any)=>{
 						if(data.id==id){
 							this.shopListFr.push(data)
 						}
 					})
-				}))
-
+				})
 			},
-			handleCheckboxChange(this: { shopList: string[] ,setContent:Function}, elementID: string, event: Event) {
+			setDeleteContent(this:{shopListEn:any,shopListFr:any,servicesEn:any,servicesFr:any},id:number){
+				
+				this.shopListEn = this.shopListEn.filter((item: { id: any; }) => item.id !== id);
+				this.shopListFr = this.shopListFr.filter((item: { id: any; }) => item.id !== id);
+			
+			},
+			handleCheckboxChange(this: { shopList: string[] ,setAddContent:Function, setDeleteContent:Function}, elementID: string, event: Event) {
 				const checkbox = event.target as HTMLInputElement;
 				const isChecked = checkbox.checked;
 						
 				if (isChecked) {
 					if (!this.shopList.includes(elementID)) {
 						this.shopList.push(elementID);
-						this.setContent(elementID)
+						this.setAddContent(elementID)
 					}
 				} else {
 					this.shopList = this.shopList.filter(id => id !== elementID);
+					this.setDeleteContent(elementID)
 				}
-			}
+			},
 		})
 	});
 </script>
