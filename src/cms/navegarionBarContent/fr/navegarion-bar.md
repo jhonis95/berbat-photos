@@ -3,10 +3,13 @@ title: Navegarion Bar
 social_media_section:
   - name: email
     image: /src/cms/navegarionBarContent/images/email-icon.svg
+    link: mailto:berbathyoun@gmail.com
   - name: whatsapp
     image: /src/cms/navegarionBarContent/images/whatsapp-icon.svg
+    link: https://wa.me/330767086414
   - name: instagram
     image: /src/cms/navegarionBarContent/images/instagram-icon.svg
+    link: https://www.instagram.com/berbatphotos/
 selected_language: FR
 languages:
   - name: Anglais

@@ -10,7 +10,9 @@ import { Image } from "astro:assets"
             {
                 Data.social_media_section.social_media.map((sm:any,index:number)=>{
                     return(
-                        <Image id={`sm${index}`} x-on:mouseover="grow" x-on:mouseleave="shrink" class=" cursor-pointer w-[26px] h-[26px] lg:w-[43px] lg:h-[43px]" src={sm.image} alt={sm.name}/>
+                        <a href={sm.link} target="_blank" rel="noopener">
+                            <Image id={`sm${index}`} x-on:mouseover="grow" x-on:mouseleave="shrink" class=" cursor-pointer w-[26px] h-[26px] lg:w-[43px] lg:h-[43px]" src={sm.image} alt={sm.name}/>
+                        </a>
                     )
                 })
             }

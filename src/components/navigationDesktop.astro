@@ -41,7 +41,9 @@ const navegation=[
         {
             pageData.Data?.social_media_section.map((data:any,index: any)=>{
                 return(
-                    <Image id={`sm-icon${index}`} x-on:mouseover="growText" x-on:mouseleave="shrinkText" class=" w-[30px] h-[30px] 2xl:w-[43px] 2xl:h-[43px] object-contain" src={data.image} alt={data.name}/>
+                    <a href={data.link} target="_blank" rel="noopener">
+                        <Image id={`sm-icon${index}`} x-on:mouseover="growText" x-on:mouseleave="shrinkText" class=" w-[30px] h-[30px] 2xl:w-[43px] 2xl:h-[43px] object-contain" src={data.image} alt={data.name}/>
+                    </a>
                 )
             })
         }

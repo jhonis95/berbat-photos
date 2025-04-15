@@ -110,6 +110,7 @@ collections:
         fields:
           - { label: "Name", name: "name", widget: "string", i18n: true }
           - { label: "Image", name: "image", widget: "image", i18n: true, media_folder: "/src/cms/navegarionBarContent/images"}
+          - { label: "Link", name: "link", widget: "string", i18n: true}
       - {label: "Selected Language", name: "selected_language", widget: "select",options: [EN, FR], i18n: true}
       - name: 'languages'
         label: 'Languages'
@@ -162,6 +163,7 @@ collections:
             fields:
               - { label: "Name", name: "name", widget: "string", i18n: true }
               - { label: "Image", name: "image", widget: "image", i18n: true, media_folder: "/src/cms/navegarionBarContent/images"}
+              - { label: "Link", name: "link", widget: "string", i18n: true}
           - {label: "Site Name", name: "site_name", widget: "string", i18n: true}
           - { label: "intagram @", name: "intagram_name", widget: "string", i18n: true }
           - { label: "Social Media Link", name: "social_media_link", widget: "string", i18n: true }

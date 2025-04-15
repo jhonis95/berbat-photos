@@ -92,7 +92,8 @@ const navigation_bar_en = defineCollection({
     schema:({ image }) => z.object({
         social_media_section:z.array(z.object({
             name:z.string(),
-            image:image()
+            image:image(),
+            link:z.string()
         })),
         languages:z.array(z.object({
             name:z.string(),
@@ -121,7 +122,8 @@ const navigation_bar_fr = defineCollection({
     schema:({ image }) => z.object({
         social_media_section:z.array(z.object({
             name:z.string(),
-            image:image()
+            image:image(),
+            link:z.string()
         })),
         languages:z.array(z.object({
             name:z.string(),
@@ -152,7 +154,8 @@ const footer_bar_en = defineCollection({
             section_title:z.string(),
             social_media:z.array(z.object({
                 name:z.string(),
-                image:image()
+                image:image(),
+                link:z.string()
             })),
             site_name:z.string(),
             intagram_name:z.string(),
@@ -173,7 +176,8 @@ const footer_bar_fr = defineCollection({
             section_title:z.string(),
             social_media:z.array(z.object({
                 name:z.string(),
-                image:image()
+                image:image(),
+                link:z.string()
             })),
             site_name:z.string(),
             intagram_name:z.string(),
