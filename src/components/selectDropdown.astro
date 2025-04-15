@@ -20,10 +20,6 @@ const language= capitalizeFirstLetter(lang)
     <div x-cloak x-show="dropdownOpen" x-transition class=" z-10 drop-shadow-2xl absolute rounded-sm flex mt-2.5 flex-col bg-brighter2 w-full h-[161px] overflow-y-scroll">
         <template x-data x-for={`(group, groupIndex) in $store.service.services${language}`} :key="groupIndex">
           <div class="mb-6">
-            <!-- Optional: show category title -->
-            <!-- <h3 class="text-xl font-bold mb-2">Category {{ groupIndex + 1 }}</h3> -->
-        
-            <!-- Inner loop: Services inside each group -->
             <template x-for="(card, cardIndex) in group" :key="cardIndex">
                 <div class="mb-4 ml-1 p-2 border-y-2 border-darker1 flex items-center gap-4 drop-shadow-lg">
                     <input :checked="$store.service.shopList.includes(card.id)" x-on:change="$store.service.handleCheckboxChange(card.id, $event)" class="w-[20px] h-[20px]" type="checkbox" name="" id="">
@@ -38,6 +34,5 @@ const language= capitalizeFirstLetter(lang)
             </template>
           </div>
         </template>
-
     </div>
 </div>

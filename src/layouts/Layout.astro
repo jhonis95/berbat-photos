@@ -246,9 +246,11 @@ const {NavBarData ,FootData}= Astro.props
 			},
 		});
 		Alpine.store('service',{
-			init(this:{handleCheckboxChange: Function;fetchServices:Function}) {
+			init(this:{handleCheckboxChange: Function;fetchServices:Function,bookLinkEn:string,bookLinkFr:string}) {
 				this.fetchServices()
 			},
+			bookLinkEn:'/en/booking',
+			bookLinkFr:'/fr/reservation',
 			servicesEn:[],
 			servicesFr:[],
 			shopList:[] as any[],
