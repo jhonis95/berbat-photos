@@ -45,7 +45,7 @@ const {NavBarData ,FootData}= Astro.props
 </style>
 <script>
 	import Alpine from "alpinejs";
-	import { animate } from "motion";
+	import { animate, inView } from "motion";
 	window.Alpine = Alpine;
 	document.addEventListener('alpine:init', () => {
 	    Alpine.data('navbarData', () => {
@@ -132,6 +132,11 @@ const {NavBarData ,FootData}= Astro.props
 	    });
 	    Alpine.data('priceCards',()=>{
 	        return{
+				init() {
+					inView(".serviceCardContainer",(element)=>{
+        			    animate(element,{opacity:[0, 1], y:[100,0]},{ delay:0.6, duration:0.5})
+        			})
+				},
 	            showDetails:false,
 	            toggleShowDetails(index:any){
 					const card:any=document.getElementById(`cardPriceMainImage${index}`) 

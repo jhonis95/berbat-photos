@@ -48,7 +48,7 @@ const { pageData,navBarData,footerData } = Astro.props;
             subtitle={pageData.header.subtitle}
             image={pageData.header.image}
         />
-        <h3 class="text-darker2 w-full max-w-[617px] text-center font-lora italic text-3xl sm:text-4xl lg:text-5xl">{pageData.services_section.title}</h3>
+        <h3 class="sectionTitle text-darker2 w-full max-w-[617px] text-center font-lora italic text-3xl sm:text-4xl lg:text-5xl">{pageData.services_section.title}</h3>
         <template x-data x-if="$store.display.serviceCardsDisplay=='desktop'">
             <ServiceCardsDesktop cardData={pageData.services_section.services_cards}/>
         </template>

@@ -87,7 +87,7 @@ const content={
                 {
                     pageData.services_section.map((service_card, index)=>{
                         return(
-                            index%2==1?<div class=" serviceCards mx-4 md:mx-0 flex flex-col md:flex-row-reverse lg:flex-col justify-between h-fit gap-3.5 md:gap-5 w-fit lg:w-[327px] 2xl:w-[463px] font-lora">
+                            index%2==1?<div class="serviceCards mx-4 md:mx-0 flex flex-col md:flex-row-reverse lg:flex-col justify-between h-fit gap-3.5 md:gap-5 w-fit lg:w-[327px] 2xl:w-[463px] font-lora">
                                 <Image class="w-full h-auto min-w-[286px] min-h-[267px] max-w-[509px] max-h-[320px] md:max-w-[321px] md:max-h-[316px] lg:max-w-[463px] lg:max-h-[376px] rounded-md object-cover" src={service_card.image} alt={'card-Image'}/>
                                 <div class="flex flex-col gap-3.5 lg:gap-8 max-w-[509px] md:w-[321px] lg:w-full">
                                     <div class="w-full flex flex-col h-fit md:h-[244px] 2xl:h-[174px] gap-3.5 lg:gap-6">
@@ -100,7 +100,7 @@ const content={
                                         </a>
                                     </div>
                                 </div>
-                            </div>:<div class=" serviceCards mx-4 md:mx-0 flex flex-col md:flex-row lg:flex-col justify-between h-fit gap-3.5 md:gap-5 w-fit lg:w-[327px] 2xl:w-[463px] font-lora">
+                            </div>:<div class="serviceCards mx-4 md:mx-0 flex flex-col md:flex-row lg:flex-col justify-between h-fit gap-3.5 md:gap-5 w-fit lg:w-[327px] 2xl:w-[463px] font-lora">
                                 <Image class="w-full h-auto min-w-[286px] min-h-[267px] max-w-[509px] max-h-[320px] md:max-w-[321px] md:max-h-[316px] lg:max-w-[463px] lg:max-h-[376px] rounded-md object-cover" src={service_card.image} alt={'card-Image'}/>
                                 <div class="flex flex-col gap-3.5 lg:gap-8 max-w-[509px] md:w-[321px] lg:w-full">
                                     <div class="w-full flex flex-col h-fit md:h-[244px] 2xl:h-[174px] gap-3.5 lg:gap-6">
@@ -138,7 +138,7 @@ const content={
     </main>
 </Layout>
 <script>
-    import { animate, inView, stagger } from "../../../node_modules/motion"
+    import { animate, inView, stagger } from "motion"
     window.onload = () => {
         pageAnimation()
     };
@@ -160,10 +160,20 @@ const content={
             }
         })
         inView("#bookingSection",(element)=>{
-            animate(element,{opacity:[0, 1], y:[100,0]},{ delay:0.7, duration:0.5})
+            animate(element,{opacity:[0, 1], y:[100,0]},{ delay:0.2, duration:0.5})
         })
         inView("#followMeSection",()=>{
             animate(".followMeSectionContent",{opacity:[0, 1], y:[100,0]},{ delay: stagger(0.3,{ startDelay: 0.4 }), duration:0.5})
+        })
+
+        inView("#testimonialsCard",(element)=>{
+            animate(".testimonials-card",{opacity:[0, 1], y:[100,0]},{ delay: stagger(0.1,{ startDelay: 0.2 }),duration:0.5})
+        })
+        inView(".sectionTitle",(element)=>{
+            animate(element,{opacity:[0, 1], y:[100,0]},{ delay:0.4, duration:0.5})
+        })
+        inView(".bottonToTopAnimation",(element)=>{
+            animate(element,{opacity:[0, 1], y:[100,0]},{ delay:0.4, duration:0.5})
         })
     }
 </script>

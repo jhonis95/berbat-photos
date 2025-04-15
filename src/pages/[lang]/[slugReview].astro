@@ -38,7 +38,7 @@ const { pageData,navBarData,footerData } = Astro.props;
             subtitle={pageData.header.subtitle}
             image={pageData.header.image}
         />
-        <section class=" w-full flex justify-center items-center">
+        <section class="bottonToTopAnimation w-full flex justify-center items-center">
             <div class="flex flex-col md:flex-row gap-9 xl:gap-24 w-full h-fit bg-brighter1 justify-center items-center py-10">
                 <div class="flex flex-col gap-4 md:gap-7 max-w-[450px] md:max-w-[336px] xl:max-w-[470px] font-lora mx-3 md:mx-0">
                     <h3 class="text-reddarker text-center md:text-start text-3xl xl:text-5xl italic">{pageData.review_card.title}</h3>
@@ -79,3 +79,12 @@ const { pageData,navBarData,footerData } = Astro.props;
         </section>
     </main>
 </Layout>
+<script>
+    import { animate, inView, stagger} from "motion"
+    inView("#heroSection",()=>{
+        animate(".heroSectionText",{opacity:[0, 1], y:[100,0]},{ delay: stagger(0.1,{ startDelay: 0.2 }),duration:0.5})
+    })
+    inView(".bottonToTopAnimation",(element)=>{
+        animate(element,{opacity:[0, 1], y:[100,0]},{ delay:0.4, duration:0.5})
+    })
+</script>

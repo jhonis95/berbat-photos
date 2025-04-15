@@ -11,7 +11,7 @@ let count=0
     {
         cardData.map((data:any,index:any)=>{
             return(
-                <div x-data="priceCards" class="flex flex-col justify-center items-center gap-7 mx-2.5">
+                <div x-data="priceCards" class="serviceCardContainer flex flex-col justify-center items-center gap-7 mx-2.5">
                     <Image id={`cardPriceMainImage${index}`} class="w-full h-full max-w-[761px] max-h-[622px] object-cover transition-discrete duration-700 ease-in-out" src={data.image} alt=""/>
                     <div class=" flex flex-col font-lora max-w-[761px] gap-[30px]">
                         <h4 class="text-reddarker text-3xl italic font-medium">{data.title}</h4>

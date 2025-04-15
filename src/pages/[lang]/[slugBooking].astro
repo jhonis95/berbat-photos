@@ -42,8 +42,8 @@ const { pageData,navBarData,footerData } = Astro.props;
         />
         <Bookingcard Id="bookingSection" Content={pageData.booking_section}/>
         <div class=" flex flex-col gap-8 sm:gap-10 xl:gap-[70px]">
-            <h3 class="text-darker2 w-full text-center font-lora italic text-3xl xl:text-5xl">{pageData.testimonials_section.title}</h3>
-            <section class="flex flex-wrap justify-center items-center gap-3.5 sm:gap-7 xl:gap-14">
+            <h3 class="sectionTitle text-darker2 w-full text-center font-lora italic text-3xl xl:text-5xl">{pageData.testimonials_section.title}</h3>
+            <section id="testimonialsCard" class="flex flex-wrap justify-center items-center gap-3.5 sm:gap-7 xl:gap-14">
                 {
                     pageData.testimonials_section.testimonials.map((testimonial)=>{
                         return(
