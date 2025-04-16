@@ -1,7 +1,7 @@
 ---
 title: Booking Page
 header:
-  image: /src/cms/bookingPage/images/rectangle-7.png
+  image: /src/cms/bookingPage/images/dscf1518.jpg
   title: Votre histoire, votre séance photo
   subtitle: Réservez votre place et créons des images inoubliables
 booking_section:
