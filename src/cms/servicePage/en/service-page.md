@@ -3,7 +3,7 @@ title: Service Page
 header:
   title: Capturing moments, preserving memories.
   subtitle: Because every moment deserves to be remembered forever.
-  image: /src/cms/servicePage/images/image-3-.png
+  image: /src/cms/servicePage/images/dscf1510.jpg
 services_section:
   title: Choose your style and immortalize your memories
   services_cards:
