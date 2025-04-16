@@ -1,7 +1,7 @@
 ---
 title: Service Page
 header:
-  image: /src/cms/servicePage/images/image-3-.png
+  image: /src/cms/servicePage/images/dscf1510.jpg
   title: Capturer des moments, préserver des souvenirs.
   subtitle: Parce que chaque instant mérite d'être gravé à jamais dans les mémoires.
 services_section:
