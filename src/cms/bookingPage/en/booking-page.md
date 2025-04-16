@@ -1,7 +1,7 @@
 ---
 title: Booking Page
 header:
-  image: /src/cms/bookingPage/images/rectangle-7.png
+  image: /src/cms/bookingPage/images/dscf1518.jpg
   title: Your Story, Your Photoshoot
   subtitle: Secure your spot and let’s create unforgettable images
 booking_section:
