@@ -27,9 +27,10 @@ services_section:
               title: Séance d'essence
               content: 10 photos / 30 min
               image: /src/cms/servicePage/images/bons-et-vivants-128.jpg
-            - title: Portrait signé
+            - title: "Portrait signature "
               content: 15 photos 45 min
               price: 100€
+              image: /src/cms/servicePage/images/bons-et-vivants-176.jpg
             - title: Cadre de luxe
               price: 120€
               content: 20 photos / 1h
