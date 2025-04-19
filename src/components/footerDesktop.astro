@@ -1,6 +1,9 @@
 ---
 import { Image } from "astro:assets"
- const {Data}=Astro.props
+import logo from '../../public/image/logoDesktop.svg'
+
+const {Data}=Astro.props
+const {lang}= Astro.params
 ---
 
 <section x-data="footerData" class=" flex justify-evenly lg:justify-between items-center w-[1000px] mx-10 max-w-[1920px] font-lora">
@@ -19,7 +22,9 @@ import { Image } from "astro:assets"
         </div>
     </div>
     <div class=" flex flex-col items-center gap-4 lg:gap-[30px]">
-        <h2 class="text-darker2 text-4xl font-satisfy">{Data.social_media_section.site_name}</h2>
+        <a href={`/${lang}`}>
+            <Image class="w-[189px] h-[45px] object-fill" src={logo} alt="berbet photos logo"/>
+        </a>
         <a id="instagamLink" x-on:mouseover="grow" x-on:mouseleave="shrink" class="text-darker2 text-lg italic" href={Data.social_media_section.social_media_link}>{Data.social_media_section.intagram_name}</a>
     </div>
     <div class=" flex flex-col items-center font-lora gap-4 lg:gap-6">
