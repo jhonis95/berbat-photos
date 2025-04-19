@@ -52,9 +52,12 @@ let count=0
                                                 data.cards.map((card:any)=>{
                                                     count=count+1
                                                     const cardId=count
+                                                    console.log(card.image)
                                                     return(
                                                         <div class=" w-[401px] rounded-sm bg-brighter1 text-darker2 flex flex-col py-2 justify-center items-center">
-                                                            <img class="w-[374px] h-[173px] bg-brighter2 object-cover" src={card?.image} alt="service-Image"/>
+                                                            {
+                                                                card?.image?<Image class="w-[374px] h-[173px] bg-brighter2 object-cover" src={card?.image} alt="service-Image"/>:''
+                                                            }
                                                             <div class="flex gap-9 justify-evenly items-center w-full">
                                                                 <div class="flex flex-col gap-2.5 font-lora w-[264px]">
                                                                     <h4 class="text-lg">{card.title}</h4>

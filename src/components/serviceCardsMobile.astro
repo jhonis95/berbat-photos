@@ -53,7 +53,9 @@ let count=0
                                                         const cardId=count
                                                         return(
                                                             <div class=" w-fit h-fit rounded-sm bg-brighter1 text-darker2 flex flex-col gap-1 p-2 sm:justify-center sm:items-center">
-                                                                <img class="w-[75dvw] h-[40dvw] min-w-[318px] min-h-[150px] sm:w-[318px] sm:h-[150px] bg-brighter2 object-cover" src={card?.image} alt="service-Image"/>
+                                                                {
+                                                                    card?.image?<Image class="w-[75dvw] h-[40dvw] min-w-[318px] min-h-[150px] sm:w-[318px] sm:h-[150px] bg-brighter2 object-cover" src={card?.image} alt="service-Image"/>:''
+                                                                }
                                                                 <div class="flex gap-2.5 justify-between items-start w-full sm:max-w-[318px]">
                                                                     <div class="flex flex-col gap-1 text-justify font-lora w-fit">
                                                                         <h4 class="text-lg">{card.title}</h4>

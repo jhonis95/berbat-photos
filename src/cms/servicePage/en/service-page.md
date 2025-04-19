@@ -25,7 +25,7 @@ services_section:
             - title: Essence Session
               content: 10 photos / 30 min
               price: 80€
-              image: /src/cms/servicePage/images/bons-et-vivants-128.jpg
+              image: /src/cms/servicePage/images/bons-et-vivants-128(2).jpg
             - title: Signature Portrait
               content: 15 photos 45 min
               price: 100€
