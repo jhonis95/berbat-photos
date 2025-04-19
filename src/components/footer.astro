@@ -6,7 +6,7 @@ const {Data}= Astro.props
 
 ---
 <footer 
-    class=" flex bg-brighter1 w-full h-fit md:h-[168px] lg:h-[293px] mt-10 justify-center"
+    class="flex bg-brighter1 w-full h-full md:h-[168px] lg:h-[293px] mt-10 justify-center"
     x-data
     x-init="$store.display.setDisplay()"
     @resize.window.debounce="$store.display.setDisplay()"
