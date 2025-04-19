@@ -26,6 +26,7 @@ services_section:
             - price: 80€
               title: Séance d'essence
               content: 10 photos / 30 min
+              image: /src/cms/servicePage/images/bons-et-vivants-128.jpg
             - title: Portrait signé
               content: 15 photos 45 min
               price: 100€
