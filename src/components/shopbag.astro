@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import bagicon from '../../public/image/bag-shopping-solid.svg'
 import closeIcon from '../../public/image/close-icon.svg'
 const {lang}=Astro.params
@@ -54,7 +55,7 @@ const language= capitalizeFirstLetter(lang)
               <template x-for={`(card, cardIndex) in $store.service.shopList${language}`} :key="cardIndex">
                 <div class=" rounded-sm bg-brighter1 text-darker2 flex flex-col p-2 justify-center items-center">
                   <template x-if="card.image">
-                    <img class="w-[374px] h-[173px] bg-brighter2 object-cover" :src="card.image" alt="service-Image" />
+                    <img class="w-[374px] h-[173px] bg-brighter2 object-cover" :src="card.image.src" alt="service-Image" />
                   </template>
                   <div class="flex gap-4 justify-evenly items-center w-full">
                       <div class="flex flex-col gap-2.5 font-lora w-[264px]">
