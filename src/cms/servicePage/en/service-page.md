@@ -18,7 +18,7 @@ services_section:
             difficulties with a photo shoot made especially for you.
       button_text_close: Show More
       button_text_open: Show Less
-      image: /src/cms/servicePage/images/image-2-.png
+      image: /src/cms/servicePage/images/website-23.jpg
       services:
         - title: Solo Portrait Packages
           cards:

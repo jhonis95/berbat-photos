@@ -10,7 +10,7 @@ services_section:
     - button_text_close: Afficher plus
       button_text_open: Afficher moins
       title: Individuel
-      image: /src/cms/servicePage/images/image-2-.png
+      image: /src/cms/servicePage/images/website-23.jpg
       content:
         - text: Chaque personne possède une essence unique, et la photographie a le
             pouvoir de la révéler dans les moindres détails. Que ce soit pour
