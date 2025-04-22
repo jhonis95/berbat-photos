@@ -4,7 +4,7 @@ export async function GET() {
     const API_SECRET = import.meta.env.CLOUDINARY_API_SECRET;
     const FOLDER_NAME = "Landscape"; // Change this to your actual folder name
   
-    const query = `expression=folder:${FOLDER_NAME}&max_results=30`; // Adjust max_results as needed
+    const query = `expression=folder:${FOLDER_NAME}&max_results=150`; // Adjust max_results as needed
   
     const response = await fetch(
       `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/resources/search?${query}`,
