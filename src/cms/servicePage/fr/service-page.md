@@ -26,7 +26,7 @@ services_section:
             - price: 80€
               title: Séance d'essence
               content: 10 photos / 30 min
-              image: /src/cms/servicePage/images/bons-et-vivants.jpg
+              image: /src/cms/servicePage/images/website-2.jpg
             - title: "Portrait signature "
               content: 15 photos 45 min
               price: 100€
@@ -87,7 +87,7 @@ services_section:
             pour que vous puissiez revivre ces moments à jamais.
         - text: Créons ensemble des souvenirs qui dureront des générations !
       image: /src/cms/servicePage/images/image.png
-    - title: Mariage | Pré-mariage
+    - title: Fiançailles | Pré-mariage
       image: /src/cms/servicePage/images/image-1-.png
       button_text_close: Afficher plus
       button_text_open: Afficher moins
