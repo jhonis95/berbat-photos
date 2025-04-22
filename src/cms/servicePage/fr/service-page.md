@@ -124,5 +124,6 @@ services_section:
             - title: Vœux intemporels
               content: 35 photos / 2h
               price: 250€
+              image: /src/cms/servicePage/images/website-13.jpg
           price_card_button: Ajouter au panier
 ---
