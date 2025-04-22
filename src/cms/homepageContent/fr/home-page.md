@@ -52,7 +52,7 @@ services_section:
       photographie les détails spéciaux avec sensibilité et créativité,
       préservant les émotions et les histoires qui rendent votre parcours
       unique.
-    headline: Demande en mariage et séance avant-mariage
+    headline: Demande en mariage et Pre-mariage
 booking_section:
   button_link: /
   label_placeholder: Prestations sélectionnées
