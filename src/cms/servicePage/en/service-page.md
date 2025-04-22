@@ -37,7 +37,7 @@ services_section:
             - title: The Timeless Collection
               content: 35 photos/ 1h30
               price: 150€
-              image: /src/cms/servicePage/images/website-5.jpg
+              image: /src/cms/servicePage/images/website-6.jpg
           price_card_button: add to cart
     - title: Couple and Family
       image: /src/cms/servicePage/images/image.png
@@ -72,6 +72,7 @@ services_section:
             - title: The Family Story
               content: 15 photos / 1h
               price: 150€
+              image: /src/cms/servicePage/images/bons-et-vivants.jpg
             - title: Generations of Love
               content: 25 photos / 1h30
               price: 200€
