@@ -47,6 +47,7 @@ services_section:
             - price: 120€
               content: 10 photos / 30 min
               title: Moments précieux
+              image: /src/cms/servicePage/images/bons-et-vivants-138.jpg
             - content: 15 photos / 45 min
               price: 145€
               title: Amour sans fin
