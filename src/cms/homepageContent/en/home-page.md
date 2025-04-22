@@ -44,12 +44,13 @@ services_section:
 
       Celebrate these moments with the delicacy they deserve!
   - image: /src/cms/homepageContent/images/bons-et-vivants-80.jpg
-    headline: Wedding | Pre-Wedding
-    description: We immortalize every detail of your big day with wedding photos
-      full of emotion and meaning. From the preparations to the 'yes', we record
-      the most special moments with sensitivity and art, creating memories that
-      will tell your love story forever.
-    button_text: find out more
+    headline: Proposals and Pre-Weddings
+    description: We capture every heartfelt moment, from the magical proposal to the
+      anticipation before your wedding day. Whether it’s the unforgettable “yes”
+      or the intimate pre-wedding portraits, I photograph the special details
+      with sensitivity and creativity, preserving the emotions and stories that
+      make your journey unique.
+    button_text: Find out more
     button_link: /en/service
 booking_section:
   button_link: /
@@ -58,16 +59,16 @@ booking_section:
   label_email: E-mail
   label_name: Name
   title: Let’s turn your special moments into unforgettable memories together!
-  button_text: book a section
+  button_text: Book a section
   label_message: Message
-  description: The process of contacting and hiring photography begins with the
+  description: The process of contacting and hiring a photographer begins with the
     client sending basic details about the desired service via email or social
-    media. The photographer responds with information about availability, prices
-    and portfolio examples. After discussing details such as location, date and
-    specific needs, the client receives a formal proposal and a contract to
-    sign. The reservation is confirmed with an initial payment, and the
-    photographer guides the preparations until the day of the session. Finally,
-    the edited material is delivered within the agreed deadline, ensuring a
+    media. The photographer then responds with information about availability,
+    pricing, and portfolio examples. After discussing details such as location,
+    date, and specific needs, the client receives a formal proposal and contract
+    to sign. The reservation is confirmed with an initial payment, and the
+    photographer guides the preparations leading up to the session. Finally, the
+    edited material is delivered within the agreed-upon deadline, ensuring a
     professional and personalized experience.
 follow_me_section:
   title: Follow me on Instagram
