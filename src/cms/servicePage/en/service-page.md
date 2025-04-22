@@ -55,9 +55,11 @@ services_section:
             - title: The Romance Edit
               content: 20 photos / 1h
               price: 160€
+              image: /src/cms/servicePage/images/bons-et-vivants-168.jpg
             - title: Forever Us
               content: 30 photos / 1h30
               price: 200€
+              image: /src/cms/servicePage/images/bons-et-vivants-2.jpg
           price_card_button: add to cart
         - title: Family Photography Packages
           cards:
