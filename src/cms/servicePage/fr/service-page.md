@@ -120,7 +120,7 @@ services_section:
             - price: 200€
               content: " 25 photos / 1h30"
               title: Élégance éthérée
-              image: /src/cms/servicePage/images/bons-et-vivants-89.jpg
+              image: /src/cms/servicePage/images/website-18.jpg
             - title: Vœux intemporels
               content: 35 photos / 2h
               price: 250€
