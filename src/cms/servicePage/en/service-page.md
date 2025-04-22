@@ -117,7 +117,7 @@ services_section:
             - title: Ethereal Elegance
               content: " 25 photos / 1h30"
               price: 200€
-              image: /src/cms/servicePage/images/website-14.jpg
+              image: /src/cms/servicePage/images/website-12.jpg
             - title: Timeless Vows
               content: 35 photos / 2h
               price: 250€
