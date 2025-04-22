@@ -76,9 +76,11 @@ services_section:
             - title: Generations of Love
               content: 25 photos / 1h30
               price: 200€
+              image: /src/cms/servicePage/images/bons-et-vivants-7.jpg
             - title: Legacy Collection
               content: 35 photos / 2h
               price: 250€
+              image: /src/cms/servicePage/images/bons-et-vivants-125.jpg
           price_card_button: add to cart
       content:
         - text: The most special moments in life are those shared with those we love.
