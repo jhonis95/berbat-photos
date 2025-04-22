@@ -49,7 +49,7 @@ services_section:
             - title: Cherished Moments
               content: 10 photos / 30 min
               price: 120€
-              image: /src/cms/servicePage/images/bons-et-vivants-138.jpg
+              image: /src/cms/servicePage/images/bons-et-vivants-3.jpg
             - title: Endless Love
               content: 15 photos / 45 min
               price: 145€
