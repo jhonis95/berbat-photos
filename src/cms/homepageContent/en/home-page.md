@@ -3,15 +3,18 @@ title: home Page
 header:
   image: /src/cms/homepageContent/images/bons-et-vivants-14.jpg
   title: Immortalized with passion and creativity
-  subtitle: Unforgettable moments
+  subtitle: Capturing Unforgettable Moments
 about_me_section:
   content:
-    - text: Hello, I am Hyo Un, a Brazilian lifestyle photographer based in Roscoff,
-        France. My passion is to document the fleeting moments of love to create
-        timeless, beautiful images as memories. I love capturing  couples,
-        weddings, elopements and also families. My style is minimal, warm,
-        cinematic and emotional, with a strong focus on storytelling and natural
-        moments.
+    - text: >-
+        Hello, I’m Hyo Un, a Brazilian lifestyle photographer based in Roscoff,
+        France.
+
+        I love capturing real moments filled with emotion . The little looks, the laughter, the quiet in-between.
+
+        I photograph couples, weddings, elopements, and families, always with a focus on natural light and honest connection.
+
+        My style is minimal, warm, and cinematic . Storytelling through simple, beautiful images you’ll treasure forever.
     - text: Looking forward to capturing your special moments for eternity!
   title: Hello, welcome to my photography world!
   image: /src/cms/homepageContent/images/Rectangle 26.png

@@ -2,18 +2,20 @@
 title: home Page
 header:
   title: Immortalisé avec passion et créativité
-  subtitle: Des moments inoubliables
+  subtitle: Capturer des moments inoubliables
   image: /src/cms/homepageContent/images/bons-et-vivants-14.jpg
 about_me_section:
   image: /src/cms/homepageContent/images/Rectangle 26.png
   content:
-    - text: Bonjour, je suis Hyo Un, une photographe lifestyle brésilienne basée à
-        Roscoff, en France. Ma passion est de immortaliser les instants fugaces
-        de l'amour pour créer des images magnifiques et intemporelles,
-        véritables souvenirs. J'adore immortaliser les couples, les mariages,
-        les fugues et aussi les familles. Mon style est minimaliste, chaleureux,
-        cinématographique et émotionnel, avec une forte emphase sur la narration
-        et les moments naturels.
+    - text: >-
+        Bonjour, je suis Hyo Un. Photographe lifestyle brésilienne basée à
+        Roscoff, en France.
+
+        J’aime capturer des moments vrais et pleins d’émotion. Les regards, les rires, et les silences entre deux battements de cœur.
+
+        Je photographie des couples, des mariages, des élopements et des familles, toujours avec une lumière naturelle et des connexions sincères.
+
+        Mon style est minimaliste, chaleureux et cinématographique. Une façon de raconter des histoires à travers des images simples et intemporelles.
     - text: Au plaisir de capturer vos moments spéciaux pour l’éternité!
   title: Bonjour, bienvenue dans mon monde de photographie!
   button_link: /fr/reservation
