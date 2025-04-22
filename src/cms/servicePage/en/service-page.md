@@ -40,7 +40,7 @@ services_section:
               image: /src/cms/servicePage/images/website-6.jpg
           price_card_button: add to cart
     - title: Couple and Family
-      image: /src/cms/servicePage/images/bons-et-vivants-11.jpg
+      image: /src/cms/servicePage/images/bons-et-vivants-135.jpg
       button_text_close: Show More
       button_text_open: Show Less
       services:
