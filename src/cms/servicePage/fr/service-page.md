@@ -92,7 +92,7 @@ services_section:
             naturel, nous capturons l'essence de l'amour sous toutes ses formes,
             pour que vous puissiez revivre ces moments à jamais.
         - text: Créons ensemble des souvenirs qui dureront des générations !
-      image: /src/cms/servicePage/images/image.png
+      image: /src/cms/servicePage/images/bons-et-vivants-11.jpg
     - title: Fiançailles | Pré-mariage
       image: /src/cms/servicePage/images/image-1-.png
       button_text_close: Afficher plus
