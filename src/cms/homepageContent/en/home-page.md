@@ -18,7 +18,7 @@ about_me_section:
   button_link: en/booking
   button_text: contant me
 services_section:
-  - image: /src/cms/homepageContent/images/bons-et-vivants-99.jpg
+  - image: /src/cms/homepageContent/images/bons-et-vivants-94.jpg
     headline: Individual
     description: We capture the essence of every moment in individual photos that
       reflect your unique personality. Whether to create unforgettable memories,
