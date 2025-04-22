@@ -34,12 +34,14 @@ services_section:
       Transformons les instants en art !
   - image: /src/cms/homepageContent/images/website-22.jpg
     button_link: /fr/service
-    button_text: en savoir plus
-    description: Capturez l'amour et la complicité qui rendent votre histoire unique
-      avec nos photos de couple et de famille. Chaque sourire, chaque regard,
-      chaque câlin sont immortalisés avec sensibilité, créant des souvenirs
-      intemporels qui reflètent les liens les plus précieux de votre vie.
-      Célébrez ces moments avec la délicatesse qu'ils méritent !
+    button_text: En savoir plus
+    description: >-
+      Capturez l’amour et la connexion qui rendent votre histoire unique grâce à
+      mes photos de couple et de famille.
+
+      Chaque sourire, regard et étreinte est saisi avec sensibilité, pour créer des souvenirs intemporels qui reflètent les liens les plus précieux de votre vie.
+
+      Célébrez ces instants avec la délicatesse qu’ils méritent !
     headline: Couple et famille
   - image: /src/cms/homepageContent/images/bons-et-vivants-80.jpg
     button_text: en savoir plus
