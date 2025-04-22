@@ -30,7 +30,7 @@ services_section:
             - title: "Portrait signature "
               content: 15 photos 45 min
               price: 100€
-              image: /src/cms/servicePage/images/bons-et-vivants-176.jpg
+              image: /src/cms/servicePage/images/website-4.jpg
             - title: Cadre de luxe
               price: 120€
               content: 20 photos / 1h
