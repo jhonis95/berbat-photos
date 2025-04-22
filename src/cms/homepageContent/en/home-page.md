@@ -18,7 +18,7 @@ about_me_section:
   button_link: en/booking
   button_text: contant me
 services_section:
-  - image: /src/cms/homepageContent/images/Rectangle 10.png
+  - image: /src/cms/homepageContent/images/bons-et-vivants-150.jpg
     headline: Individual
     description: We capture the essence of every moment in individual photos that
       reflect your unique personality. Whether to create unforgettable memories,
@@ -26,7 +26,7 @@ services_section:
       value every detail with creativity and sensitivity. Turn moments into art!
     button_text: find out more
     button_link: /en/service
-  - image: /src/cms/homepageContent/images/website-21.jpg
+  - image: /src/cms/homepageContent/images/website-22.jpg
     headline: Couple and Family
     button_text: find out more
     button_link: /en/service
