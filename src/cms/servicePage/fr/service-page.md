@@ -116,6 +116,7 @@ services_section:
             - content: 20 photos / 1h
               price: 150€
               title: Séance Lueur Dorée
+              image: /src/cms/servicePage/images/bons-et-vivants-89.jpg
             - price: 200€
               content: " 25 photos / 1h30"
               title: Élégance éthérée
