@@ -38,7 +38,7 @@ services_section:
             - price: 150€
               content: 35 photos/ 1h30
               title: La collection intemporelle
-              image: /src/cms/servicePage/images/website-5.jpg
+              image: /src/cms/servicePage/images/website-6.jpg
           price_card_button: ajouter au panier
     - title: Couple et famille
       button_text_close: Afficher plus
@@ -72,6 +72,7 @@ services_section:
             - content: 15 photos / 1h
               price: 150€
               title: L'histoire de famille
+              image: /src/cms/servicePage/images/bons-et-vivants.jpg
             - content: 25 photos / 1h30
               price: 200€
               title: Générations d'amour
