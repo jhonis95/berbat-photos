@@ -33,7 +33,7 @@ services_section:
             - title: Luxe Frame
               content: 20 photos / 1h
               price: 120€
-              image: /src/cms/servicePage/images/website-3.jpg
+              image: /src/cms/servicePage/images/website-10.jpg
             - title: The Timeless Collection
               content: 35 photos/ 1h30
               price: 150€

@@ -34,7 +34,7 @@ services_section:
             - title: Cadre de luxe
               price: 120€
               content: 20 photos / 1h
-              image: /src/cms/servicePage/images/website-3.jpg
+              image: /src/cms/servicePage/images/website-10.jpg
             - price: 150€
               content: 35 photos/ 1h30
               title: La collection intemporelle
