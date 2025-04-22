@@ -26,7 +26,7 @@ services_section:
             - price: 80€
               title: Séance d'essence
               content: 10 photos / 30 min
-              image: /src/cms/servicePage/images/website.jpg
+              image: /src/cms/servicePage/images/website-8.jpg
             - title: "Portrait signature "
               content: 15 photos 45 min
               price: 100€
@@ -34,7 +34,7 @@ services_section:
             - title: Cadre de luxe
               price: 120€
               content: 20 photos / 1h
-              image: /src/cms/servicePage/images/website-3.jpg
+              image: /src/cms/servicePage/images/website-10.jpg
             - price: 150€
               content: 35 photos/ 1h30
               title: La collection intemporelle
