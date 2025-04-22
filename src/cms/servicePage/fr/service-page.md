@@ -55,9 +55,11 @@ services_section:
             - price: 160€
               content: 20 photos / 1h
               title: La romance Modifier
+              image: /src/cms/servicePage/images/bons-et-vivants-168.jpg
             - content: 30 photos / 1h30
               price: 200€
               title: Pour toujours nous
+              image: /src/cms/servicePage/images/bons-et-vivants-2.jpg
           price_card_button: Ajouter au panier
         - title: Forfaits Photographie de Famille
           cards:
