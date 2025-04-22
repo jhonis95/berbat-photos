@@ -72,7 +72,7 @@ services_section:
             - title: The Family Story
               content: 15 photos / 1h
               price: 150€
-              image: /src/cms/servicePage/images/bons-et-vivants.jpg
+              image: /src/cms/servicePage/images/website-7.jpg
             - title: Generations of Love
               content: 25 photos / 1h30
               price: 200€
