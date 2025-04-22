@@ -72,7 +72,7 @@ services_section:
             - content: 15 photos / 1h
               price: 150€
               title: L'histoire de famille
-              image: /src/cms/servicePage/images/bons-et-vivants.jpg
+              image: /src/cms/servicePage/images/website-7.jpg
             - content: 25 photos / 1h30
               price: 200€
               title: Générations d'amour
