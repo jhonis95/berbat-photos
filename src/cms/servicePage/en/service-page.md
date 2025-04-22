@@ -37,6 +37,7 @@ services_section:
             - title: The Timeless Collection
               content: 35 photos/ 1h30
               price: 150€
+              image: /src/cms/servicePage/images/website-5.jpg
           price_card_button: add to cart
     - title: Couple and Family
       image: /src/cms/servicePage/images/image.png

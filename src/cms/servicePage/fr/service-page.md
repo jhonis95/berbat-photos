@@ -38,6 +38,7 @@ services_section:
             - price: 150€
               content: 35 photos/ 1h30
               title: La collection intemporelle
+              image: /src/cms/servicePage/images/website-5.jpg
           price_card_button: ajouter au panier
     - title: Couple et famille
       button_text_close: Afficher plus
