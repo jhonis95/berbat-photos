@@ -68,6 +68,7 @@ services_section:
             - title: Together Forever
               content: 10 photos / 45 min
               price: 120€
+              image: /src/cms/servicePage/images/graduation-152.jpg
             - title: The Family Story
               content: 15 photos / 1h
               price: 150€
