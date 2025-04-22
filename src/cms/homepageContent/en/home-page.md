@@ -1,7 +1,7 @@
 ---
 title: home Page
 header:
-  image: /src/cms/homepageContent/images/image.png
+  image: /src/cms/homepageContent/images/bons-et-vivants-14.jpg
   title: Immortalized with passion and creativity
   subtitle: Unforgettable moments
 about_me_section:
