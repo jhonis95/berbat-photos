@@ -19,15 +19,18 @@ about_me_section:
   title: Hello, welcome to my photography world!
   image: /src/cms/homepageContent/images/Rectangle 26.png
   button_link: en/booking
-  button_text: contant me
+  button_text: Contact me
 services_section:
   - image: /src/cms/homepageContent/images/bons-et-vivants-150.jpg
     headline: Individual
-    description: We capture the essence of every moment in individual photos that
-      reflect your unique personality. Whether to create unforgettable memories,
-      renew your portfolio or simply record your best version, our clickers
-      value every detail with creativity and sensitivity. Turn moments into art!
-    button_text: find out more
+    description: >-
+      I capture the essence of each moment through photos that reflect your
+      unique personality.
+
+      Whether you want to create unforgettable memories, refresh your portfolio, or simply capture your best self, I approach every detail with creativity and sensitivity.
+
+      Let’s turn moments into art!
+    button_text: Find out more
     button_link: /en/service
   - image: /src/cms/homepageContent/images/website-22.jpg
     headline: Couple and Family

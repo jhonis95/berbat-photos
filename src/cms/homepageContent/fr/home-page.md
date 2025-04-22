@@ -19,18 +19,19 @@ about_me_section:
     - text: Au plaisir de capturer vos moments spéciaux pour l’éternité!
   title: Bonjour, bienvenue dans mon monde de photographie!
   button_link: /fr/reservation
-  button_text: me contacter
+  button_text: Me contacter
 services_section:
   - image: /src/cms/homepageContent/images/bons-et-vivants-150.jpg
     button_link: /fr/service
-    button_text: en savoir plus
+    button_text: En savoir plus
     headline: Individuel
-    description: Nous capturons l'essence de chaque instant dans des photos uniques
-      qui reflètent votre personnalité unique. Que ce soit pour créer des
-      souvenirs inoubliables, renouveler votre portfolio ou simplement
-      immortaliser votre meilleure version, nos photographes valorisent chaque
-      détail avec créativité et sensibilité. Transformez vos instants en œuvres
-      d'art !
+    description: >-
+      Je capture l’essence de chaque moment à travers des photos qui reflètent
+      votre personnalité unique.
+
+      Que vous souhaitiez créer des souvenirs inoubliables, renouveler votre portfolio ou simplement capturer votre meilleure version, j’accorde de l’attention à chaque détail avec créativité et sensibilité.
+
+      Transformons les instants en art !
   - image: /src/cms/homepageContent/images/website-22.jpg
     button_link: /fr/service
     button_text: en savoir plus
