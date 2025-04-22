@@ -76,9 +76,11 @@ services_section:
             - content: 25 photos / 1h30
               price: 200€
               title: Générations d'amour
+              image: /src/cms/servicePage/images/bons-et-vivants-7.jpg
             - content: 35 photos / 2h
               price: 250€
               title: Collection Héritage
+              image: /src/cms/servicePage/images/bons-et-vivants-125.jpg
           price_card_button: Ajouter au panier
       content:
         - text: Les moments les plus précieux de la vie sont ceux partagés avec ceux que
