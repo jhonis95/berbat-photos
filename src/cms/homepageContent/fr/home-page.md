@@ -3,7 +3,7 @@ title: home Page
 header:
   title: Immortalisé avec passion et créativité
   subtitle: Des moments inoubliables
-  image: /src/cms/homepageContent/images/image.png
+  image: /src/cms/homepageContent/images/bons-et-vivants-14.jpg
 about_me_section:
   image: /src/cms/homepageContent/images/Rectangle 26.png
   content:
