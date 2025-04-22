@@ -51,7 +51,7 @@ services_section:
             - content: 15 photos / 45 min
               price: 145€
               title: Amour sans fin
-              image: /src/cms/servicePage/images/bons-et-vivants-47.jpg
+              image: /src/cms/servicePage/images/bons-et-vivants-3.jpg
             - price: 160€
               content: 20 photos / 1h
               title: La romance Modifier
