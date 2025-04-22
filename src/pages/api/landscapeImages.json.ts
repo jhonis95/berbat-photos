@@ -2,7 +2,7 @@ export async function GET() {
     const CLOUD_NAME = import.meta.env.PUBLIC_CLOUDINARY_CLOUD_NAME;
     const API_KEY = import.meta.env.PUBLIC_CLOUDINARY_API_KEY;
     const API_SECRET = import.meta.env.CLOUDINARY_API_SECRET;
-    const FOLDER_NAME = "berbat-photos_landscape"; // Change this to your actual folder name
+    const FOLDER_NAME = "Landscape"; // Change this to your actual folder name
   
     const query = `expression=folder:${FOLDER_NAME}&max_results=30`; // Adjust max_results as needed
   
