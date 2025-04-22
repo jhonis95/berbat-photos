@@ -34,7 +34,7 @@ services_section:
       our couples and family photos. Every smile, look and hug is sensitively
       captured, creating timeless memories that reflect the most special bonds
       in your life. Celebrate these moments with the delicacy they deserve!
-  - image: /src/cms/homepageContent/images/bons-et-vivants-84.jpg
+  - image: /src/cms/homepageContent/images/bons-et-vivants-80.jpg
     headline: Wedding | Pre-Wedding
     description: We immortalize every detail of your big day with wedding photos
       full of emotion and meaning. From the preparations to the 'yes', we record

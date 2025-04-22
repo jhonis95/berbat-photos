@@ -38,7 +38,7 @@ services_section:
       intemporels qui reflètent les liens les plus précieux de votre vie.
       Célébrez ces moments avec la délicatesse qu'ils méritent !
     headline: Couple et famille
-  - image: /src/cms/homepageContent/images/bons-et-vivants-84.jpg
+  - image: /src/cms/homepageContent/images/bons-et-vivants-80.jpg
     button_text: en savoir plus
     button_link: /fr/service
     description: Nous immortalisons chaque détail de votre grand jour avec des
