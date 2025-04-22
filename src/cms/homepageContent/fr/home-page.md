@@ -19,7 +19,7 @@ about_me_section:
   button_link: /fr/reservation
   button_text: me contacter
 services_section:
-  - image: /src/cms/homepageContent/images/bons-et-vivants-91.jpg
+  - image: /src/cms/homepageContent/images/bons-et-vivants-150.jpg
     button_link: /fr/service
     button_text: en savoir plus
     headline: Individuel
