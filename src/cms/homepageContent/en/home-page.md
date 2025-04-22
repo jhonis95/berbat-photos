@@ -26,7 +26,7 @@ services_section:
       value every detail with creativity and sensitivity. Turn moments into art!
     button_text: find out more
     button_link: /en/service
-  - image: /src/cms/homepageContent/images/Rectangle 10 (1).png
+  - image: /src/cms/homepageContent/images/website-21.jpg
     headline: Couple and Family
     button_text: find out more
     button_link: /en/service

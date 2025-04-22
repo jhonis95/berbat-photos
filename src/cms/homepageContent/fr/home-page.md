@@ -29,7 +29,7 @@ services_section:
       immortaliser votre meilleure version, nos photographes valorisent chaque
       détail avec créativité et sensibilité. Transformez vos instants en œuvres
       d'art !
-  - image: /src/cms/homepageContent/images/Rectangle 10 (1).png
+  - image: /src/cms/homepageContent/images/website-21.jpg
     button_link: /fr/service
     button_text: en savoir plus
     description: Capturez l'amour et la complicité qui rendent votre histoire unique
