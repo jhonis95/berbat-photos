@@ -113,6 +113,7 @@ services_section:
             - title: Golden Glow Session
               content: 20 photos / 1h
               price: 150€
+              image: /src/cms/servicePage/images/bons-et-vivants-89.jpg
             - title: Ethereal Elegance
               content: " 25 photos / 1h30"
               price: 200€
