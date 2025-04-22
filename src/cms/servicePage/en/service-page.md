@@ -121,6 +121,6 @@ services_section:
             - title: Timeless Vows
               content: 35 photos / 2h
               price: 250€
-              image: /src/cms/servicePage/images/website-13.jpg
+              image: /src/cms/servicePage/images/website-15.jpg
           price_card_button: add to cart
 ---
