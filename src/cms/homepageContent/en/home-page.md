@@ -34,12 +34,15 @@ services_section:
     button_link: /en/service
   - image: /src/cms/homepageContent/images/website-22.jpg
     headline: Couple and Family
-    button_text: find out more
+    button_text: Find out more
     button_link: /en/service
-    description: Capture the love and connection that makes your story unique with
-      our couples and family photos. Every smile, look and hug is sensitively
-      captured, creating timeless memories that reflect the most special bonds
-      in your life. Celebrate these moments with the delicacy they deserve!
+    description: >-
+      Capture the love and connection that make your story unique with my
+      couples and family photography.
+
+      Every smile, glance, and hug is captured with sensitivity, creating timeless memories that reflect the most special bonds in your life.
+
+      Celebrate these moments with the delicacy they deserve!
   - image: /src/cms/homepageContent/images/bons-et-vivants-80.jpg
     headline: Wedding | Pre-Wedding
     description: We immortalize every detail of your big day with wedding photos
