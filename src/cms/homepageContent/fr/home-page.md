@@ -44,13 +44,15 @@ services_section:
       Célébrez ces instants avec la délicatesse qu’ils méritent !
     headline: Couple et famille
   - image: /src/cms/homepageContent/images/bons-et-vivants-80.jpg
-    button_text: en savoir plus
+    button_text: En savoir plus
     button_link: /fr/service
-    description: Nous immortalisons chaque détail de votre grand jour avec des
-      photos de mariage pleines d'émotion et de sens. Des préparatifs au « oui
-      », nous immortalisons les moments les plus précieux avec sensibilité et
-      art, créant des souvenirs qui raconteront votre histoire d'amour à jamais.
-    headline: Marquage | Pré-marquage
+    description: Je capture chaque instant émouvant, de la demande en mariage
+      magique à l'anticipation avant le grand jour. Que ce soit le moment
+      inoubliable du « oui » ou les portraits intimes avant le mariage, je
+      photographie les détails spéciaux avec sensibilité et créativité,
+      préservant les émotions et les histoires qui rendent votre parcours
+      unique.
+    headline: Demande en mariage et séance avant-mariage
 booking_section:
   button_link: /
   label_placeholder: Prestations sélectionnées
@@ -58,18 +60,18 @@ booking_section:
   label_email: E-mail
   label_name: Nom
   title: Transformons ensemble vos moments spéciaux en souvenirs inoubliables !
-  button_text: réserver une section
+  button_text: Réserver une section
   label_message: Message
-  description: Le processus de prise de contact et de réservation d'un photographe
-    commence par l'envoi par le client des informations essentielles concernant
-    la prestation souhaitée par e-mail ou sur les réseaux sociaux. Le
-    photographe répond ensuite en fournissant des informations sur les
-    disponibilités, les tarifs et des exemples de portfolio. Après avoir discuté
-    du lieu, de la date et de vos besoins spécifiques, le client reçoit une
-    proposition formelle et un contrat à signer. La réservation est confirmée
-    par un acompte, et le photographe accompagne les préparatifs jusqu'au jour
-    J. Enfin, le matériel édité est livré dans les délais convenus, garantissant
-    une expérience professionnelle et personnalisée.
+  description: Le processus de prise de contact et d'embauche d'un photographe
+    commence par l'envoi par le client des détails de base concernant le service
+    souhaité, par e-mail ou sur les réseaux sociaux. Le photographe répond
+    ensuite avec des informations sur la disponibilité, les tarifs et des
+    exemples de son portfolio. Après avoir discuté des détails tels que le lieu,
+    la date et les besoins spécifiques, le client reçoit une proposition
+    formelle et un contrat à signer. La réservation est confirmée par un
+    paiement initial, et le photographe guide les préparatifs jusqu’au jour de
+    la séance. Enfin, le matériel édité est livré dans le délai convenu,
+    garantissant une expérience professionnelle et personnalisée.
 follow_me_section:
   title: Suivez-moi sur Instagram
   social_media_name: "@berbatphotos"
