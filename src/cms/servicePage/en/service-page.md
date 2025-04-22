@@ -109,6 +109,7 @@ services_section:
             - title: The Love Story Collection
               content: 15 photos / 45 min
               price: 120€
+              image: /src/cms/servicePage/images/website-9.jpg
             - title: Golden Glow Session
               content: 20 photos / 1h
               price: 150€

@@ -112,6 +112,7 @@ services_section:
             - price: 120€
               content: 15 photos / 45 min
               title: La collection Histoire d'amour
+              image: /src/cms/servicePage/images/website-9.jpg
             - content: 20 photos / 1h
               price: 150€
               title: Séance Lueur Dorée
