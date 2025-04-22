@@ -25,7 +25,7 @@ services_section:
             - title: Essence Session
               content: 10 photos / 30 min
               price: 80€
-              image: /src/cms/servicePage/images/bons-et-vivants.jpg
+              image: /src/cms/servicePage/images/website-2.jpg
             - title: Signature Portrait
               content: 15 photos 45 min
               price: 100€
@@ -85,7 +85,7 @@ services_section:
             the essence of love in all its forms, so that you can relive these
             moments forever.
         - text: Let’s create memories together that will last for generations!
-    - title: Wedding | Pre-Wedding
+    - title: Engagement | Pre-Wedding
       image: /src/cms/servicePage/images/image-1-.png
       button_text_close: Show More
       button_text_open: Show Less
