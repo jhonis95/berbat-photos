@@ -175,6 +175,72 @@ const {NavBarData ,FootData}= Astro.props
 	    });
 		Alpine.data('gallery',()=>{
 			return{
+				// showModal: false,
+  				// isLoading: true,
+  				// modalImage: '',
+  				// images: [] as object[],
+  				// nextCursor: null,
+  				// currentGallery: '',
+  				// loadingMore: false,
+  				// done: false,
+
+  				// handleModal(e:any) {
+  				//   this.showModal = !this.showModal;
+  				//   this.modalImage = e.target.src;
+  				//   animate(`#modalImage`, { opacity: [0, 1], scale: [0.5, 1] }, { duration: 0.2 });
+  				// },
+			
+  				// async fetchGalleryImages(galleryName:any) {
+  				//   this.isLoading = true;
+  				//   this.images = [];
+  				//   this.currentGallery = galleryName;
+  				//   this.nextCursor = null;
+  				//   this.done = false;
+				
+  				//   const { images, nextCursor } = await this.fetchImages(galleryName);
+  				//   this.images = images;
+				//   console.log(this.images)
+  				//   this.nextCursor = nextCursor;
+  				//   this.isLoading = false;
+  				// },
+			
+  				// async fetchImages(galleryName: any, cursor = null) {
+  				//   let url = `/api/${galleryName}Images.json`;
+  				//   if (cursor) url += `?cursor=${cursor}`;
+				//   console.log(`fetch URL: ${url}`)
+  				//   const res = await fetch(url);
+  				//   if (!res.ok) return { images: [], nextCursor: null };
+				
+  				//   const data = await res.json();
+				//   console.log(`fetch data:`)
+				//   console.log(data)
+  				//   return {
+  				//     images: data.images || [],
+  				//     nextCursor: data.nextCursor || null,
+  				//   };
+  				// },
+			
+  				// async loadMoreImages() {
+  				//   if (this.loadingMore || this.done || !this.nextCursor) return;
+  				//   this.loadingMore = true;
+				
+  				//   const { images: newImages, nextCursor } = await this.fetchImages(this.currentGallery, this.nextCursor);
+  				//   this.images.push(...newImages);
+				//   console.log(this.images)
+  				//   this.nextCursor = nextCursor;
+  				//   this.done = !nextCursor;
+  				//   this.loadingMore = false;
+  				// },
+			
+  				// async checkScroll() {
+  				//   const scrollY = window.scrollY;
+  				//   const windowHeight = window.innerHeight;
+  				//   const docHeight = document.documentElement.scrollHeight;
+				
+  				//   if (scrollY + windowHeight >= docHeight - 200) {
+  				//     await this.loadMoreImages();
+  				//   }
+  				// }
 				showModal:false,
 				isLoading: true,
 				modalImage:'',
