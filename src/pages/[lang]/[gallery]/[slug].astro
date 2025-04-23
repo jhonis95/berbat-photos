@@ -60,7 +60,7 @@ const { pageData, navBarData,footerData, gallery} = Astro.props;
   </header>
   <main>
     <section class="flex w-full justify-center gap-2">
-        <div x-data="gallery" x-init=`fetchGalleryImages('${gallery}')` @scroll.window="checkScroll()" class="flex w-full justify-center">
+        <div x-data="gallery" x-init=`fetchGalleryImages('${gallery}')` class="flex w-full justify-center">
             <div x-cloak x-transition x-show="isLoading" class="flex flex-wrap gap-2 mx-4 w-full max-w-[95dvw] 2xl:max-w-[1538px] justify-center">
                 <template x-for="n in 6" :key="n">
                     <div class="animate-pulse bg-gray-300 min-h-[146px] min-w-[150px] h-[45vw] w-[44vw] sm:h-[27vw] sm:w-[26vw] flex justify-center items-center">
@@ -69,11 +69,27 @@ const { pageData, navBarData,footerData, gallery} = Astro.props;
                         </svg>
                     </div>
                 </template>
-
             </div>
-            <div x-cloak x-transition x-show="!isLoading" class="flex flex-wrap gap-2 mx-4 w-full max-w-[95dvw] 2xl:max-w-[1538px] justify-center">
+            <!-- load without trying to change image format -->
+            <!-- <div x-cloak x-transition x-show="!isLoading" class="flex flex-wrap gap-2 mx-4 w-full max-w-[95dvw] 2xl:max-w-[1538px] justify-center">
                 <template x-for="image in images" :key="image.public_id">
                     <img x-on:click="handleModal" loading="lazy" class=" grow min-h-[146px] min-w-[150px] h-[45vw] sm:h-[27vw] w-auto max-h-[505px] object-cover" x-bind:src="image.url" x-bind:alt="image.filename"/>
+                </template>
+            </div> -->
+            <div x-cloak x-transition x-show="!isLoading" class="flex flex-wrap gap-2 mx-4 w-full max-w-[95dvw] 2xl:max-w-[1538px] justify-center">
+                <template x-for="image in images" :key="image.public_id">
+                    <div class="grow min-h-[146px] min-w-[150px] h-[45vw] sm:h-[27vw] w-auto max-h-[505px]">
+                        <picture>
+                          <source x-bind:srcset="image.webpUrl" type="image/webp" />
+                          <img
+                            x-on:click="handleModal"
+                            loading="lazy"
+                            x-bind:src="image.url"
+                            x-bind:alt="image.filename"
+                            class=" w-full h-full object-cover"
+                          />
+                        </picture>
+                    </div>
                 </template>
             </div>
             <div id="modalContainer" class=" fixed inset-0 z-40 flex justify-center items-center" x-show="showModal">
