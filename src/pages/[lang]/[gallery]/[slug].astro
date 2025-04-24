@@ -76,17 +76,29 @@ const { pageData, navBarData,footerData, gallery} = Astro.props;
                     <img x-on:click="handleModal" loading="lazy" class=" grow min-h-[146px] min-w-[150px] h-[45vw] sm:h-[27vw] w-auto max-h-[505px] object-cover" x-bind:src="image.url" x-bind:alt="image.filename"/>
                 </template>
             </div> -->
-            <div x-cloak x-show="!isLoading" class="flex flex-wrap gap-2 mx-4 w-full max-w-[95dvw] 2xl:max-w-[1538px] justify-center">
+            <div 
+                x-cloak 
+                x-transition:enter="transform transition duration-500 ease-[cubic-bezier(0.250,0.460,0.450,0.940)]"
+                x-transition:enter-start="scale-50 opacity-0"
+                x-transition:enter-end="scale-100 opacity-100"
+                x-transition:leave="transform transition duration-300 ease-in"
+                x-transition:leave-start="scale-100 opacity-100"
+                x-transition:leave-end="scale-50 opacity-0"
+                x-show="!isLoading" 
+                class="flex flex-wrap gap-2 mx-4 w-full max-w-[95dvw] 2xl:max-w-[1538px] justify-center"
+                >
                 <template x-for="image in images" :key="image.public_id">
-                    <div class="grow min-h-[146px] min-w-[150px] h-[45vw] sm:h-[27vw] w-auto max-h-[505px]">
-                        <picture>
+                    <div class=" grow min-h-[146px] min-w-[150px] h-[45vw] sm:h-[27vw] w-auto max-h-[505px]">
+                        <picture class="imageContainer">
                           <source x-bind:srcset="image.webpUrl" type="image/webp" />
                           <img
                             x-on:click="handleModal"
                             loading="lazy"
-                            x-bind:src="image.url"
-                            x-bind:alt="image.filename"
-                            class=" w-full h-full object-cover"
+                            x-bind:src="image.webpUrl"
+                            role="presentation"
+                            sizes="(max-width: 640px) 45vw, 27vw"
+                            :srcset="`${image.url.replace('/upload/', '/upload/w_400,f_auto,q_auto/')} 400w,${image.url.replace('/upload/', '/upload/w_800,f_auto,q_auto/')} 800w,${image.url.replace('/upload/', '/upload/w_1200,f_auto,q_auto/')} 1200w`"
+                            class="w-full h-full object-cover"
                           />
                         </picture>
                     </div>

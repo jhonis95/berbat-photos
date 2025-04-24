@@ -51,3 +51,14 @@ span{
 *::-webkit-scrollbar-thumb:active {
   background-color: #B99F8E;
 }
+
+@keyframes scale-in-center {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

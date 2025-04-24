@@ -205,11 +205,12 @@ const {NavBarData ,FootData}= Astro.props
 						return {
 							...data,
 							url: httpsUrl,
-							webpUrl: httpsUrl.replace('/upload/', '/upload/f_webp/'),
+							webpUrl: httpsUrl.replace('/upload/', '/upload/w_800,f_auto,q_auto/'),
 						};
 					});
-				
-					this.isLoading = false;
+					setTimeout(()=>{
+						this.isLoading = false
+					}, 1000)
 				}
 			};
 		});
