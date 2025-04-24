@@ -51,6 +51,11 @@ const content={
     <main class=" flex flex-col items-center gap-12 lg:gap-[90px]">
         <section id="heroSection" class=" section relative flex flex-col justify-center items-center">
             <Image 
+                decoding={'async'} 
+                fetchpriority={'high'}
+                loading="lazy"
+                width={1920}
+                height={1080}
                 class="w-full lg:w-[90dvw] max-w-[1677px] h-[405px] sm:h-[90dvh] md:max-h-[550px] lg:max-h-[694px] 2xl:max-h-[977px] lg:rounded-xl object-cover" 
                 src={pageData.header.image} 
                 alt={'page thumnail'}
@@ -66,6 +71,11 @@ const content={
                 class=" w-auto h-auto max-w-[281px] max-h-[279px] xl:max-w-[381px] xl:max-h-[379px] 2xl:max-w-[499px] 2xl:max-h-[497px] rounded-xl object-contain" 
                 src={pageData.about_me_section.image}
                 alt="hyu un berbat"
+                loading="lazy"
+                width={800}
+                height={800}
+                decoding={'async'} 
+                format="webp"
             />
             <div class=" flex flex-col items-center max-w-[745px] gap-3.5 xl:gap-11 2xl:gap-16 font-lora">
                 <h3 class=" text-reddarker text-center text-2xl xl:text-4xl 2xl:text-[46px] italic">{ pageData.about_me_section.title}</h3>
@@ -89,7 +99,15 @@ const content={
                     pageData.services_section.map((service_card, index)=>{
                         return(
                             index%2==1?<div class="serviceCards mx-4 md:mx-0 flex flex-col md:flex-row-reverse lg:flex-col justify-between h-fit gap-3.5 md:gap-5 w-fit lg:w-[327px] 2xl:w-[463px] font-lora">
-                                <Image class="w-full h-auto min-w-[286px] min-h-[267px] max-w-[509px] max-h-[320px] md:max-w-[321px] md:max-h-[316px] lg:max-w-[463px] lg:max-h-[376px] rounded-md object-cover" src={service_card.image} alt={'card-Image'}/>
+                                <Image 
+                                    class="w-full h-auto min-w-[286px] min-h-[267px] max-w-[509px] max-h-[320px] md:max-w-[321px] md:max-h-[316px] lg:max-w-[463px] lg:max-h-[376px] rounded-md object-cover" 
+                                    src={service_card.image} 
+                                    alt={'card-Image'}
+                                    loading="lazy" 
+                                    format="webp"
+                                    width={1920}
+                                    height={1080}
+                                />
                                 <div class="flex flex-col gap-3.5 lg:gap-8 max-w-[509px] md:w-[321px] lg:w-full">
                                     <div class="w-full flex flex-col h-fit md:h-[244px] 2xl:h-[174px] gap-3.5 lg:gap-6">
                                         <h4 class="text-reddarker text-2xl sm:text-3xl font-medium italic">{service_card.headline}</h4>
@@ -102,7 +120,15 @@ const content={
                                     </div>
                                 </div>
                             </div>:<div class="serviceCards mx-4 md:mx-0 flex flex-col md:flex-row lg:flex-col justify-between h-fit gap-3.5 md:gap-5 w-fit lg:w-[327px] 2xl:w-[463px] font-lora">
-                                <Image class="w-full h-auto min-w-[286px] min-h-[267px] max-w-[509px] max-h-[320px] md:max-w-[321px] md:max-h-[316px] lg:max-w-[463px] lg:max-h-[376px] rounded-md object-cover" src={service_card.image} alt={'card-Image'}/>
+                                <Image 
+                                    class="w-full h-auto min-w-[286px] min-h-[267px] max-w-[509px] max-h-[320px] md:max-w-[321px] md:max-h-[316px] lg:max-w-[463px] lg:max-h-[376px] rounded-md object-cover" 
+                                    src={service_card.image} 
+                                    alt={'card-Image'}
+                                    loading="lazy" 
+                                    format="webp"
+                                    width={1920}
+                                    height={1080}
+                                />
                                 <div class="flex flex-col gap-3.5 lg:gap-8 max-w-[509px] md:w-[321px] lg:w-full">
                                     <div class="w-full flex flex-col h-fit md:h-[244px] 2xl:h-[174px] gap-3.5 lg:gap-6">
                                         <h4 class="text-reddarker text-2xl sm:text-3xl font-medium italic">{service_card.headline}</h4>

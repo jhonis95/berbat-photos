@@ -70,12 +70,6 @@ const { pageData, navBarData,footerData, gallery} = Astro.props;
                     </div>
                 </template>
             </div>
-            <!-- load without trying to change image format -->
-            <!-- <div x-cloak x-transition x-show="!isLoading" class="flex flex-wrap gap-2 mx-4 w-full max-w-[95dvw] 2xl:max-w-[1538px] justify-center">
-                <template x-for="image in images" :key="image.public_id">
-                    <img x-on:click="handleModal" loading="lazy" class=" grow min-h-[146px] min-w-[150px] h-[45vw] sm:h-[27vw] w-auto max-h-[505px] object-cover" x-bind:src="image.url" x-bind:alt="image.filename"/>
-                </template>
-            </div> -->
             <div 
                 x-cloak 
                 x-transition:enter="transform transition duration-500 ease-[cubic-bezier(0.250,0.460,0.450,0.940)]"

@@ -15,7 +15,17 @@ let count=0
                     x-data="priceCards" 
                     class={index%2==0?"flex justify-center items-center gap-[50px] serviceCardContainer":"flex flex-row-reverse justify-center items-center gap-[50px] serviceCardContainer"}
                 >
-                    <Image id={`cardPriceMainImage${index}`} class="w-[828px] h-[622px] object-cover transition-discrete duration-700 ease-in-out" src={data.image} alt=""/>
+                    <Image 
+                        id={`cardPriceMainImage${index}`} 
+                        class="w-[828px] h-[622px] object-cover transition-discrete duration-700 ease-in-out" 
+                        src={data.image} 
+                        alt=""
+                        decoding={'async'}
+                        loading="lazy"
+                        format="webp"
+                        width={1920}
+                        height={1080}
+                    />
                     <div class="flex flex-col font-lora max-w-[463px] gap-[30px]">
                         <h4 class="text-reddarker text-3xl italic font-medium">{data.title}</h4>
                         {
@@ -33,7 +43,12 @@ let count=0
                             >
                                 <button x-text={`showDetails?'${data.button_text_open}':'${data.button_text_close}'`}>
                                 </button>
-                                <Image id={`showBtn${index}`} class={index%2==0?"h-[21]":"h-[21] rotate-180"} src={arrowicon} alt="arrow-icon"/>
+                                <Image 
+                                    id={`showBtn${index}`} 
+                                    class={index%2==0?"h-[21]":"h-[21] rotate-180"} 
+                                    src={arrowicon} 
+                                    alt="arrow-icon"
+                                />
                             </div>
                         </div>
                     </div>
@@ -52,11 +67,19 @@ let count=0
                                                 data.cards.map((card:any)=>{
                                                     count=count+1
                                                     const cardId=count
-                                                    console.log(card.image)
                                                     return(
                                                         <div class=" w-[401px] rounded-sm bg-brighter1 text-darker2 flex flex-col py-2 justify-center items-center">
                                                             {
-                                                                card?.image?<Image class="w-[374px] h-[173px] bg-brighter2 object-cover" src={card?.image} alt="service-Image"/>:''
+                                                                card?.image?
+                                                                    <Image 
+                                                                        class="w-[374px] h-[173px] bg-brighter2 object-cover" 
+                                                                        src={card?.image} 
+                                                                        alt="service-Image" 
+                                                                        loading="lazy"
+                                                                        format="webp"
+                                                                        width={1280}
+                                                                        height={720}
+                                                                    />:''
                                                             }
                                                             <div class="flex gap-9 justify-evenly items-center w-full">
                                                                 <div class="flex flex-col gap-2.5 font-lora w-[264px]">
