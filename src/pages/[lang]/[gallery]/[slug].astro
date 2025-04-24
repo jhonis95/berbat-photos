@@ -82,8 +82,8 @@ const { pageData, navBarData,footerData, gallery} = Astro.props;
                 class="flex flex-wrap gap-2 mx-4 w-full max-w-[95dvw] 2xl:max-w-[1538px] justify-center"
                 >
                 <template x-for="image in images" :key="image.public_id">
-                    <div class=" grow min-h-[146px] min-w-[150px] h-[45vw] sm:h-[27vw] w-auto max-h-[505px]">
-                        <picture class="imageContainer">
+                    <div class="flex grow min-h-[146px] min-w-[150px] h-[45vw] sm:h-[27vw] w-auto max-h-[505px]">
+                        <picture class="imageContainer w-full h-full">
                           <source x-bind:srcset="image.webpUrl" type="image/webp" />
                           <img
                             x-on:click="handleModal"
