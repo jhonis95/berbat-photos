@@ -36,9 +36,9 @@ let count=0
                             <div 
                                 id={index} 
                                 x-on:click={`toggleShowDetailsTablet`} 
-                                class="cursor-pointer rounded-md flex justify-evenly items-center w-[223px] px-10 py-2.5 bg-brighter1"
+                                class="cursor-pointer rounded-md flex justify-evenly items-center w-auto min-w-[223px] px-10 py-2.5 bg-brighter1"
                             >
-                                <button x-text={`showDetails?'${data.button_text_open}':'${data.button_text_close}'`}>
+                                <button class=" px-5" x-text={`showDetails?'${data.button_text_open}':'${data.button_text_close}'`}>
                                 </button>
                                 <Image id={`showBtn${index}`} class="h-[21] rotate-90" src={arrowicon} alt="arrow-icon"/>
                             </div>

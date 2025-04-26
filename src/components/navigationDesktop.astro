@@ -65,7 +65,7 @@ const navegation=[
                 <button x-text="selectedLang" class="text-base 2xl:text-lg cursor-pointer text-darker2">
                 </button>
             </div>
-            <div x-cloak x-transition x-show="show" class=" absolute z-50 top-[42px] flex flex-col gap-3 bg-brighter1 justify-center items-center w-[100px] h-[100px]">
+            <div x-cloak x-transition x-show="show" class=" absolute z-50 top-[42px] flex flex-col gap-3 bg-brighter1 justify-center items-center w-[100px] h-[100px] rounded-sm">
                 <template x-for="language in laguages" :key="language.id">
                     <a class="font-lora text-lg text-darker2 rounded-sm" x-text="language.name" x-bind:href="language.link"></a>
                 </template>
@@ -94,9 +94,9 @@ const navegation=[
     </div>
     <div class="flex gap-6 items-center">
         <Shopbag/>
-        <div class=" flex justify-center items-center rounded-lg bg-brighter1 w-[223px] h-[46px]">
+        <div class=" flex justify-center items-center rounded-lg bg-brighter1 w-auto min-w-[223px] h-[46px]">
             <a href={pageData.Data?.booking_button_link}>
-                <button id="navbarBtnContent" x-on:mouseover="growText" x-on:mouseleave="shrinkText" class="cursor-pointer font-lora italic text-lg text-darker2">
+                <button id="navbarBtnContent" x-on:mouseover="growText" x-on:mouseleave="shrinkText" class="cursor-pointer font-lora italic px-5 text-lg text-darker2">
                     {pageData.Data?.booking_button_text}
                 </button>
             </a>

@@ -39,7 +39,7 @@ let count=0
                             <div 
                                 id={index} 
                                 x-on:click={`toggleShowDetails(${index})`} 
-                                class={index%2==0?"cursor-pointer rounded-md flex justify-evenly items-center w-[223px] px-10 py-2.5 bg-brighter1":"cursor-pointer rounded-md flex flex-row-reverse justify-evenly items-center w-[223px] px-10 py-2.5 bg-brighter1"}
+                                class={index%2==0?"cursor-pointer rounded-md flex justify-evenly items-center w-auto min-w-[223px] px-10 py-2.5 bg-brighter1":"cursor-pointer rounded-md flex flex-row-reverse justify-evenly items-center w-auto min-w-[223px] px-10 py-2.5 bg-brighter1"}
                             >
                                 <button x-text={`showDetails?'${data.button_text_open}':'${data.button_text_close}'`}>
                                 </button>
