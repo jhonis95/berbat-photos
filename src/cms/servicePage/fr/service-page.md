@@ -98,14 +98,16 @@ services_section:
       button_text_close: Afficher plus
       button_text_open: Afficher moins
       content:
-        - text: Chaque personne possède une essence unique, et la photographie a le
-            pouvoir de la révéler dans les moindres détails. Que ce soit pour
-            une séance photo professionnelle, un moment de confiance en soi ou
-            simplement pour immortaliser la meilleure version de vous-même, nos
-            objectifs capturent non seulement votre image, mais aussi votre
-            personnalité, vos émotions et votre propre éclat.
-        - text: Laissez-vous voir sous un nouvel angle et immortalisez vos difficultés
-            avec une séance photo réalisée spécialement pour vous.
+        - text: >-
+            Les instants les plus magiques de la vie naissent souvent dans
+            l’attente d’un avenir partagé. Qu’il s’agisse d’une demande en
+            mariage pleine d’émotion ou d’une séance pré-mariage empreinte de
+            tendresse, ces moments marquent le début d’une belle histoire à
+            deux.
+
+            Notre mission est de capturer ces émotions sincères , les regards complices, les éclats de rire, les gestes doux. Tout ce qui rend votre histoire unique. Avec une approche naturelle et sensible, nous immortalisons l’essence de votre amour pour que vous puissiez revivre ces instants encore et encore.
+        - text: Célébrons ensemble le début de votre "pour toujours" avec des souvenirs à
+            chérir pour toute une vie.
       services:
         - title: Forfaits de photographie de mariage / pré-mariage
           cards:
