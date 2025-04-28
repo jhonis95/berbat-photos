@@ -9,11 +9,11 @@ about_me_section:
   content:
     - text: >-
         Bonjour, je suis Hyo Un. Photographe lifestyle brésilienne basée à
-        Roscoff, en France.
+        Roscoff, Finistère Nord  en France.
 
         J’aime capturer des moments vrais et pleins d’émotion. Les regards, les rires, et les silences entre deux battements de cœur.
 
-        Je photographie des couples, des mariages, des élopements et des familles, toujours avec une lumière naturelle et des connexions sincères.
+        Je photographie des couples, portraits, demandes en mariages, des élopements et des familles, toujours avec une lumière naturelle et des connexions sincères.
 
         Mon style est minimaliste, chaleureux et cinématographique. Une façon de raconter des histoires à travers des images simples et intemporelles.
     - text: Au plaisir de capturer vos moments spéciaux pour l’éternité!
