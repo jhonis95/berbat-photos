@@ -18,8 +18,8 @@ services_section:
             simplement pour immortaliser la meilleure version de vous-même, nos
             objectifs capturent non seulement votre image, mais aussi votre
             personnalité, vos émotions et votre propre éclat.
-        - text: Let yourself be seen from a new angle with a photo session created
-            especially for you.
+        - text: Laissez-vous voir sous un nouvel angle avec une séance photo réalisée
+            spécialement pour vous.
       services:
         - title: Forfaits portraits solo
           cards:
