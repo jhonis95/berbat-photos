@@ -14,8 +14,10 @@ services_section:
             a moment of self-confidence or simply to record the best version of
             yourself, our lenses capture not only your image, but also your
             personality, emotions and your own brilliance.
-        - text: Let yourself be seen through a new perspective and immortalize your
-            difficulties with a photo shoot made especially for you.
+        - text: >+
+            Laissez-vous voir sous un nouvel angle avec une séance photo
+            réalisée spécialement pour vous.
+
       button_text_close: Show More
       button_text_open: Show Less
       image: /src/cms/servicePage/images/website-23.jpg
