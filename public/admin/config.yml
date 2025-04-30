@@ -312,6 +312,7 @@ collections:
           - { label: "Label Name", name: "label_name", widget: "string", i18n: true }
           - { label: "Label resume", name: "label_resume", widget: "string", i18n: true }
           - { label: "Label Message", name: "label_message", widget: "string", i18n: true }
+          - { label: "Label Email", name: "label_email", widget: "string", i18n: true }
 
   - name: "gallery_page"
     label: "Gallery Page"

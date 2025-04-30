@@ -50,31 +50,37 @@ const { pageData,navBarData,footerData } = Astro.props;
                         })
                     }
                 </div>
-                <div class="flex flex-col gap-5 xl:gap-8 font-lora italic text-base w-[95dvw] max-w-[450px] md:w-[284px] xl:w-[695px]">
+                <form class="flex flex-col gap-5 xl:gap-8 font-lora italic text-base w-[95dvw] max-w-[450px] md:w-[284px] xl:w-[695px]">
                     <div>
                         <label class="text-darker2 text-base " for="">{pageData.review_card.label_name}</label>
                         <div class="bg-brighter2 w-full h-[46px] rounded-sm flex justify-center items-center">
-                            <input class=" px-2.5 w-full outline-none" size="16" type="text" name="name" id=""/>
+                            <input id="name" class=" px-2.5 w-full outline-none" size="16" type="text" name="name" id=""/>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="text-darker2 text-base " for="">{pageData.review_card.label_email}</label>
+                        <div class="bg-brighter2 w-full h-[46px] rounded-sm flex justify-center items-center">
+                            <input id="reviewEmail" class=" px-2.5 w-full outline-none" size="16" type="text" name="" id="client_email">
                         </div>
                     </div>
                     <div>
                         <label class="text-darker2 text-base " for="">{pageData.review_card.label_resume}</label>
                         <div class="bg-brighter2 w-full h-[46px] rounded-sm flex justify-center items-center">
-                            <input class=" px-2.5 w-full outline-none" size="16" type="text" name="resume" id=""/>
+                            <input id="resume" class=" px-2.5 w-full outline-none" size="16" type="text" name="resume" id=""/>
                         </div>
                     </div>
                     <div>
                         <label class="text-darker2 text-base " for="">{pageData.review_card.label_message}</label>
                         <div class="bg-brighter2 w-full h-[129px] rounded-sm">
-                            <textarea class="p-2.5 w-full h-full outline-none resize-none" name="message" id=""></textarea>
+                            <textarea id="message" class="p-2.5 w-full h-full outline-none resize-none" name="message" id=""></textarea>
                         </div>
                     </div>
                     <div class="font-lora w-full flex justify-center">
-                        <a class=" flex justify-center items-center rounded-lg bg-brighter2 w-auto min-w-[223px] h-[46px]" href="">
+                        <div id="reviewForm" class=" flex justify-center items-center rounded-lg bg-brighter2 w-auto min-w-[223px] h-[46px]">
                             <button class="cursor-pointer text-darker2 text-xl xl:text-2xl not-italic">{pageData.review_card.button_text}</button>
-                        </a>
+                        </div>
                     </div>
-                </div>
+                </form>
             </div>
         </section>
     </main>
@@ -86,5 +92,61 @@ const { pageData,navBarData,footerData } = Astro.props;
     })
     inView(".bottonToTopAnimation",(element)=>{
         animate(element,{opacity:[0, 1], y:[100,0]},{ delay:0.4, duration:0.5})
+    })
+    import emailjs from '@emailjs/browser';
+    const templateParams = {
+      name: '',
+      resume:'',
+      message:'',
+      email:'',
+      services:'',
+      subject:'',
+      greeting:'',
+      heading:'',
+      paragraph1:'',
+      paragraph2:'',
+      paragraph3:'',
+      regard:'',
+      from:''
+    };
+    const form=(document.getElementById('reviewForm') as HTMLDivElement);
+    form.addEventListener('click',(e)=>{ 
+        const name = (document.getElementById('name') as HTMLInputElement)?.value;
+        const email = (document.getElementById('reviewEmail') as HTMLInputElement)?.value;
+        const resume = (document.getElementById('resume') as HTMLInputElement)?.value;
+        const message = (document.getElementById('message') as HTMLTextAreaElement)?.value;
+        const lang = (document.getElementById('lang') as HTMLTextAreaElement)?.value
+        
+        templateParams.name=name
+        templateParams.email=email
+        templateParams.resume=resume
+        templateParams.message=message
+        templateParams.subject=lang=='fr'?"nous avons reçu vos commentaires":"we've received your feedback"
+        templateParams.greeting=lang=='fr'?'Salut':'Hi'
+        templateParams.heading=lang=='fr'?'Merci pour votre retour':'Thank you for your feedback'
+        templateParams.paragraph1=lang=='fr'?"Merci beaucoup pour vos beaux mots et de m'avoir fait confiance pour votre séance photo !":"Thank you so much for your beautiful words and for trusting me with your photo session!"
+        templateParams.paragraph2=lang=='fr'?"Ce fut un plaisir de capturer vos moments et vos commentaires signifient vraiment beaucoup.":"It was a pleasure capturing your moments, and your feedback truly means a lot."
+        templateParams.paragraph3=lang=='fr'?"Je suis tellement reconnaissante que nous ayons pu travailler ensemble !":"I'm so grateful we got to work together!"
+        templateParams.regard=lang=='fr'?"Cordialement":"Best regards"
+        templateParams.from=lang=='fr'?"L'équipe de Berbat Photos":"The Berbat Photos Team"
+
+        e.preventDefault();
+        emailjs
+            .send(
+                import.meta.env.PUBLIC_EMAILJS_SERVICE_ID, 
+                import.meta.env.PUBLIC_EMAILJS_TEMPLATE_ID2, 
+                templateParams, 
+                {
+                    publicKey: import.meta.env.PUBLIC_EMAILJS_USER_ID,
+                }
+            )
+            .then(
+              (response) => {
+                console.log('SUCCESS!', response.status, response.text);
+              },
+              (err) => {
+                console.log('FAILED...', err);
+              },
+            );
     })
 </script>

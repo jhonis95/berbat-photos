@@ -2,14 +2,16 @@
 import SelectDropdown from "./selectDropdown.astro"
 
  const {Content, Id}= Astro.props
+ const lang=Astro.params
+
 ---
-<form id={Id} class=" section w-full flex justify-center items-center">
+<section id={Id} class=" section w-full flex justify-center items-center">
     <div class="flex flex-col md:flex-row gap-9 xl:gap-24 py-3 md:py-0 w-full h-fit md:w-[716px] md:h-[580px] xl:w-[1433px] xl:h-[741px] bg-brighter1 justify-center items-center">
         <div class="flex flex-col gap-4 md:gap-7 max-w-[450px] md:max-w-[336px] xl:max-w-[470px] font-lora mx-3 md:mx-0">
             <h3 class="text-reddarker text-center md:text-start text-3xl xl:text-5xl italic">{Content.title}</h3>
             <p class="text-darker2 text-sm xl:text-base text-justify">{Content.description}</p>
         </div>
-        <div class="flex flex-col gap-5 xl:gap-8 font-lora italic text-base w-[95dvw] max-w-[450px] md:w-[284px] xl:w-[695px]">
+        <form class="flex flex-col gap-5 xl:gap-8 font-lora italic text-base w-[95dvw] max-w-[450px] md:w-[284px] xl:w-[695px]">
             <div>
                 <label class="text-darker2 text-base " for="">{Content.label_name}</label>
                 <div class="bg-brighter2 w-full h-[46px] rounded-sm flex justify-center items-center">
@@ -29,47 +31,12 @@ import SelectDropdown from "./selectDropdown.astro"
                 </div>
             </div>
             <SelectDropdown LabelText={Content.label_services} Placeholder={Content.label_placeholder}/>
-            <input type="text">
+            <input id="lang" type="text" class=" hidden" value={lang.lang}>
             <div class=" font-lora w-full flex justify-center">
-                <div class="bg-brighter2 flex justify-center items-center rounded-lg w-auto min-w-[223px] h-[46px]">
-                    <button type="submit" class=" cursor-pointer text-darker2 px-5 text-xl xl:text-2xl not-italic">{Content.button_text}</button>
+                <div id="submitform" class="bg-brighter2 flex justify-center items-center rounded-lg w-auto min-w-[223px] h-[46px]">
+                    <button class=" cursor-pointer text-darker2 px-5 text-xl xl:text-2xl not-italic">{Content.button_text}</button>
                 </div>
             </div>
-        </div>
+        </form>
     </div>
-</form>
-<script>
-    import emailjs from '@emailjs/browser';
-    const templateParams = {
-      name: '',
-      email:'',
-      message:'',
-      services:'',
-    };
-    const form=document.getElementById('bookingSection')
-    form?.addEventListener('submit',(e)=>{ 
-        const name = (document.getElementById('client_name') as HTMLInputElement)?.value;
-        const email = (document.getElementById('client_email') as HTMLInputElement)?.value;
-        const message = (document.getElementById('client_message') as HTMLTextAreaElement)?.value;
-        const servicesStore:any = window.Alpine.store('service');
-        const selectedServices = servicesStore.shopListEn.map((s:any) => s.title).join(', ');
-        templateParams.name=name
-        templateParams.email=email
-        templateParams.message=message
-        templateParams.services=selectedServices
-        e.preventDefault();
-        emailjs
-            .send(import.meta.env.PUBLIC_EMAILJS_SERVICE_ID, import.meta.env.PUBLIC_EMAILJS_TEMPLATE_ID, templateParams, {
-              publicKey: import.meta.env.PUBLIC_EMAILJS_USER_ID,
-            })
-            .then(
-              (response) => {
-                console.log('SUCCESS!', response.status, response.text);
-              },
-              (err) => {
-                console.log('FAILED...', err);
-              },
-            );
-    })
-
-</script>
+</section>

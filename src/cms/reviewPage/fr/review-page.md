@@ -9,6 +9,7 @@ review_card:
   label_resume: Résumez votre expérience en une phrase
   label_message: Message
   label_name: Nom
+  label_email: E-mail
   button_text: Envoyer
   title: Partagez votre expérience avec nous !
   description:

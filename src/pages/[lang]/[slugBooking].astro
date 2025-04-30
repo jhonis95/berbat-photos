@@ -59,3 +59,59 @@ const { pageData,navBarData,footerData } = Astro.props;
         </div>
     </main>
 </Layout>
+<script>
+    import emailjs from '@emailjs/browser';
+    const templateParams = {
+      name: '',
+      email:'',
+      message:'',
+      services:'',
+      subject:'',
+      greeting:'',
+      heading:'',
+      paragraph1:'',
+      paragraph2:'',
+      contact:'',
+      regard:'',
+      from:''
+    };
+    const form=(document.getElementById('submitform') as HTMLDivElement);
+    form.addEventListener('click',(e)=>{ 
+        const name = (document.getElementById('client_name') as HTMLInputElement)?.value;
+        const email = (document.getElementById('client_email') as HTMLInputElement)?.value;
+        const message = (document.getElementById('client_message') as HTMLTextAreaElement)?.value;
+        const lang = (document.getElementById('lang') as HTMLTextAreaElement)?.value
+        const servicesStore:any = window.Alpine.store('service');
+        const selectedServices = servicesStore.shopListEn.map((s:any) => s.title).join(', ');
+        templateParams.name=name
+        templateParams.email=email
+        templateParams.message=message
+        templateParams.services=selectedServices
+        templateParams.subject=lang=='fr'?'Nous avons reçu votre message':'We’ve received your message'
+        templateParams.greeting=lang=='fr'?'Salut':'Hi'
+        templateParams.heading=lang=='fr'?'votre séance photo a été réservée':'your photo shoot has been booked'
+        templateParams.paragraph1=lang=='fr'?"Merci d'avoir réservé votre séance photo avec nous ! Nous sommes ravis d'immortaliser vos moments privilégiés.":"Thank you for booking your photo session with us! We're excited to capture your special moments."
+        templateParams.paragraph2=lang=='fr'?"Nous vous contacterons sous peu pour confirmer les détails et nous assurer que tout est parfait pour votre tournage.":"We'll be in touch shortly to confirm the details and make sure everything is perfect for your shoot."
+        templateParams.contact=lang=='fr'?"Vous pouvez répondre à cet email ou me contacter via:":"You can reply to this email or contact me via:"
+        templateParams.regard=lang=='fr'?"Cordialement":"Best regards"
+        templateParams.from=lang=='fr'?"L'équipe de Berbat Photos":"The Berbat Photos Team"
+        e.preventDefault();
+        emailjs
+            .send(
+                import.meta.env.PUBLIC_EMAILJS_SERVICE_ID, 
+                import.meta.env.PUBLIC_EMAILJS_TEMPLATE_ID1, 
+                templateParams, 
+                {
+                    publicKey: import.meta.env.PUBLIC_EMAILJS_USER_ID,
+                }
+            )
+            .then(
+              (response) => {
+                console.log('SUCCESS!', response.status, response.text);
+              },
+              (err) => {
+                console.log('FAILED...', err);
+              },
+            );
+    })
+</script>

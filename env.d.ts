@@ -4,7 +4,8 @@ interface ImportMetaEnv {
     readonly CLOUDINARY_API_SECRET: string;
 
     readonly PUBLIC_EMAILJS_SERVICE_ID: string;
-    readonly PUBLIC_EMAILJS_TEMPLATE_ID: string;
+    readonly PUBLIC_EMAILJS_TEMPLATE_ID1: string;
+    readonly PUBLIC_EMAILJS_TEMPLATE_ID2: string;
     readonly PUBLIC_EMAILJS_USER_ID: string;
   }
   

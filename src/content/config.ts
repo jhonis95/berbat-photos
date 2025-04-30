@@ -367,6 +367,7 @@ const review_page_en = defineCollection({
             label_name:z.string(),
             label_resume:z.string(),
             label_message:z.string(),
+            label_email:z.string()
         })
     })
 })
@@ -389,6 +390,7 @@ const review_page_fr = defineCollection({
             label_name:z.string(),
             label_resume:z.string(),
             label_message:z.string(),
+            label_email:z.string()
         })
     })
 })

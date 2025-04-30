@@ -18,4 +18,5 @@ review_card:
   label_name: Name
   label_resume: Resume your experience in one phrase
   label_message: Message
+  label_email: E-mail
 ---
