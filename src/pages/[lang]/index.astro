@@ -152,7 +152,7 @@ const content={
                 <h4 class="text-darker2 text-2xl lg:text-3xl">{pageData.follow_me_section.title}</h4>
                 <a class="text-darker2 text-base lg:text-lg italic" href={pageData.follow_me_section.social_media_link}>{pageData.follow_me_section.social_media_name}</a>
             </div>
-            <div class="followMeSectionContent flex flex-wrap justify-center items-center gap-3 w-[97dvw] md:w-[90dvw] max-w-[1432px] 2xl:max-w-[1709px]">
+            <!-- <div class="followMeSectionContent flex flex-wrap justify-center items-center gap-3 w-[97dvw] md:w-[90dvw] max-w-[1432px] 2xl:max-w-[1709px]">
                 {
                     content.cards.map(()=>{
                         return(
@@ -160,6 +160,38 @@ const content={
                         )
                     })
                 }
+            </div> -->
+            <div class="flex gap-20 justify-center items-center">
+                <img class=" rounded-xl w-[711px] h-[515px]" src="https://thumbs.dreamstime.com/b/big-ben-westminster-bridge-river-thames-london-uk-sunny-day-english-symbol-lovely-puffy-clouds-57359222.jpg" alt="" width="1920" height="1080"/>
+                <div class=" font-lora max-w-[555px] w-auto text-darker2">
+                    <div class=" w-full flex flex-col items-end italic">
+                        <h3 class="text-5xl">On the Road Again</h3>
+                        <h3 class="text-5xl">Let’s Shoot in Your City!</h3>
+                    </div>
+                    <div class="flex flex-col items-end">
+                        <h6 class="text-2xl">Traveling to [city] 00/00~00/00</h6>
+                        <h6 class="text-2xl">Secure Your Photo Session Today!</h6>
+                    </div>
+                    <p class="text-justify mt-7 text-lg">
+                        I'm heading to [City Name] and would love to connect with anyone interested in a photo session while I’m there! Whether you're looking for portraits, lifestyle shots, or something creative, this is the perfect chance to shoot together. Spots are limited, so feel free to reach out and book your session in advance!
+                    </p>
+                    <div class="mt-10 flex justify-between">
+                        <a class=" bg-brighter1 flex justify-center items-center rounded-lg w-fit min-w-[223px] h-[46px]" href="">
+                            <button class="cursor-pointer text-darker2 px-5 text-xl xl:text-2xl">booking now</button>
+                        </a>
+                        <div class="flex gap-2">
+                            {
+                                navBarData.social_media_section.map((data:any,index: any)=>{
+                                    return(
+                                        <a href={data.link} target="_blank" rel="noopener">
+                                            <Image id={`sm-icon${index}`} x-on:mouseover="growText" x-on:mouseleave="shrinkText" class=" w-[30px] h-[30px] 2xl:w-[43px] 2xl:h-[43px] object-contain" src={data.image} alt={data.name}/>
+                                        </a>
+                                    )
+                                })
+                            }
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
