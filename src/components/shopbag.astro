@@ -19,12 +19,12 @@ const language= capitalizeFirstLetter(lang)
     <div 
       x-show="showModal" 
       x-cloak 
-      class="absolute w-fit 2xl:-left-24 top-14 h-fit inset-0 z-40 flex justify-start items-center"
+      class=" fixed h-full w-full sm:absolute sm:w-fit sm:left-auto sm:top-14 sm:h-fit inset-0 z-40 flex justify-start items-center"
     >
       <!-- Modal Content -->
       <section 
         x-transition 
-        class="z-50 relative min-w-[340px] flex flex-col justify-center items-center shadow-2xs bg-primary px-4 w-fit h-fit p-16 rounded-lg"
+        class="z-50 relative min-w-[340px] flex flex-col justify-center items-center shadow-2xs bg-primary px-4 w-full h-full sm:w-fit sm:h-fit p-16 rounded-lg"
         @click.stop
       >
         <!-- Close Icon -->
@@ -68,12 +68,6 @@ const language= capitalizeFirstLetter(lang)
                 </div>
               </template>
             </div>
-            <!-- this button link have problem -->
-            <!-- <a x-data x-bind:href={`${lang=='en'?'$store.service.bookLinkEn':'$store.service.bookLinkFr'}`}>
-              <button class=" bg-brighter2 text-darker2 h-[36] w-full px-10 py-1.5 rounded-md cursor-pointer">
-                {lang=='en'?'booking now':'réserver maintenant'}
-              </button>
-            </a> -->
           </div>
         </template>
       </section>
