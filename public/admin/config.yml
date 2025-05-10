@@ -91,6 +91,34 @@ collections:
         - { label: "Title", name: "title", widget: "string", i18n: true }
         - { label: "Social Media Name", name: "social_media_name", widget: "string", i18n: true }
         - { label: "Social Media Link", name: "social_media_link", widget: "string", i18n: true }
+    - name: 'travel_section'
+      label: 'Travel Section'
+      widget: 'object'
+      i18n: true
+      fields:
+        - {label: "Image", name: "image", widget: "image", i18n: true, media_folder: "/src/cms/homepageContent/images"}
+        - label: "Title"
+          name: "title" 
+          widget: "list" 
+          i18n: true
+          fields:
+            - {label: "Text", name: "text", widget: "string", i18n: true}
+        - label: "Subtitle"
+          name: "subtitle" 
+          widget: "list" 
+          i18n: true
+          fields:
+            - {label: "Text", name: "text", widget: "string", i18n: true}
+        - {label: "Content", name: "content", widget: "text", i18n: true}
+        - {label: "Button Text", name: "button_text", widget: "string", i18n: true}
+        - {label: "Button Link", name: "button_link", widget: "string", i18n: true}
+        - name: 'social_media'
+          label: 'Social Media'
+          widget: 'list'
+          i18n: true
+          fields:
+            - { label: "Image", name: "image", widget: "image", i18n: true, media_folder: "/src/cms/navegarionBarContent/images"}
+            - { label: "Link", name: "link", widget: "string", i18n: true}
 
 
   - name: "navigation_bar"

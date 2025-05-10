@@ -41,6 +41,22 @@ const home_page_en = defineCollection({
             social_media_name:z.string(),
             social_media_link:z.string(),
         }),
+        travel_section:z.object({
+            image:image(),
+            title:z.array(z.object({
+                text:z.string()
+            })),
+            subtitle:z.array(z.object({
+                text:z.string()
+            })),
+            content:z.string(),
+            button_text:z.string(),
+            button_link:z.string(),
+            social_media:z.array(z.object({
+                image:image(),
+                link:z.string()
+            })),
+        })
     })
 })
 
@@ -84,6 +100,22 @@ const home_page_fr = defineCollection({
             social_media_name:z.string(),
             social_media_link:z.string(),
         }),
+        travel_section:z.object({
+            image:image(),
+            title:z.array(z.object({
+                text:z.string()
+            })),
+            subtitle:z.array(z.object({
+                text:z.string()
+            })),
+            content:z.string(),
+            button_text:z.string(),
+            button_link:z.string(),
+            social_media:z.array(z.object({
+                image:image(),
+                link:z.string()
+            })),
+        })
     })
 })
 

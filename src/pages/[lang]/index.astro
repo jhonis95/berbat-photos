@@ -162,22 +162,30 @@ const content={
                 }
             </div> -->
             <div class="w-auto flex flex-col gap-8 2xl:gap-20 justify-center items-center lg:flex-row px-3">
-                <img class=" mx-1 rounded-xl min-w-[279px] min-h-[273px] w-full h-auto max-w-[627px] lg:max-w-[529px] lg:max-h-[383px] 2xl:max-w-[711px] 2xl:max-h-[515px] object-cover" src="https://thumbs.dreamstime.com/b/big-ben-westminster-bridge-river-thames-london-uk-sunny-day-english-symbol-lovely-puffy-clouds-57359222.jpg" alt="" width="1920" height="1080"/>
+                <img class=" mx-1 rounded-xl min-w-[279px] min-h-[273px] w-full h-auto max-w-[627px] lg:max-w-[529px] lg:max-h-[383px] 2xl:max-w-[711px] 2xl:max-h-[515px] object-cover" src={pageData.travel_section.image.src} alt="travel_image" width="1920" height="1080"/>
                 <div class=" font-lora max-w-[627px] lg:max-w-[436px] 2xl:max-w-[555px] w-auto text-darker2">
                     <div class=" w-full flex flex-col items-start lg:items-end italic">
-                        <h3 class="text-3xl 2xl:text-5xl">On the Road Again</h3>
-                        <h3 class="text-3xl 2xl:text-5xl">Let’s Shoot in Your City!</h3>
+                        {
+                            pageData.travel_section.title.map((content)=>{
+                               return <h3 class="text-3xl 2xl:text-5xl">{content.text}</h3>
+                            })
+                        }
                     </div>
                     <div class="flex flex-col items-start lg:items-end">
-                        <h6 class="text-xl 2xl:text-2xl">Traveling to [city] 00/00~00/00</h6>
-                        <h6 class="text-xl 2xl:text-2xl">Secure Your Photo Session Today!</h6>
+                        {
+                            pageData.travel_section.subtitle.map((content)=>{
+                                return <h6 class="text-xl 2xl:text-2xl">{content.text}</h6>
+                            })
+                        }
                     </div>
                     <p class="text-justify mt-4 2xl:mt-7 text-lg">
-                        I'm heading to [City Name] and would love to connect with anyone interested in a photo session while I’m there! Whether you're looking for portraits, lifestyle shots, or something creative, this is the perfect chance to shoot together. Spots are limited, so feel free to reach out and book your session in advance!
+                        {
+                            pageData.travel_section.content
+                        }
                     </p>
                     <div class="mt-4 2xl:mt-10 flex flex-col gap-3.5 sm:gap-0 sm:flex-row justify-evenly items-center">
-                        <a class=" bg-brighter1 flex justify-center items-center rounded-lg w-fit min-w-[223px] h-[46px]" href="">
-                            <button class="cursor-pointer text-darker2 px-5 text-xl xl:text-2xl 2xl:text-2xl">booking now</button>
+                        <a class=" bg-brighter1 flex justify-center items-center rounded-lg w-fit min-w-[223px] h-[46px]" href={pageData.travel_section.button_link}>
+                            <button class="cursor-pointer text-darker2 px-5 text-xl xl:text-2xl 2xl:text-2xl">{pageData.travel_section.button_text}</button>
                         </a>
                         <div class="flex gap-6">
                             {

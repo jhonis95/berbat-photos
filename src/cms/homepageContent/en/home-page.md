@@ -74,4 +74,26 @@ follow_me_section:
   title: Follow me on Instagram
   social_media_name: "@berbatphotos"
   social_media_link: https://www.instagram.com/berbatphotos/
+travel_section:
+  title:
+    - text: On the Road Again
+    - text: Let’s Shoot in Your City!
+  subtitle:
+    - text: Traveling to [city] 00/00~00/00
+    - text: Secure Your Photo Session Today!
+  content: I'm heading to [City Name] and would love to connect with anyone
+    interested in a photo session while I’m there! Whether you're looking for
+    portraits, lifestyle shots, or something creative, this is the perfect
+    chance to shoot together. Spots are limited, so feel free to reach out and
+    book your session in advance!
+  button_text: Booking now
+  button_link: /en/booking
+  social_media:
+    - image: /src/cms/navegarionBarContent/images/email-icon.svg
+      link: mailto:berbathyoun@gmail.com
+    - image: /src/cms/navegarionBarContent/images/instagram-icon.svg
+      link: https://www.instagram.com/berbatphotos/
+    - image: /src/cms/navegarionBarContent/images/whatsapp-icon.svg
+      link: https://wa.me/330767086414
+  image: /src/cms/homepageContent/images/travel.png
 ---

@@ -76,4 +76,26 @@ follow_me_section:
   title: Suivez-moi sur Instagram
   social_media_name: "@berbatphotos"
   social_media_link: https://www.instagram.com/berbatphotos/
+travel_section:
+  title:
+    - text: De nouveau sur la route
+    - text: Tournons dans votre ville!
+  subtitle:
+    - text: Voyage à [ville] 00/00~00/00
+    - text: Réservez votre séance photo dès aujourd'hui!
+  content: Je me rends à [Nom de la ville] et j'aimerais beaucoup rencontrer toute
+    personne intéressée par une séance photo pendant mon séjour ! Que vous
+    recherchiez des portraits, des photos lifestyle ou quelque chose de créatif,
+    c'est l'occasion idéale de prendre des photos ensemble. Les places sont
+    limitées, alors n'hésitez pas à me contacter et à réserver votre séance !
+  button_text: Booking now
+  button_link: /fr/reservation
+  social_media:
+    - image: /src/cms/navegarionBarContent/images/email-icon.svg
+      link: mailto:berbathyoun@gmail.com
+    - image: /src/cms/navegarionBarContent/images/instagram-icon.svg
+      link: https://www.instagram.com/berbatphotos/
+    - image: /src/cms/navegarionBarContent/images/whatsapp-icon.svg
+      link: https://wa.me/330767086414
+  image: /src/cms/homepageContent/images/travel.png
 ---
