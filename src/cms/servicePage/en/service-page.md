@@ -14,8 +14,9 @@ services_section:
             a moment of self-confidence or simply to record the best version of
             yourself, our lenses capture not only your image, but also your
             personality, emotions and your own brilliance.
-        - text: Let yourself be seen through a new perspective and immortalize your
-            difficulties with a photo shoot made especially for you.
+        - text: >
+            Let yourself be seen from a new angle with a photo session created
+            especially for you.
       button_text_close: Show More
       button_text_open: Show Less
       image: /src/cms/servicePage/images/website-23.jpg
@@ -96,13 +97,15 @@ services_section:
       button_text_close: Show More
       button_text_open: Show Less
       content:
-        - text: Each person carries a unique essence, and photography has the power to
-            reveal this in every detail. Whether for a professional photo shoot,
-            a moment of self-confidence or simply to record the best version of
-            yourself, our lenses capture not only your image, but also your
-            personality, emotions and your own brilliance.
-        - text: Let yourself be seen through a new perspective and immortalize your
-            difficulties with a photo shoot made especially for you.
+        - text: >
+            Some of life’s most magical moments happen in the quiet anticipation
+            of a shared future. Whether it’s the intimacy of a proposal or the
+            excitement of a pre-wedding celebration, these moments mark the
+            beginning of a beautiful journey together.
+
+            We’re here to capture the raw emotion, the quiet glances, the joyful laughter. Every detail that makes your love story unique. With a natural and heartfelt approach, we preserve the essence of your connection in timeless images you’ll treasure forever.
+        - text: Let’s celebrate the beginning of your forever with memories you’ll hold
+            close for a lifetime.
       services:
         - title: Wedding / Pre-Wedding Photography Packages
           cards:

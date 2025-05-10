@@ -12,7 +12,7 @@ about_me_section:
 
         I love capturing real moments filled with emotion . The little looks, the laughter, the quiet in-between.
 
-        I photograph couples, weddings, elopements, and families, always with a focus on natural light and honest connection.
+        I photograph couples, portraits,  proposals, elopements, and families, always with a focus on natural light and honest connection.
 
         My style is minimal, warm, and cinematic . Storytelling through simple, beautiful images you’ll treasure forever.
     - text: Looking forward to capturing your special moments for eternity!
