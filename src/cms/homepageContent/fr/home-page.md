@@ -88,7 +88,7 @@ travel_section:
     recherchiez des portraits, des photos lifestyle ou quelque chose de créatif,
     c'est l'occasion idéale de prendre des photos ensemble. Les places sont
     limitées, alors n'hésitez pas à me contacter et à réserver votre séance !
-  button_text: Booking now
+  button_text: Réservez maintenant
   button_link: /fr/reservation
   social_media:
     - image: /src/cms/navegarionBarContent/images/email-icon.svg
