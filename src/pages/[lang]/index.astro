@@ -152,15 +152,6 @@ const content={
                 <h4 class="text-darker2 text-2xl lg:text-3xl">{pageData.follow_me_section.title}</h4>
                 <a class="text-darker2 text-base lg:text-lg italic" href={pageData.follow_me_section.social_media_link}>{pageData.follow_me_section.social_media_name}</a>
             </div>
-            <!-- <div class="followMeSectionContent flex flex-wrap justify-center items-center gap-3 w-[97dvw] md:w-[90dvw] max-w-[1432px] 2xl:max-w-[1709px]">
-                {
-                    content.cards.map(()=>{
-                        return(
-                            <img class="w-[15dvw] h-[19dvw]  max-w-[295px] max-h-[374px] object-cover" src="" alt=""/>
-                        )
-                    })
-                }
-            </div> -->
             <div class="w-auto flex flex-col gap-8 2xl:gap-20 justify-center items-center lg:flex-row px-3">
                 <img class=" mx-1 rounded-xl min-w-[279px] min-h-[273px] w-full h-auto max-w-[627px] lg:max-w-[529px] lg:max-h-[383px] 2xl:max-w-[711px] 2xl:max-h-[515px] object-cover" src={pageData.travel_section.image.src} alt="travel_image" width="1920" height="1080"/>
                 <div class=" font-lora max-w-[627px] lg:max-w-[436px] 2xl:max-w-[555px] w-auto text-darker2">
@@ -204,43 +195,3 @@ const content={
         </section>
     </main>
 </Layout>
-<script>
-    import { animate, inView, stagger } from "motion"
-    window.onload = () => {
-        pageAnimation()
-    };
-    document.addEventListener("astro:after-swap", () => {
-        pageAnimation()
-    });
-    function pageAnimation(){
-        inView("#heroSection",()=>{
-            animate(".heroSectionText",{opacity:[0, 1], y:[100,0]},{ delay: stagger(0.1,{ startDelay: 0.2 }),duration:0.5})
-        })
-        inView("#aboutMeSection",(element)=>{
-            animate(element,{opacity:[0, 1], y:[100,0]},{ delay:0.4, duration:0.5})
-        })
-        inView("#serviceSection",()=>{
-            if(document.documentElement.clientWidth<768){
-                animate(".serviceCards",{opacity:[0, 1], y:[100,0]},{ delay: stagger(0.3,{ startDelay: 0.6 }),duration:0.5})
-            }else{
-                animate(".serviceCards",{x:[100,0],opacity:[0,1]},{delay: stagger(0.3,{ startDelay: 0.6 }),duration:0.5})
-            }
-        })
-        inView("#bookingSection",(element)=>{
-            animate(element,{opacity:[0, 1], y:[100,0]},{ delay:0.2, duration:0.5})
-        })
-        inView("#followMeSection",()=>{
-            animate(".followMeSectionContent",{opacity:[0, 1], y:[100,0]},{ delay: stagger(0.3,{ startDelay: 0.4 }), duration:0.5})
-        })
-
-        inView("#testimonialsCard",(element)=>{
-            animate(".testimonials-card",{opacity:[0, 1], y:[100,0]},{ delay: stagger(0.1,{ startDelay: 0.2 }),duration:0.5})
-        })
-        inView(".sectionTitle",(element)=>{
-            animate(element,{opacity:[0, 1], y:[100,0]},{ delay:0.4, duration:0.5})
-        })
-        inView(".bottonToTopAnimation",(element)=>{
-            animate(element,{opacity:[0, 1], y:[100,0]},{ delay:0.4, duration:0.5})
-        })
-    }
-</script>

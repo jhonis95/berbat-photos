@@ -47,8 +47,47 @@ const {NavBarData ,FootData}= Astro.props
 </style>
 <script>
 	import Alpine from "alpinejs";
-	import { animate, inView } from "motion";
+	import { animate, inView, stagger} from "motion";
 	window.Alpine = Alpine;
+
+	window.onload = () => {
+        pageAnimation()
+    };
+    document.addEventListener("astro:after-swap", () => {
+        pageAnimation()
+    });
+    function pageAnimation(){
+        inView("#heroSection",()=>{
+            animate(".heroSectionText",{opacity:[0, 1], y:[100,0]},{ delay: stagger(0.1,{ startDelay: 0.2 }),duration:0.5})
+        })
+        inView("#aboutMeSection",(element)=>{
+            animate(element,{opacity:[0, 1], y:[100,0]},{ delay:0.4, duration:0.5})
+        })
+        inView("#serviceSection",()=>{
+            if(document.documentElement.clientWidth<768){
+                animate(".serviceCards",{opacity:[0, 1], y:[100,0]},{ delay: stagger(0.3,{ startDelay: 0.6 }),duration:0.5})
+            }else{
+                animate(".serviceCards",{x:[100,0],opacity:[0,1]},{delay: stagger(0.3,{ startDelay: 0.6 }),duration:0.5})
+            }
+        })
+        inView("#bookingSection",(element)=>{
+            animate(element,{opacity:[0, 1], y:[100,0]},{ delay:0.2, duration:0.5})
+        })
+        inView("#followMeSection",()=>{
+            animate(".followMeSectionContent",{opacity:[0, 1], y:[100,0]},{ delay: stagger(0.3,{ startDelay: 0.4 }), duration:0.5})
+        })
+
+        inView("#testimonialsCard",(element)=>{
+            animate(".testimonials-card",{opacity:[0, 1], y:[100,0]},{ delay: stagger(0.1,{ startDelay: 0.2 }),duration:0.5})
+        })
+        inView(".sectionTitle",(element)=>{
+            animate(element,{opacity:[0, 1], y:[100,0]},{ delay:0.4, duration:0.5})
+        })
+        inView(".bottonToTopAnimation",(element)=>{
+            animate(element,{opacity:[0, 1], y:[100,0]},{ delay:0.4, duration:0.5})
+        })
+    }
+
 	document.addEventListener('alpine:init', () => {
 	    Alpine.data('navbarData', () => {
 	        return {
