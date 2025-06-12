@@ -48,7 +48,15 @@ const language= capitalizeFirstLetter(lang)
               <template x-for={`(card, cardIndex) in $store.service.shopList${language}`} :key="cardIndex">
                 <div class=" w-full rounded-sm bg-brighter1 text-darker2 flex flex-col p-2 justify-center items-center">
                   <template x-if="card.image">
-                    <img class="min-w-[332px] w-[332px] h-[173px] bg-brighter2 object-cover" :src="card.image.src" alt="service-Image" />
+                    <img 
+                      class="min-w-[332px] w-[332px] h-[173px] bg-brighter2 object-cover"
+                      loading="lazy"
+                      decoding="async"
+                      width="400"
+                      height="250"
+                      alt="service"
+                      :src="card.image.src"
+                    />
                   </template>
                   <div class="flex justify-between items-center w-[230px] sm:w-full">
                       <div class="flex flex-col gap-2.5  font-lora w-auto sm:min-w-[234px]">

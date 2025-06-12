@@ -1,4 +1,6 @@
+
 import { getCollection } from 'astro:content';
+import { getImage } from "astro:assets";
 
 const servicesPageEnData = await getCollection("service_page_en");
 const servicesPageFrData = await getCollection("service_page_fr");
@@ -6,15 +8,27 @@ const servicesPageFrData = await getCollection("service_page_fr");
 export async function GET(){
     const serviceListEn: any[]=[]
     const serviceListFr: any[]=[]
+
+    async function optimizeImage(image: ImageMetadata) {
+      const img = await getImage({ src: image, width: 400, height: 250, format: 'webp' });
+      return img.src;
+    }
+
     await servicesPageEnData[0].data.services_section.services_cards.map((data) => {
-        data.services.map((cardData)=>{
-            let toSend:any = cardData.cards;
+        data.services.map(async (cardData)=>{
+          await cardData.cards.map(async (card)=>{
+            card.image.src=card.image.src = await optimizeImage(card.image);
+          })
+          let toSend:any = cardData.cards;
             serviceListEn.push(toSend);
         })
     })
     await servicesPageFrData[0].data.services_section.services_cards.map((data) => {
-        data.services.map((cardData)=>{
-            let toSend:any = cardData.cards;
+        data.services.map(async (cardData)=>{
+          await cardData.cards.map(async (card)=>{
+            card.image.src=card.image.src = await optimizeImage(card.image);
+          })
+          let toSend:any = cardData.cards;
             serviceListFr.push(toSend);
         })
     })

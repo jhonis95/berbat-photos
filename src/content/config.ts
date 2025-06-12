@@ -309,7 +309,7 @@ const service_page_en= defineCollection({
                         title:z.string(),
                         content:z.string(),
                         price:z.string(),
-                        image:image().optional()
+                        image:image()
                     }))
                 }))
             }))
@@ -343,7 +343,7 @@ const service_page_fr= defineCollection({
                         title:z.string(),
                         content:z.string(),
                         price:z.string(),
-                        image:image().optional()
+                        image:image()
                     }))
                 }))
             }))
