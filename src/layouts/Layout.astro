@@ -234,7 +234,7 @@ const {NavBarData ,FootData}= Astro.props
 						}
 					} else if (galleryName === 'landscape') {
 						const response = await fetch('/api/landscapeImages.json');
-						console.log(response)
+					
 						if (response.ok) {
 							images = await response.json();
 						}
@@ -381,3 +381,4 @@ const {NavBarData ,FootData}= Astro.props
 		})
 	});
 </script>
+

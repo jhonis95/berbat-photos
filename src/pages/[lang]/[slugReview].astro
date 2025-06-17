@@ -130,7 +130,6 @@ const { pageData,navBarData,footerData } = Astro.props;
         templateParams.regard=lang=='fr'?"Cordialement":"Best regards"
         templateParams.from=lang=='fr'?"L'équipe de Berbat Photos":"The Berbat Photos Team"
 
-        e.preventDefault();
         emailjs
             .send(
                 import.meta.env.PUBLIC_EMAILJS_SERVICE_ID, 
@@ -142,11 +141,30 @@ const { pageData,navBarData,footerData } = Astro.props;
             )
             .then(
               (response) => {
-                console.log('SUCCESS!', response.status, response.text);
-              },
-              (err) => {
-                console.log('FAILED...', err);
-              },
+                  console.log('SUCCESS!', response.status, response.text);
+                  const successMsg = lang == 'fr' ? 'Message envoyé avec succès!' : 'Message sent successfully!';
+                  // Exibir mensagem (exemplo simples)
+                  const msgBox = document.createElement('div');
+                  msgBox.innerText = successMsg;
+                  msgBox.style.position = 'fixed';
+                  msgBox.style.top = '20px';
+                  msgBox.style.left = '50%';
+                  msgBox.style.transform = 'translateX(-50%)';
+                  msgBox.style.background = '#4caf50';
+                  msgBox.style.color = '#fff';
+                  msgBox.style.padding = '10px 20px';
+                  msgBox.style.borderRadius = '8px';
+                  msgBox.style.zIndex = '9999';
+                  document.body.appendChild(msgBox);
+
+                  setTimeout(() => {
+                    window.location.href = '/';
+                  }, 3000); // 3 segundos antes de redirecionar
+                },
+                (err) => {
+                  console.log('FAILED...', err);
+                  alert(lang == 'fr' ? 'Échec de l\'envoi du message. Veuillez réessayer.' : 'Failed to send message. Please try again.');
+                }
             );
     })
 </script>
