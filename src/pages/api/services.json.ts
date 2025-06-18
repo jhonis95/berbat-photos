@@ -17,7 +17,7 @@ export async function GET(){
     await servicesPageEnData[0].data.services_section.services_cards.map((data) => {
         data.services.map(async (cardData)=>{
           await cardData.cards.map(async (card)=>{
-            card.image.src=card.image.src = await optimizeImage(card.image);
+            card.image.src = await optimizeImage(card.image);
           })
           let toSend:any = cardData.cards;
             serviceListEn.push(toSend);
@@ -26,7 +26,7 @@ export async function GET(){
     await servicesPageFrData[0].data.services_section.services_cards.map((data) => {
         data.services.map(async (cardData)=>{
           await cardData.cards.map(async (card)=>{
-            card.image.src=card.image.src = await optimizeImage(card.image);
+            card.image.src = await optimizeImage(card.image);
           })
           let toSend:any = cardData.cards;
             serviceListFr.push(toSend);
