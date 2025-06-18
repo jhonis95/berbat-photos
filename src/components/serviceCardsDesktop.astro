@@ -6,18 +6,7 @@ import closeIcon from '../../public/image/close-icon.svg'
 const {cardData} = Astro.props
 const {lang}=Astro.params
 let count=0
-type Tdata={ image: ImageMetadata; title: unknown; content: any[]; button_text_open: any; button_text_close: any; services: any[] }
-
-type Tservices={
-    title: string;
-    price_card_button: string;
-    cards: {
-        content: string;
-        image: ImageMetadata;
-        title: string;
-        price: string;
-    }[];
-}[]
+export type Tdata={ image: ImageMetadata; title: string; content: any[]; button_text_open: any; button_text_close: any; services: any[] }
 
 type Tcards= {
         content: string;
@@ -39,16 +28,12 @@ type Tcards= {
                         id={`cardPriceMainImage${index}`} 
                         class="w-[828px] h-[622px] object-cover transition-discrete duration-700 ease-in-out" 
                         src={data.image} 
-                        alt={
-                            lang=='en'?
-                                `${data.title} professional picture by hyo un berbat, photographer from Roscoff france`:
-                                `photographie professionnelle ${data.title} par hyo un berbat, photographe de Roscoff, france`
-                        }
-                        decoding={'async'}
+                        alt={lang=='en'?`${data.title} professional picture by hyo un berbat, photographer from Roscoff france`:`photographie professionnelle ${data.title} par hyo un berbat, photographe de Roscoff, france`}
+                        decoding="async"
                         loading="lazy"
                         format="webp"
-                        width={1920}
-                        height={1080}
+                        width={1280}
+                        height={720}
                     />
                     <div class="flex flex-col font-lora max-w-[463px] gap-[30px]">
                         <h4 class="text-reddarker text-3xl italic font-medium">{data.title}</h4>
