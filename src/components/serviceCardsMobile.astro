@@ -18,7 +18,11 @@ type Tdata={ image: ImageMetadata; title: unknown; content: any[]; button_text_o
                         id={`cardPriceMainImage${index}`} 
                         class="w-full max-w-[761px] h-[422px] sm:h-[571px] sm:min-h-[622px] object-cover transition-discrete duration-700 ease-in-out" 
                         src={data.image} 
-                        alt=""
+                        alt={
+                            lang=='en'?
+                                `${data.title} professional picture by hyo un berbat, photographer from Roscoff france`:
+                                `photographie professionnelle ${data.title} par hyo un berbat, photographe de Roscoff, france`
+                        }
                         loading="lazy"
                         format="webp"
                         width={400}

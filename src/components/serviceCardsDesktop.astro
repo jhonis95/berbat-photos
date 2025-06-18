@@ -8,6 +8,24 @@ const {lang}=Astro.params
 let count=0
 type Tdata={ image: ImageMetadata; title: unknown; content: any[]; button_text_open: any; button_text_close: any; services: any[] }
 
+type Tservices={
+    title: string;
+    price_card_button: string;
+    cards: {
+        content: string;
+        image: ImageMetadata;
+        title: string;
+        price: string;
+    }[];
+}[]
+
+type Tcards= {
+        content: string;
+        image: ImageMetadata;
+        title: string;
+        price: string;
+}
+
 ---
 <div class="w-fit h-fit flex flex-col gap-12 lg:gap-[90px]">
     {
@@ -24,7 +42,8 @@ type Tdata={ image: ImageMetadata; title: unknown; content: any[]; button_text_o
                         alt={
                             lang=='en'?
                                 `${data.title} professional picture by hyo un berbat, photographer from Roscoff france`:
-                                `photographie professionnelle ${data.title} par hyo un berbat, photographe de Roscoff, france`}
+                                `photographie professionnelle ${data.title} par hyo un berbat, photographe de Roscoff, france`
+                        }
                         decoding={'async'}
                         loading="lazy"
                         format="webp"
@@ -69,7 +88,7 @@ type Tdata={ image: ImageMetadata; title: unknown; content: any[]; button_text_o
                                         <div class="flex py-2 flex-col gap-1">
                                             <h3 class="font-lora text-lg text-darker2">{data.title}</h3>
                                             {
-                                                data.cards.map((card:any)=>{
+                                                data.cards.map((card:Tcards)=>{
                                                     count=count+1
                                                     const cardId=count
                                                     return(
