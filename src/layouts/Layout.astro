@@ -3,8 +3,9 @@ import Footer from "../components/footer.astro";
 import Navbar from "../components/navbar.astro";
 import "../../public/global.css";
 import { ClientRouter } from "astro:transitions";
+import Seo from "./seo.astro";
 
-const {NavBarData ,FootData}= Astro.props
+const {NavBarData ,FootData, pageTitle, pageDescription}= Astro.props
 ---
 
 <!doctype html>
@@ -24,8 +25,7 @@ const {NavBarData ,FootData}= Astro.props
 		<meta name="google-site-verification" content="3zqDMU14MAapH-oPmoASfZMFniwMYWxJ1_ycjVvVbdE" />
 
 		<meta name="generator" content={Astro.generator} />
-		<slot name='head' />
-		<title>Berbat Photos</title>
+		<Seo title={pageTitle} description={pageDescription}/>
 		<ClientRouter />
 	</head>
 	<body 

@@ -31,9 +31,19 @@ export async function getStaticPaths(){
     ]
 }
 const { pageData,navBarData,footerData } = Astro.props;
+const {lang} =Astro.params
 ---
 
-<Layout NavBarData={navBarData} FootData={footerData}>
+<Layout 
+    NavBarData={navBarData} 
+    FootData={footerData} 
+    pageTitle={lang=='en'?'Berbat Photos | Professional photographer Hyo Un Berbat based in Roscoff, France':' Berbat Photos | Photographe professionnel HyoUn basé à Roscoff, France'}
+    pageDescription={
+        lang=='en'?
+            'Capture unforgettable moments with a professional photographer in Roscoff, France. Specializing in couples, weddings, portraits, and family photography.':
+            'Immortalisez des moments inoubliables avec un photographe professionnel à Roscoff, en France. Spécialisé dans la photographie de couple, de mariage, de portrait et de famille.'
+    }
+>
     <main class=" flex flex-col items-center gap-12 lg:gap-[90px]">
         <section id="heroSection" class=" section relative flex flex-col justify-center items-center">
             <Image 
@@ -56,7 +66,7 @@ const { pageData,navBarData,footerData } = Astro.props;
             <Image 
                 class=" w-auto h-auto max-w-[281px] max-h-[279px] xl:max-w-[381px] xl:max-h-[379px] 2xl:max-w-[499px] 2xl:max-h-[497px] rounded-xl object-contain" 
                 src={pageData.about_me_section.image}
-                alt="hyu un berbat"
+                alt={lang=='en'?'Hyo Un Berbat professional photographer':'Hyo Un Berbat photographe professionnel'}
                 loading="lazy"
                 width={800}
                 height={800}
@@ -88,7 +98,7 @@ const { pageData,navBarData,footerData } = Astro.props;
                                 <Image 
                                     class="w-full h-auto min-w-[286px] min-h-[267px] max-w-[509px] max-h-[320px] md:max-w-[321px] md:max-h-[316px] lg:max-w-[463px] lg:max-h-[376px] rounded-md object-cover" 
                                     src={service_card.image} 
-                                    alt={'card-Image'}
+                                    alt={lang=='en'?`professional photos for ${service_card.headline} photo shoot`:`photos professionnelles pour séance photo ${service_card.headline}`}
                                     loading="lazy" 
                                     format="webp"
                                     width={1920}
@@ -109,11 +119,11 @@ const { pageData,navBarData,footerData } = Astro.props;
                                 <Image 
                                     class="w-full h-auto min-w-[286px] min-h-[267px] max-w-[509px] max-h-[320px] md:max-w-[321px] md:max-h-[316px] lg:max-w-[463px] lg:max-h-[376px] rounded-md object-cover" 
                                     src={service_card.image} 
-                                    alt={'card-Image'}
+                                    alt={lang=='en'?`professional photos for ${service_card.headline} photo shoot`:`photos professionnelles pour séance photo ${service_card.headline}`}
                                     loading="lazy" 
                                     format="webp"
-                                    width={1920}
-                                    height={1080}
+                                    width={800}
+                                    height={800}
                                 />
                                 <div class="flex flex-col gap-3.5 lg:gap-8 max-w-[509px] md:w-[321px] lg:w-full">
                                     <div class="w-full flex flex-col h-fit md:h-[244px] 2xl:h-[174px] gap-3.5 lg:gap-6">
@@ -139,7 +149,13 @@ const { pageData,navBarData,footerData } = Astro.props;
                 <a class="text-darker2 text-base lg:text-lg italic" href={pageData.follow_me_section.social_media_link}>{pageData.follow_me_section.social_media_name}</a>
             </div>
             <div class="w-auto flex flex-col gap-8 2xl:gap-20 justify-center items-center lg:flex-row px-3">
-                <img class=" mx-1 rounded-xl min-w-[279px] min-h-[273px] w-full h-auto max-w-[627px] lg:max-w-[529px] lg:max-h-[383px] 2xl:max-w-[711px] 2xl:max-h-[515px] object-cover" src={pageData.travel_section.image.src} alt="travel_image" width="1920" height="1080"/>
+                <Image 
+                    class=" mx-1 rounded-xl min-w-[279px] min-h-[273px] w-full h-auto max-w-[627px] lg:max-w-[529px] lg:max-h-[383px] 2xl:max-w-[711px] 2xl:max-h-[515px] object-cover" 
+                    src={pageData.travel_section.image} 
+                    alt="travel_image" 
+                    width="1920" 
+                    height="1080"
+                />
                 <div class=" font-lora max-w-[627px] lg:max-w-[436px] 2xl:max-w-[555px] w-auto text-darker2">
                     <div class=" w-full flex flex-col items-start lg:items-end italic">
                         {
