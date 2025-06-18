@@ -6,10 +6,12 @@ import closeIcon from '../../public/image/close-icon.svg'
 const {cardData} = Astro.props
 const {lang}=Astro.params
 let count=0
+type Tdata={ image: ImageMetadata; title: unknown; content: any[]; button_text_open: any; button_text_close: any; services: any[] }
+
 ---
 <div class="w-fit h-fit flex flex-col gap-12 lg:gap-[90px]">
     {
-        cardData.map((data:any,index:any)=>{
+        cardData.map((data:Tdata,index:any)=>{
             return(
                 <div 
                     x-data="priceCards" 
@@ -19,7 +21,10 @@ let count=0
                         id={`cardPriceMainImage${index}`} 
                         class="w-[828px] h-[622px] object-cover transition-discrete duration-700 ease-in-out" 
                         src={data.image} 
-                        alt=""
+                        alt={
+                            lang=='en'?
+                                `${data.title} professional picture by hyo un berbat, photographer from Roscoff france`:
+                                `photographie professionnelle ${data.title} par hyo un berbat, photographe de Roscoff, france`}
                         decoding={'async'}
                         loading="lazy"
                         format="webp"

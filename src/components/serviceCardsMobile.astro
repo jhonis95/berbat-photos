@@ -6,10 +6,12 @@ import closeIcon from '../../public/image/close-icon.svg'
 const {cardData} = Astro.props
 const {lang}=Astro.params
 let count=0
+type Tdata={ image: ImageMetadata; title: unknown; content: any[]; button_text_open: any; button_text_close: any; services: any[] }
+
 ---
 <div class="w-fit h-fit flex flex-col gap-12 lg:gap-[90px]">
     {
-        cardData.map((data:any,index:any)=>{
+        cardData.map((data:Tdata,index:any)=>{
             return(
                 <div x-data="priceCards" class="serviceCardContainer flex flex-col justify-center items-center gap-7 mx-2.5">
                     <Image 
