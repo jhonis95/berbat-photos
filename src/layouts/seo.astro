@@ -1,5 +1,6 @@
 ---
 const {description,title} = Astro.props
+import thumb from '../../public/thumb.png'
 ---
 
 <title>{title}</title>
@@ -9,9 +10,9 @@ const {description,title} = Astro.props
 <meta property="og:description" content={description} />
 <meta property="og:url" content="https://berbatphotos.com" />
 <meta property="og:type" content="website" />
-<meta property="og:image" content="/thumb.png" />
+<meta property="og:image" content=`https://berbatphotos.com/${thumb.src}` />
 
 <meta name="twitter:card" content="/web-app-manifest-192x192.png" />
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
-<meta name="twitter:image" content="/thumb.png" />
+<meta name="twitter:image" content=`https://berbatphotos.com/${thumb.src}` />
