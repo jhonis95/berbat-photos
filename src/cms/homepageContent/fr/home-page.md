@@ -83,7 +83,7 @@ travel_section:
   subtitle:
     - text: Voyage à Dolomites du 6 au 11 Octobre .
     - text: Réservez votre séance photo dès aujourd'hui!
-  content: Je me rends à [Nom de la ville] et j'aimerais beaucoup rencontrer toute
+  content: Je me rends à Dolomites et j'aimerais beaucoup rencontrer toute
     personne intéressée par une séance photo pendant mon séjour ! Que vous
     recherchiez des portraits, des photos lifestyle ou quelque chose de créatif,
     c'est l'occasion idéale de prendre des photos ensemble. Les places sont
