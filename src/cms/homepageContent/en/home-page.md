@@ -81,11 +81,11 @@ travel_section:
   subtitle:
     - text: Traveling to Dolomites from October 6th to the 11th
     - text: Secure Your Photo Session Today!
-  content: I'm heading to the Dolomites and would love to connect with anyone
+  content: "I'm heading to the Dolomites and would love to connect with anyone
     interested in a photo session while I’m there! Whether you're looking for
     portraits, lifestyle shots, or something creative, this is the perfect
     chance to shoot together. Spots are limited, so feel free to reach out and
-    book your session in advance!
+    book your session in advance! "
   button_text: Booking now
   button_link: /en/booking
   social_media:
