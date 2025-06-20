@@ -79,7 +79,7 @@ travel_section:
     - text: On the Road Again
     - text: Let’s Shoot in Your City!
   subtitle:
-    - text: Traveling to [city] 00/00~00/00
+    - text: Traveling to Dolomites from October 6th to the 11th
     - text: Secure Your Photo Session Today!
   content: I'm heading to [City Name] and would love to connect with anyone
     interested in a photo session while I’m there! Whether you're looking for

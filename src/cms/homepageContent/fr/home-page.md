@@ -81,7 +81,7 @@ travel_section:
     - text: De nouveau sur la route
     - text: Tournons dans votre ville!
   subtitle:
-    - text: Voyage à [ville] 00/00~00/00
+    - text: Voyage à Dolomites du 6 au 11 Octobre .
     - text: Réservez votre séance photo dès aujourd'hui!
   content: Je me rends à [Nom de la ville] et j'aimerais beaucoup rencontrer toute
     personne intéressée par une séance photo pendant mon séjour ! Que vous
