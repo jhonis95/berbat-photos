@@ -97,5 +97,5 @@ travel_section:
       link: https://www.instagram.com/berbatphotos/
     - image: /src/cms/navegarionBarContent/images/whatsapp-icon.svg
       link: https://wa.me/330767086414
-  image: /src/cms/homepageContent/images/travel.png
+  image: /src/cms/homepageContent/images/dscf1496.jpg
 ---
