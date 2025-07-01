@@ -14,7 +14,9 @@ export default defineConfig({
       plugins: [tailwindcss()],
     },
   output: 'server',
-  adapter: netlify(),
+  adapter: netlify({
+    edge: false // default, you don't need edge
+  }),
   integrations: [alpinejs(),sitemap({
     i18n: {
         defaultLocale: 'fr', // All urls that don't contain `es` or `fr` after `https://stargazers.club/` will be treated as default locale, i.e. `en`

@@ -1,9 +1,9 @@
 import { c as createAstro, a as createComponent, m as maybeRenderHead, b as renderTemplate, r as renderComponent, e as renderScript } from '../../chunks/astro/server_CboteeAh.mjs';
 import 'kleur/colors';
-import { $ as $$Bookingcard } from '../../chunks/bookingcard_B5YWkfw-.mjs';
+import { $ as $$Bookingcard } from '../../chunks/bookingcard_BEMs2Kw8.mjs';
 import { $ as $$Herosection } from '../../chunks/herosection_UkPBToTZ.mjs';
 import 'clsx';
-import { $ as $$Layout, g as getCollection } from '../../chunks/Layout_aq5S9g19.mjs';
+import { $ as $$Layout, g as getCollection } from '../../chunks/Layout_BcwVWzYi.mjs';
 export { renderers } from '../../renderers.mjs';
 
 const $$Astro$1 = createAstro("https://berbatphotos.com");

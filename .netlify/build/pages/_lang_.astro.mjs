@@ -3,8 +3,8 @@ import 'kleur/colors';
 import '@astrojs/internal-helpers/path';
 import '@astrojs/internal-helpers/remote';
 import { $ as $$Image } from '../chunks/_astro_assets_Dr5smhq5.mjs';
-import { $ as $$Bookingcard } from '../chunks/bookingcard_B5YWkfw-.mjs';
-import { $ as $$Layout, g as getCollection } from '../chunks/Layout_aq5S9g19.mjs';
+import { $ as $$Bookingcard } from '../chunks/bookingcard_BEMs2Kw8.mjs';
+import { $ as $$Layout, g as getCollection } from '../chunks/Layout_BcwVWzYi.mjs';
 export { renderers } from '../renderers.mjs';
 
 const $$Astro = createAstro("https://berbatphotos.com");

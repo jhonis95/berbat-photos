@@ -4,7 +4,7 @@ import { $ as $$Herosection } from '../../chunks/herosection_UkPBToTZ.mjs';
 import '@astrojs/internal-helpers/path';
 import '@astrojs/internal-helpers/remote';
 import { $ as $$Image } from '../../chunks/_astro_assets_Dr5smhq5.mjs';
-import { c as closeIcon, $ as $$Layout, g as getCollection } from '../../chunks/Layout_aq5S9g19.mjs';
+import { c as closeIcon, $ as $$Layout, g as getCollection } from '../../chunks/Layout_BcwVWzYi.mjs';
 export { renderers } from '../../renderers.mjs';
 
 const arrowicon = new Proxy({"src":"/_astro/angle-horizon.Bzneoyta.svg","width":10,"height":16,"format":"svg"}, {

@@ -1,6 +1,6 @@
 import { c as createAstro, a as createComponent, r as renderComponent, b as renderTemplate, m as maybeRenderHead, d as addAttribute } from '../../../chunks/astro/server_CboteeAh.mjs';
 import 'kleur/colors';
-import { $ as $$Layout, g as getCollection } from '../../../chunks/Layout_aq5S9g19.mjs';
+import { $ as $$Layout, g as getCollection } from '../../../chunks/Layout_BcwVWzYi.mjs';
 export { renderers } from '../../../renderers.mjs';
 
 const $$Astro = createAstro("https://berbatphotos.com");
