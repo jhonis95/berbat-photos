@@ -4,11 +4,12 @@ import NavigationMobile from './navigationMobile.astro';
 import NavigationTablet from './navigationTablet.astro';
 
 const pageData = Astro.props
+
 ---
 <nav 
     x-data
-    class="w-full flex justify-center h-[62px] lg:h-[130px]"
     x-init="$store.display.setDisplay()"
+    class="w-full flex justify-center h-[62px] lg:h-[130px]"
     @resize.window.debounce="$store.display.setDisplay()"
 >
     <template x-data x-if="$store.display.screen=='desktop'">

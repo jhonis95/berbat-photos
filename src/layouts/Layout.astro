@@ -4,6 +4,61 @@ import Navbar from "../components/navbar.astro";
 import "../../public/global.css";
 import { ClientRouter } from "astro:transitions";
 import Seo from "./seo.astro";
+import { getImage } from 'astro:assets';
+import { getCollection } from 'astro:content';
+
+
+const servicesPageEnData = await getCollection("service_page_en");
+const servicesPageFrData = await getCollection("service_page_fr");
+
+async function optimizeImage(image: ImageMetadata) {
+    const img = await getImage({ src: image, width: 400, height: 250, format: 'webp' });
+    return img;
+}
+const servicesEn = await Promise.all(
+    servicesPageEnData[0].data.services_section.services_cards.flatMap(card =>
+        card.services.flatMap(service =>
+            service.cards.map(async cardData => {
+                cardData.image.src = (await optimizeImage(cardData.image)).src;
+                cardData.image.width = 400;
+                cardData.image.height = 250;
+                cardData.image.format = 'webp';
+                return cardData;
+            })
+        )
+    )
+).then(results => results.flat());
+
+const servicesFr= await Promise.all(
+    servicesPageFrData[0].data.services_section.services_cards.flatMap(card =>
+        card.services.flatMap(service =>
+            service.cards.map(async cardData => {
+                cardData.image.src = (await optimizeImage(cardData.image)).src;
+                cardData.image.width = 400;
+                cardData.image.height = 250;
+                cardData.image.format = 'webp';
+                return cardData;
+            })
+        )
+    )
+).then(results => results.flat());
+
+async function sendDataToBackend() {
+	const CardsData={
+		servicesEn,
+		servicesFr,
+	}
+	const baseUrl = import.meta.env.SITE || 'http://localhost:3000';
+	const response = await fetch(`${baseUrl}/api/services.json`, {
+  	  method: 'POST',
+  	  headers: {
+  	    'Content-Type': 'application/json'
+  	  },
+  	  body: JSON.stringify(CardsData)
+  	});
+}
+
+await sendDataToBackend()
 
 const {NavBarData ,FootData, pageTitle, pageDescription}= Astro.props
 ---
@@ -31,7 +86,6 @@ const {NavBarData ,FootData, pageTitle, pageDescription}= Astro.props
 	</head>
 	<body 
 		class="bg-white min-h-screen"
-		x-init="$store.service.fetchServices"	
 	>
 		<Navbar Data={NavBarData}/>
 		<slot />
@@ -49,6 +103,7 @@ const {NavBarData ,FootData, pageTitle, pageDescription}= Astro.props
 <script>
 	import Alpine from "alpinejs";
 	import { animate, inView, stagger} from "motion";
+
 	window.Alpine = Alpine;
 
 	window.onload = () => {
@@ -312,26 +367,22 @@ const {NavBarData ,FootData, pageTitle, pageDescription}= Astro.props
 			shopList:[] as any[],
 			shopListEn:[],
 			shopListFr:[],
+
 			async fetchServices(this:{servicesEn: Array<[any]>, servicesFr: any}){
 				const response = await fetch('/api/services.json')
 				const data= await response.json()
+				console.log(`data coming to alpine js:`)
 				this.servicesEn=data.servicesEn
 				this.servicesFr=data.servicesFr
-				let countEn=0
-				let countFr=0
-				this.servicesEn.map((cards)=>{
-					cards.map((data)=>{
-						countEn+=1
-						data.id=countEn
-					})
+				this.servicesEn.forEach((card: any, idx: number) => {
+					card.id = idx + 1;
 				})
-				this.servicesFr.map((cards: any[])=>{
-					cards.map((data: { id: number; })=>{
-						countFr+=1
-						data.id=countFr
-					})
+				this.servicesFr.forEach((card: any, idx: number) => {
+					card.id = idx + 1;
 				})
+				console.log(this.servicesEn)
 			},
+
 			addToShopList(this:{shopList:any,setAddContent:Function},elementID: string){
 				if (!this.shopList.includes(elementID)) {
 					this.shopList.push(elementID);
@@ -344,19 +395,15 @@ const {NavBarData ,FootData, pageTitle, pageDescription}= Astro.props
 				this.setDeleteContent(elementID)
 			},
 			setAddContent(this:{shopListEn:any,shopListFr:any,servicesEn:any,servicesFr:any},id:number){
-				this.servicesEn.map((cards:any)=>{
-					cards.map((data:any)=>{
-						if(data.id==id){
-							this.shopListEn.push(data)
-						}
-					})
+				this.servicesEn.map((card:any)=>{
+					if(card.id==id){
+						this.shopListEn.push(card)
+					}
 				})
-				this.servicesFr.map((cards:any)=>{
-					cards.map((data:any)=>{
-						if(data.id==id){
-							this.shopListFr.push(data)
-						}
-					})
+				this.servicesFr.map((card:any)=>{
+					if(card.id==id){
+						this.shopListFr.push(card)
+					}
 				})
 			},
 			setDeleteContent(this:{shopListEn:any,shopListFr:any,servicesEn:any,servicesFr:any},id:number){

@@ -36,7 +36,7 @@ export async function getStaticPaths(){
 const { pageData,navBarData,footerData } = Astro.props;
 
 ---
-<Layout NavBarData={navBarData} FootData={footerData}>
+<Layout NavBarData={navBarData} FootData={footerData} >
     <main 
         class=" flex flex-col gap-12 lg:gap-[90px] items-center"
         x-data

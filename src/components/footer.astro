@@ -6,9 +6,9 @@ const {Data}= Astro.props
 
 ---
 <footer 
-    class="flex bg-brighter1 w-full h-full md:h-[168px] lg:h-[293px] mt-10 justify-center"
     x-data
     x-init="$store.display.setDisplay()"
+    class="flex bg-brighter1 w-full h-full md:h-[168px] lg:h-[293px] mt-10 justify-center"
     @resize.window.debounce="$store.display.setDisplay()"
 >
     <template x-data x-if="$store.display.screen=='desktop'||$store.display.screen=='tablet'">
