@@ -79,13 +79,13 @@ travel_section:
     - text: On the Road Again
     - text: Let’s Shoot in Your City!
   subtitle:
-    - text: Traveling to [city] 00/00~00/00
+    - text: Traveling to Dolomites from October 6th to the 11th
     - text: Secure Your Photo Session Today!
-  content: I'm heading to [City Name] and would love to connect with anyone
+  content: "I'm heading to the Dolomites and would love to connect with anyone
     interested in a photo session while I’m there! Whether you're looking for
     portraits, lifestyle shots, or something creative, this is the perfect
     chance to shoot together. Spots are limited, so feel free to reach out and
-    book your session in advance!
+    book your session in advance! "
   button_text: Booking now
   button_link: /en/booking
   social_media:
@@ -95,5 +95,5 @@ travel_section:
       link: https://www.instagram.com/berbatphotos/
     - image: /src/cms/navegarionBarContent/images/whatsapp-icon.svg
       link: https://wa.me/330767086414
-  image: /src/cms/homepageContent/images/travel.png
+  image: /src/cms/homepageContent/images/dscf1496.jpg
 ---

@@ -81,9 +81,9 @@ travel_section:
     - text: De nouveau sur la route
     - text: Tournons dans votre ville!
   subtitle:
-    - text: Voyage à [ville] 00/00~00/00
+    - text: Voyage à Dolomites du 6 au 11 Octobre .
     - text: Réservez votre séance photo dès aujourd'hui!
-  content: Je me rends à [Nom de la ville] et j'aimerais beaucoup rencontrer toute
+  content: Je me rends à Dolomites et j'aimerais beaucoup rencontrer toute
     personne intéressée par une séance photo pendant mon séjour ! Que vous
     recherchiez des portraits, des photos lifestyle ou quelque chose de créatif,
     c'est l'occasion idéale de prendre des photos ensemble. Les places sont
@@ -97,5 +97,5 @@ travel_section:
       link: https://www.instagram.com/berbatphotos/
     - image: /src/cms/navegarionBarContent/images/whatsapp-icon.svg
       link: https://wa.me/330767086414
-  image: /src/cms/homepageContent/images/travel.png
+  image: /src/cms/homepageContent/images/dscf1496.jpg
 ---
