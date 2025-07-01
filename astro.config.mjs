@@ -3,13 +3,18 @@ import { defineConfig } from 'astro/config';
 import tailwindcss from "@tailwindcss/vite";
 import alpinejs from "@astrojs/alpinejs";
 import sitemap from '@astrojs/sitemap';
+import netlify from '@astrojs/netlify';
 
 export default defineConfig({
+  experimental: {
+    session: true,
+  },
   site:'https://berbatphotos.com',
   vite: {
       plugins: [tailwindcss()],
     },
-
+  output: 'server',
+  adapter: netlify(),
   integrations: [alpinejs(),sitemap({
     i18n: {
         defaultLocale: 'fr', // All urls that don't contain `es` or `fr` after `https://stargazers.club/` will be treated as default locale, i.e. `en`

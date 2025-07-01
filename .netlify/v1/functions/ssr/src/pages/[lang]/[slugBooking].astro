@@ -1,0 +1,136 @@
+---
+import Bookingcard from "../../components/bookingcard.astro";
+import Herosection from "../../components/herosection.astro";
+import TestimonialsCard from "../../components/testimonialsCard.astro";
+import Layout from "../../layouts/Layout.astro";
+import { getCollection } from 'astro:content';
+
+
+export async function getStaticPaths(){
+    const bookingPageEnData = await getCollection("booking_page_en");
+    const bookingPageFrData = await getCollection("booking_page_fr");
+    const navBarEnData = await getCollection("navigation_bar_en");
+    const navBarFrData = await getCollection("navigation_bar_fr");
+    const footerEnData = await getCollection("footer_bar_en");
+    const footerFrData = await getCollection("footer_bar_fr");
+    return [
+        {
+            params: { lang: "en", slugBooking:"booking"},
+            props: {
+                pageData:bookingPageEnData[0].data,
+                navBarData:navBarEnData[0].data,
+                footerData:footerEnData[0].data
+            }
+        },{
+            params: { lang: "fr", slugBooking:"reservation" },
+            props: {
+                pageData:bookingPageFrData[0].data,
+                navBarData:navBarFrData[0].data,
+                footerData:footerFrData[0].data
+            }
+        }
+    ]
+}
+const { pageData,navBarData,footerData } = Astro.props;
+---
+<Layout NavBarData={navBarData} FootData={footerData}>
+    <main class=" flex flex-col gap-12 xl:gap-[90px] items-center">
+        <Herosection 
+            title={pageData.header.title}
+            subtitle={pageData.header.subtitle}
+            image={pageData.header.image}
+        />
+        <Bookingcard Id="bookingSection" Content={pageData.booking_section}/>
+        <div class=" flex flex-col gap-8 sm:gap-10 xl:gap-[70px]">
+            <h3 class="sectionTitle text-darker2 w-full text-center font-lora italic text-3xl xl:text-5xl">{pageData.testimonials_section.title}</h3>
+            <section id="testimonialsCard" class="flex flex-wrap justify-center items-center gap-3.5 sm:gap-7 xl:gap-14">
+                {
+                    pageData.testimonials_section.testimonials.map((testimonial)=>{
+                        return(
+                            <TestimonialsCard
+                                title={testimonial.review_name} 
+                                subtitle={testimonial.quote}
+                                content={testimonial.description}
+                            />
+                        )
+                    })
+                }
+            </section>
+        </div>
+    </main>
+</Layout>
+<script>
+    import emailjs from '@emailjs/browser';
+    const templateParams = {
+      name: '',
+      email:'',
+      message:'',
+      services:'',
+      subject:'',
+      greeting:'',
+      heading:'',
+      paragraph1:'',
+      paragraph2:'',
+      contact:'',
+      regard:'',
+      from:''
+    };
+    const form=(document.getElementById('submitform') as HTMLDivElement);
+    form.addEventListener('click',(e)=>{ 
+        const name = (document.getElementById('client_name') as HTMLInputElement)?.value;
+        const email = (document.getElementById('client_email') as HTMLInputElement)?.value;
+        const message = (document.getElementById('client_message') as HTMLTextAreaElement)?.value;
+        const lang = (document.getElementById('lang') as HTMLTextAreaElement)?.value
+        const servicesStore:any = window.Alpine.store('service');
+        const selectedServices = servicesStore.shopListEn.map((s:any) => s.title).join(', ');
+        templateParams.name=name
+        templateParams.email=email
+        templateParams.message=message
+        templateParams.services=selectedServices
+        templateParams.subject=lang=='fr'?'Nous avons reçu votre message':'We’ve received your message'
+        templateParams.greeting=lang=='fr'?'Salut':'Hi'
+        templateParams.heading=lang=='fr'?'votre séance photo a été réservée':'your photo shoot has been booked'
+        templateParams.paragraph1=lang=='fr'?"Merci d'avoir réservé votre séance photo avec nous ! Nous sommes ravis d'immortaliser vos moments privilégiés.":"Thank you for booking your photo session with us! We're excited to capture your special moments."
+        templateParams.paragraph2=lang=='fr'?"Nous vous contacterons sous peu pour confirmer les détails et nous assurer que tout est parfait pour votre tournage.":"We'll be in touch shortly to confirm the details and make sure everything is perfect for your shoot."
+        templateParams.contact=lang=='fr'?"Vous pouvez répondre à cet email ou me contacter via:":"You can reply to this email or contact me via:"
+        templateParams.regard=lang=='fr'?"Cordialement":"Best regards"
+        templateParams.from=lang=='fr'?"L'équipe de Berbat Photos":"The Berbat Photos Team"
+ 
+        emailjs
+            .send(
+                import.meta.env.PUBLIC_EMAILJS_SERVICE_ID, 
+                import.meta.env.PUBLIC_EMAILJS_TEMPLATE_ID1, 
+                templateParams, 
+                {
+                    publicKey: import.meta.env.PUBLIC_EMAILJS_USER_ID,
+                }
+            )
+            .then(
+                (response) => {
+                  console.log('SUCCESS!', response.status, response.text);
+                  const successMsg = lang == 'fr' ? 'Message envoyé avec succès!' : 'Message sent successfully!';
+                  // Exibir mensagem (exemplo simples)
+                  const msgBox = document.createElement('div');
+                  msgBox.innerText = successMsg;
+                  msgBox.style.position = 'fixed';
+                  msgBox.style.top = '20px';
+                  msgBox.style.left = '50%';
+                  msgBox.style.transform = 'translateX(-50%)';
+                  msgBox.style.background = '#4caf50';
+                  msgBox.style.color = '#fff';
+                  msgBox.style.padding = '10px 20px';
+                  msgBox.style.borderRadius = '8px';
+                  msgBox.style.zIndex = '9999';
+                  document.body.appendChild(msgBox);
+
+                  setTimeout(() => {
+                    window.location.href = '/';
+                  }, 2000); // 2 segundos antes de redirecionar
+                },
+                (err) => {
+                  console.log('FAILED...', err);
+                  alert(lang == 'fr' ? 'Échec de l\'envoi du message. Veuillez réessayer.' : 'Failed to send message. Please try again.');
+                }
+            );
+    })
+</script>
