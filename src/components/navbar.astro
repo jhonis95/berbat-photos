@@ -3,7 +3,7 @@ import NavigationDesktop from './navigationDesktop.astro';
 import NavigationMobile from './navigationMobile.astro';
 import NavigationTablet from './navigationTablet.astro';
 
-const pageData = Astro.props
+const Data = Astro.props
 
 ---
 <nav 
@@ -13,12 +13,12 @@ const pageData = Astro.props
     @resize.window.debounce="$store.display.setDisplay()"
 >
     <template x-data x-if="$store.display.screen=='desktop'">
-        <NavigationDesktop pageData={pageData}/>
+        <NavigationDesktop pageData={Data}/>
     </template>
     <template x-data x-if="$store.display.screen=='tablet'">
-        <NavigationTablet pageData={pageData}/>
+        <NavigationTablet pageData={Data}/>
     </template>
     <template x-data x-if="$store.display.screen=='mobile'">
-        <NavigationMobile pageData={pageData}/>
+        <NavigationMobile pageData={Data}/>
     </template>
 </nav>

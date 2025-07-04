@@ -1,21 +1,38 @@
 
-export const prerender = false;
-import type { APIRoute } from "astro";
 
-let savedData: any = null;
+import { getCollection } from 'astro:content';
 
-export const POST: APIRoute = async({request})=> {
-  const body = await request.json();
-  savedData = body;
-  return new Response(JSON.stringify({ success: true }));
-}
+
+const servicesPageEnData = await getCollection("service_page_en");
+const servicesPageFrData = await getCollection("service_page_fr");
 
 export async function GET(){
-    const response=savedData
+    const serviceListEn: any[]=[]
+    const serviceListFr: any[]=[]
+
+    await servicesPageEnData[0].data.services_section.services_cards.map((data) => {
+        data.services.map( (data)=>{
+          data.cards.map((cardData)=>{
+            serviceListEn.push(cardData);
+          })
+        })
+    })
+    await servicesPageFrData[0].data.services_section.services_cards.map((data) => {
+        data.services.map( (data)=>{
+          data.cards.map((cardData)=>{
+            serviceListFr.push(cardData);
+          })
+        })
+    })
+    const sendObj={
+        servicesEn:serviceListEn,
+        servicesFr:serviceListFr
+    }
+    const response=sendObj
     
     if (!response) {
       return new Response(JSON.stringify({ error: "Failed to fetch images" }), {
-        status: 404, // Use a valid status code
+        status: response,
         headers: { "Content-Type": "application/json" },
       });
     }
