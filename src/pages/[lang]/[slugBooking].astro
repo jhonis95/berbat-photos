@@ -32,8 +32,18 @@ export async function getStaticPaths(){
     ]
 }
 const { pageData,navBarData,footerData } = Astro.props;
+const {lang} =Astro.params
 ---
-<Layout NavBarData={navBarData} FootData={footerData}>
+<Layout 
+    NavBarData={navBarData} 
+    FootData={footerData}
+    pageTitle={lang=='en'?"Berbat Photos | Book Your Photo Session | Roscoff Photographer Serving Europe":"Réservez votre séance photo | Photographe à Roscoff au service de l'Europe"}
+    pageDescription={
+        lang=='en'?
+            "Photography bookings available in Roscoff, France and across Europe. Couples, families, portraits, and engagement sessions.":
+            "Réservations de séances photo disponibles à Roscoff, en France, et partout en Europe. Couples, familles, portraits et séances de fiançailles."
+    }
+>
     <main class=" flex flex-col gap-12 xl:gap-[90px] items-center">
         <Herosection 
             title={pageData.header.title}

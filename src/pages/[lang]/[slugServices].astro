@@ -34,9 +34,18 @@ export async function getStaticPaths(){
     ]
 }
 const { pageData,navBarData,footerData } = Astro.props;
-
+const {lang} =Astro.params
 ---
-<Layout NavBarData={navBarData} FootData={footerData} >
+<Layout 
+    NavBarData={navBarData} 
+    FootData={footerData}
+    pageTitle={lang=='en'?"Berbat Photos | Photography Services | Couples, Families & Pre-Wedding | Roscoff, France":" Berbat Photos | Services de photographie | Couples, familles et pré-mariage | Roscoff, France"}
+    pageDescription={
+        lang=='en'?
+            "Based in Roscoff, France, we offer professional photography for couples, families, individuals, and pre-wedding sessions. Serving clients across Europe, we capture authentic, timeless moments in natural light and stunning locations.":
+            "Basés à Roscoff, en France, nous proposons des séances de photographie professionnelle pour couples, familles, célibataires et pré-mariage. Présents dans toute l'Europe, nous capturons des moments authentiques et intemporels, en lumière naturelle et dans des lieux exceptionnels."
+    }
+>
     <main 
         class=" flex flex-col gap-12 lg:gap-[90px] items-center"
         x-data
