@@ -92,7 +92,10 @@ const {lang} =Astro.params
         const message = (document.getElementById('client_message') as HTMLTextAreaElement)?.value;
         const lang = (document.getElementById('lang') as HTMLTextAreaElement)?.value
         const servicesStore:any = window.Alpine.store('service');
-        const selectedServices = servicesStore.shopListEn.map((s:any) => s.title).join(', ');
+
+        let selectedServices:any = '';
+        lang=='en'?selectedServices=servicesStore.shopListEn.map((s:any) => s.title).join(', '):selectedServices=servicesStore.shopListFr.map((s:any) => s.title).join(', ')
+        
         templateParams.name=name
         templateParams.email=email
         templateParams.message=message
