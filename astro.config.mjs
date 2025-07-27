@@ -19,7 +19,7 @@ export default defineConfig({
   // }),
   integrations: [alpinejs(),sitemap({
     i18n: {
-        defaultLocale: 'fr', // All urls that don't contain `es` or `fr` after `https://stargazers.club/` will be treated as default locale, i.e. `en`
+        defaultLocale: 'en', // All urls that don't contain `es` or `fr` after `https://stargazers.club/` will be treated as default locale, i.e. `en`
         locales: {
           en: 'en-US', // The `defaultLocale` value must present in `locales` keys
           fr: 'fr-FR',
