@@ -1,11 +1,27 @@
 ---
 import SelectDropdown from "./selectDropdown.astro"
+import closeIcon from '../../public/image/close-icon.svg'
+import logo from '../../public/image/logoDesktop.svg'
+
+import { Image } from "astro:assets"
+import { getCollection } from 'astro:content';
+
+const emailSendConfirmationEnData = await getCollection("email_send_confirmation_en");
+const emailSendConfirmationFrData = await getCollection("email_send_confirmation_fr");
+const emailSendErrorEnData = await getCollection("email_send_error_en");
+const emailSendErrorFrData = await getCollection("email_send_error_fr");
+
+const footerEnData = await getCollection("footer_bar_en");
+
 
  const {Content, Id}= Astro.props
  const lang=Astro.params
 
 ---
-<section id={Id} class=" section w-full flex justify-center items-center">
+<section
+    x-data
+    id={Id} class=" section w-full flex justify-center items-center"
+>
     <div class="flex flex-col md:flex-row gap-9 xl:gap-24 py-3 md:py-0 w-full h-fit md:w-[716px] md:h-[580px] lg:w-[1433px] xl:h-[741px] bg-brighter1 justify-center items-center">
         <div class="flex flex-col gap-4 md:gap-7 max-w-[450px] md:max-w-[336px] xl:max-w-[470px] font-lora mx-3 md:mx-0">
             <h3 class="text-reddarker text-center md:text-start text-3xl xl:text-5xl italic">{Content.title}</h3>
@@ -34,9 +50,86 @@ import SelectDropdown from "./selectDropdown.astro"
             <input id="lang" type="text" class=" hidden" value={lang.lang}>
             <div class=" font-lora w-full flex justify-center">
                 <div id="submitform" class="bg-brighter2 flex justify-center items-center rounded-lg w-auto min-w-[223px] h-[46px]">
-                    <button class=" cursor-pointer text-darker2 px-5 text-xl xl:text-2xl not-italic">{Content.button_text}</button>
+                    <button x-on:click="$store.emailHandle.sendEmail($event)" class=" cursor-pointer text-darker2 px-5 text-xl xl:text-2xl not-italic">{Content.button_text}</button>
                 </div>
             </div>
         </form>
+        <!-- send email modal -->
+        <div
+            x-show="$store.emailHandle.openEmailModal" 
+            class=" max-w-[800px] rounded-xl absolute z-50 flex flex-col p-8 bg-brighter1 border-[0.5px] border-gray-400"
+        >   
+            <div class="w-full h-fit flex justify-end">
+                <button x-on:click="$store.emailHandle.closeModal()">
+                    <img class="size-5" src={closeIcon.src} alt="close icon">
+                </button>
+            </div>
+            <div class="flex flex-col justify-center items-center gap-5">
+                <div class="w-full h-fit flex justify-center items-center">
+                    <img class=" h-12" src={logo.src} alt="logo berbatphotos">
+                </div>
+                <div class=" flex flex-col gap-5 text-darker2">
+                    <h2 class=" text-2xl font-medium">
+                        {lang.lang=='en'?emailSendConfirmationEnData[0].data.title:emailSendConfirmationFrData[0].data.title}
+                    </h2>
+                    <div class=" flex flex-col gap-2.5">
+                        <p class=" text-xl">
+                            {lang.lang=='en'?emailSendConfirmationEnData[0].data.text1:emailSendConfirmationFrData[0].data.text1}
+                        </p>
+                        <p class=" text-xl">
+                            {lang.lang=='en'?emailSendConfirmationEnData[0].data.text2:emailSendConfirmationFrData[0].data.text2}
+                        </p>
+                    </div>
+                </div>
+                <div class=" flex gap-7">
+                    {
+                        footerEnData[0].data.social_media_section.social_media.map((sm:any,index:number)=>{
+                            return(
+                                <a href={sm.link} target="_blank" rel="noopener">
+                                    <Image id={`sm${index}`} x-on:mouseover="grow" x-on:mouseleave="shrink" class=" cursor-pointer w-[26px] h-[26px] lg:w-[43px] lg:h-[43px]" src={sm.image} alt={sm.name}/>
+                                </a>
+                            )
+                        })
+                    }
+                </div>
+            </div>
+        </div>
+        <!-- send email error message -->
+         <div
+            x-show="$store.emailHandle.errorMessage" 
+            class=" max-w-[800px] rounded-xl absolute z-50 flex flex-col p-8 bg-brighter1 border-[0.5px] border-gray-400"
+        >   
+            <div class="w-full h-fit flex justify-end">
+                <button x-on:click="$store.emailHandle.closeModal()">
+                    <img class="size-5" src={closeIcon.src} alt="close icon">
+                </button>
+            </div>
+            <div class="flex flex-col justify-center items-center gap-5">
+                <div class="w-full h-fit flex justify-center items-center">
+                    <img class=" h-12" src={logo.src} alt="logo berbatphotos">
+                </div>
+                <div class=" flex flex-col gap-5 text-darker2">
+                    <h2 class=" text-2xl font-medium">
+                        {lang.lang=='en'?emailSendErrorEnData[0].data.title:emailSendErrorFrData[0].data.title}
+                    </h2>
+                    <div class=" flex flex-col gap-2.5">
+                        <p class=" text-xl">
+                            {lang.lang=='en'?emailSendErrorEnData[0].data.text1:emailSendErrorFrData[0].data.text1}
+                        </p>
+                    </div>
+                </div>
+                <div class=" flex gap-7">
+                    {
+                        footerEnData[0].data.social_media_section.social_media.map((sm:any,index:number)=>{
+                            return(
+                                <a href={sm.link} target="_blank" rel="noopener">
+                                    <Image id={`sm${index}`} x-on:mouseover="grow" x-on:mouseleave="shrink" class=" cursor-pointer w-[26px] h-[26px] lg:w-[43px] lg:h-[43px]" src={sm.image} alt={sm.name}/>
+                                </a>
+                            )
+                        })
+                    }
+                </div>
+            </div>
+        </div>
     </div>
 </section>

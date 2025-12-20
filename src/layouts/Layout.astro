@@ -52,6 +52,7 @@ const {lang} =Astro.params
 <script>
 	import Alpine from "alpinejs";
 	import { animate, inView, stagger} from "motion";
+	import emailjs from '@emailjs/browser';
 
 	window.Alpine = Alpine;
 
@@ -373,6 +374,66 @@ const {lang} =Astro.params
 					this.setDeleteContent(elementID)
 				}
 			},
+		});
+		Alpine.store('emailHandle',{
+			openEmailModal:false,
+			errorMessage:false,
+			async sendEmail(this:{openEmailModal:boolean,erroMessage:boolean}, event:any){
+				event.preventDefault();
+				const name = (document.getElementById('client_name') as HTMLInputElement)?.value;
+        		const email = (document.getElementById('client_email') as HTMLInputElement)?.value;
+        		const message = (document.getElementById('client_message') as HTMLTextAreaElement)?.value;
+        		const lang = (document.getElementById('lang') as HTMLTextAreaElement)?.value
+				const servicesStore:any = Alpine.store('service');
+				let selectedServices:any = '';
+        		lang=='en'?selectedServices=servicesStore.shopListEn.map((s:any) => s.title).join(', '):selectedServices=servicesStore.shopListFr.map((s:any) => s.title).join(', ')
+				
+				let templateParams:any={}
+				
+				templateParams.name=name
+				
+        		templateParams.email=email
+        		templateParams.message=message
+        		templateParams.services=selectedServices
+        		templateParams.subject=lang=='fr'?'Nous avons reçu votre message':'We’ve received your message'
+        		templateParams.greeting=lang=='fr'?'Salut':'Hi'
+        		templateParams.heading=lang=='fr'?'votre séance photo a été réservée':'your photo shoot has been booked'
+        		templateParams.paragraph1=lang=='fr'?"Merci d'avoir réservé votre séance photo avec nous ! Nous sommes ravis d'immortaliser vos moments privilégiés.":"Thank you for booking your photo session with us! We're excited to capture your special moments."
+        		templateParams.paragraph2=lang=='fr'?"Nous vous contacterons sous peu pour confirmer les détails et nous assurer que tout est parfait pour votre tournage.":"We'll be in touch shortly to confirm the details and make sure everything is perfect for your shoot."
+        		templateParams.contact=lang=='fr'?"Vous pouvez répondre à cet email ou me contacter via:":"You can reply to this email or contact me via:"
+        		templateParams.regard=lang=='fr'?"Cordialement":"Best regards"
+        		templateParams.from=lang=='fr'?"L'équipe de Berbat Photos":"The Berbat Photos Team"
+
+				try {
+					await emailjs
+							.send(
+								import.meta.env.PUBLIC_EMAILJS_SERVICE_ID, 
+								import.meta.env.PUBLIC_EMAILJS_TEMPLATE_ID1, 
+								templateParams, 
+								{
+									publicKey: import.meta.env.PUBLIC_EMAILJS_USER_ID,
+								}
+							)
+							.then(() => {
+								this.openEmailModal=true
+							})
+					
+				} catch (error) {
+					this.erroMessage=true
+				}
+			},
+			closeModal(this:{openEmailModal:boolean}){
+				this.openEmailModal=false
+				setTimeout(() => {
+                  window.location.href = '/';
+                }, 500);
+			},
+			erroModalClose(this:{errorMessage:boolean}){
+				this.errorMessage=false
+				setTimeout(() => {
+                  window.location.href = '/';
+                }, 500);
+			}
 		})
 	});
 </script>

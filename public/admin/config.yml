@@ -361,6 +361,31 @@ collections:
           - { label: "Subtitle", name: "subtitle", widget: "string", i18n: true }
       - { label: "Gallery Name", name: "gallery_name", widget: "string", i18n: true }
       
+  - name: "email_send_confirmation"
+    label: "Email Send Confirmation"
+    folder: "src/cms/emailSendConfirmation"
+    create: true
+    locales: [en, fr]
+    i18n: true
+    slug: "{{slug}}"
+    preview_path: preview/{{slug}}
+    fields:
+      - { label: "Title", name: "title", widget: "string", i18n: true }
+      - { label: "Text1", name: "text1", widget: "text", i18n: true }
+      - { label: "Text2", name: "text2", widget: "text", i18n: true }
+
+  - name: "email_send_error"
+    label: "Email Send Error"
+    folder: "src/cms/emailSendError"
+    create: true
+    locales: [en, fr]
+    i18n: true
+    slug: "{{slug}}"
+    preview_path: preview/{{slug}}
+    fields:
+      - { label: "Title", name: "title", widget: "string", i18n: true }
+      - { label: "Text1", name: "text1", widget: "text", i18n: true }
+      
 
       
 

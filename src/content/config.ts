@@ -427,6 +427,40 @@ const review_page_fr = defineCollection({
     })
 })
 
+const email_send_confirmation_fr=defineCollection({
+    loader: glob({ pattern: "**/*.md", base: "./src/cms/emailSendConfirmation/fr" }),
+    schema:()=>z.object({
+        title: z.string(),
+        text1: z.string(),
+        text2: z.string(),
+    })
+})
+
+const email_send_confirmation_en=defineCollection({
+    loader: glob({ pattern: "**/*.md", base: "./src/cms/emailSendConfirmation/en" }),
+    schema:()=>z.object({
+        title: z.string(),
+        text1: z.string(),
+        text2: z.string(),
+    })
+})
+
+const email_send_error_fr=defineCollection({
+    loader: glob({ pattern: "**/*.md", base: "./src/cms/emailSendError/fr" }),
+    schema:()=>z.object({
+        title: z.string(),
+        text1: z.string(),
+    })
+})
+
+const email_send_error_en=defineCollection({
+    loader: glob({ pattern: "**/*.md", base: "./src/cms/emailSendError/en" }),
+    schema:()=>z.object({
+        title: z.string(),
+        text1: z.string(),
+    })
+})
+
 export const collections = { 
     home_page_en,
     home_page_fr,
@@ -441,5 +475,9 @@ export const collections = {
     gallery_page_en,
     gallery_page_fr,
     review_page_en,
-    review_page_fr
+    review_page_fr,
+    email_send_confirmation_en,
+    email_send_confirmation_fr,
+    email_send_error_fr,
+    email_send_error_en
 };
