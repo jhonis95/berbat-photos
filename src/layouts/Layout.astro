@@ -376,7 +376,7 @@ const {lang} =Astro.params
 			},
 		});
 		Alpine.store('emailHandle',{
-			openEmailModal:true,
+			openEmailModal:false,
 			errorMessage:false,
 			async sendEmail(this:{openEmailModal:boolean,erroMessage:boolean}, event:any){
 				event.preventDefault();
