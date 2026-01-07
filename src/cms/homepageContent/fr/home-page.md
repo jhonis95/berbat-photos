@@ -81,13 +81,14 @@ travel_section:
     - text: De nouveau sur la route
     - text: Tournons dans votre ville!
   subtitle:
-    - text: Voyage à Dolomites du 6 au 11 Octobre .
+    - text: Voyage à São Paulo du 13 au 29 Mars.
     - text: Réservez votre séance photo dès aujourd'hui!
-  content: Je me rends à Dolomites et j'aimerais beaucoup rencontrer toute
-    personne intéressée par une séance photo pendant mon séjour ! Que vous
-    recherchiez des portraits, des photos lifestyle ou quelque chose de créatif,
-    c'est l'occasion idéale de prendre des photos ensemble. Les places sont
-    limitées, alors n'hésitez pas à me contacter et à réserver votre séance !
+  content: Je me rends dans ma ville natale, São Paulo, au Brésil et j'aimerais
+    beaucoup rencontrer toute personne intéressée par une séance photo pendant
+    mon séjour ! Que vous recherchiez des portraits, des photos lifestyle ou
+    quelque chose de créatif, c'est l'occasion idéale de prendre des photos
+    ensemble. Les places sont limitées, alors n'hésitez pas à me contacter et à
+    réserver votre séance !
   button_text: Réservez maintenant
   button_link: /fr/reservation
   social_media:
